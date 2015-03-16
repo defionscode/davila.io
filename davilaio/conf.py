@@ -21,58 +21,14 @@ BLOG_AUTHOR = "Jonathan I. Davila"  # (translatable)
 BLOG_TITLE = "Davila.io Blog"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link
-SITE_URL = "http://blog.davila.io"
+SITE_URL = "http://blog.davila.io/"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
 # BASE_URL = "http://blog.davila.io"
 BLOG_EMAIL = "jonathan@davila.io"
 BLOG_DESCRIPTION = "DevOps. Security. Automation. Opinions."  # (translatable)
 
-# Nikola is multilingual!
-#
-# Currently supported languages are:
-#
-# en     English
-# ar     Arabic
-# bg     Bulgarian
-# ca     Catalan
-# cs     Czech [ALTERNATIVELY cz]
-# da     Danish
-# de     German
-# el     Greek [NOT gr]
-# eo     Esperanto
-# es     Spanish
-# et     Estonian
-# eu     Basque
-# fa     Persian
-# fi     Finnish
-# fr     French
-# hi     Hindi
-# hr     Croatian
-# id     Indonesian
-# it     Italian
-# ja     Japanese [NOT jp]
-# ko     Korean
-# nb     Norwegian Bokmål
-# nl     Dutch
-# pl     Polish
-# pt_br  Portuguese (Brasil)
-# ru     Russian
-# sk     Slovak
-# sl     Slovene
-# sr     Serbian (Cyrillic)
-# sv     Swedish
-# tr     Turkish [NOT tr_TR]
-# ur     Urdu
-# zh_cn  Chinese (Simplified)
-#
-# If you want to use Nikola with a non-supported language you have to provide
-# a module containing the necessary translations
-# (cf. the modules at nikola/data/themes/base/messages/).
-# If a specific post is not translated to a language, then the version
-# in the default language will be shown instead.
 
-# What is the default language?
 DEFAULT_LANG = "en"
 
 # What other languages do you have?
@@ -120,20 +76,18 @@ TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
 
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
-        ("/archive.html", "Archive"),
-        ("/categories/index.html", "Tags"),
-        ("/rss.xml", "RSS feed"),
-    ),
-
-    "es": (
-        ("/es/archive.html", "Archivo"),
-        ("/es/categories/index.html", "Etiquetas"),
-        ("/es/rss.xml", "Canal RSS"),
-    ),
+        ('/index.html', 'Home', 'icon-home'),
+        ('/archive.html', 'Archives', 'icon-folder-open-alt'),
+        ('/categories/index.html', 'Tags', 'icon-tags'),
+        ('/rss.xml', 'RSS', 'icon-rss'),
+        ('http://getnikola.com', 'About me', 'icon-user'),
+        ('https://twitter.com/defionscode', 'My Twitter', 'icon-twitter'),
+        ('https://github.com/defionscode', 'My Github', 'icon-github'),
+    )
 }
 
 # Name of the theme to use.
-THEME = "bootstrap3"
+THEME = "zen-jinja"
 
 # Below this point, everything is optional
 
@@ -395,11 +349,11 @@ REDIRECTIONS = []
 
 # For user.github.io OR organization.github.io pages, the DEPLOY branch
 # MUST be 'master', and 'gh-pages' for other repositories.
-# GITHUB_SOURCE_BRANCH = 'master'
-# GITHUB_DEPLOY_BRANCH = 'gh-pages'
+GITHUB_SOURCE_BRANCH = 'source'
+GITHUB_DEPLOY_BRANCH = 'master'
 
 # The name of the remote where you wish to push to, using github_deploy.
-# GITHUB_REMOTE_NAME = 'origin'
+GITHUB_REMOTE_NAME = 'origin'
 
 # Where the output site should be located
 # If you don't use an absolute path, it will be considered as relative
