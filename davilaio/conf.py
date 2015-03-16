@@ -21,10 +21,10 @@ BLOG_AUTHOR = "Jonathan I. Davila"  # (translatable)
 BLOG_TITLE = "Davila.io"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link
-SITE_URL = "blog.davila.io/"
+SITE_URL = "blog.davila.io"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
-BASE_URL = "blog.davila.io/"
+#BASE_URL = "blog.davila.io/"
 BLOG_EMAIL = "jonathan@davila.io"
 BLOG_DESCRIPTION = "Security. DevOps. Automation. Coding. Opinions."  # (translatable)
 
