@@ -79,10 +79,10 @@ NAVIGATION_LINKS = {
         ('/index.html', 'Home', 'icon-home'),
         ('/archive.html', 'Archives', 'icon-folder-open-alt'),
         ('/categories/index.html', 'Tags', 'icon-tags'),
-        ('/rss.xml', 'RSS', 'icon-rss'),
-        ('http://getnikola.com', 'About me', 'icon-user'),
+        ('https://linkedin.com/in/davilaio', 'My LinkedIn', 'icon-linkedin'),
         ('https://twitter.com/defionscode', 'My Twitter', 'icon-twitter'),
         ('https://github.com/defionscode', 'My Github', 'icon-github'),
+        ('/rss.xml', 'RSS', 'icon-rss'),
     )
 }
 
@@ -547,7 +547,7 @@ RSS_LINKS_APPEND_QUERY = False
 
 # A HTML fragment describing the license, for the sidebar.
 # (translatable)
-LICENSE = ""
+LICENSE = "GPLv2"
 # I recommend using the Creative Commons' wizard:
 # http://creativecommons.org/choose/
 # LICENSE = """
@@ -558,7 +558,7 @@ LICENSE = ""
 
 # A small copyright notice for the page footer (in HTML).
 # (translatable)
-CONTENT_FOOTER = 'Contents &copy; {date}         <a href="mailto:{email}">{author}</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         {license}'
+CONTENT_FOOTER = 'Contents &copy; {date}         <a href="mailto:{email}">{author}</a> {license}'
 
 # Things that will be passed to CONTENT_FOOTER.format().  This is done
 # for translatability, as dicts are not formattable.  Nikola will
@@ -693,7 +693,7 @@ COMMENT_SYSTEM_ID = ""
 # done in the code, hope you don't mind ;-)
 # Note: most Nikola-specific extensions are done via the Nikola plugin system,
 #       with the MarkdownExtension class and should not be added here.
-# MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite']
+MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite']
 
 # Extra options to pass to the pandoc comand.
 # by default, it's empty, is a list of strings, for example
