@@ -5,23 +5,87 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
+  <loc>http://blog.davila.io/categories/ansible.xml</loc>
+  <lastmod>2015-03-17</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/automation.xml</loc>
+  <lastmod>2015-03-17</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/blogging.xml</loc>
+  <lastmod>2015-03-17</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/cat_automatic-security.xml</loc>
+  <lastmod>2015-03-17</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/continuous-integration.xml</loc>
+  <lastmod>2015-03-17</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/python.xml</loc>
+  <lastmod>2015-03-17</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/security.xml</loc>
+  <lastmod>2015-03-17</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/stig.xml</loc>
+  <lastmod>2015-03-17</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/ansible.xml</loc>
+  <lastmod>2015-03-17</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/automation.xml</loc>
+  <lastmod>2015-03-17</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/blogging.xml</loc>
+  <lastmod>2015-03-17</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/cat_automatic-security.xml</loc>
+  <lastmod>2015-03-17</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/continuous-integration.xml</loc>
+  <lastmod>2015-03-17</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/python.xml</loc>
+  <lastmod>2015-03-17</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/security.xml</loc>
+  <lastmod>2015-03-17</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/stig.xml</loc>
+  <lastmod>2015-03-17</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://blog.davila.io/es/galleries/rss.xml</loc>
-  <lastmod>2015-03-16</lastmod>
+  <lastmod>2015-03-17</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/es/rss.xml</loc>
-  <lastmod>2015-03-16</lastmod>
+  <lastmod>2015-03-17</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/galleries/rss.xml</loc>
-  <lastmod>2015-03-16</lastmod>
+  <lastmod>2015-03-17</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/rss.xml</loc>
-  <lastmod>2015-03-16</lastmod>
+  <lastmod>2015-03-17</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/sitemap.xml</loc>
-  <lastmod>2015-03-16</lastmod>
+  <lastmod>2015-03-17</lastmod>
  </sitemap>
 </sitemapindex>
