@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="description" content="A practical tutorial on how to make a reveal.js presentation which allows your audience to interact in real time via Twilio and web sockets.">
+    <meta name="viewport" content="width=device-width">
+    <title>How-to: Interactive Vote-Driven Presentations with Reveal.js, Twilio, and Redis | Davila.io Blog</title>
+
+                <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+                    <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../rss.xml">
+                <link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../es/rss.xml">
+
+      <link rel="canonical" href="http://blog.davila.io/posts/how-to-interactive-vote-driven-presentations-with-revealjs-twilio-and-redis.html">
+
+
+
+    
+        <!--[if lt IE 9]><script src="/assets/js/html5.js"></script><![endif]-->
+
+    
+
+    
+    <meta name="author" content="Jonathan I. Davila">
+        <meta property="og:site_name" content="Davila.io Blog">
+    <meta property="og:title" content="How-to: Interactive Vote-Driven Presentations with Reveal.js, Twilio, ">
+    <meta property="og:url" content="http://blog.davila.io/posts/how-to-interactive-vote-driven-presentations-with-revealjs-twilio-and-redis.html">
+    <meta property="og:description" content="A practical tutorial on how to make a reveal.js presentation which allows your audience to interact in real time via Twilio and web sockets.">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2014-12-16T09:21:14-04:00">
+           <meta property="article:tag" content="code-sample">
+           <meta property="article:tag" content="meetups">
+           <meta property="article:tag" content="presentations">
+           <meta property="article:tag" content="python">
+           <meta property="article:tag" content="redis">
+           <meta property="article:tag" content="tutorial">
+           <meta property="article:tag" content="twilio">
+
+    
+    
+
+	<link rel="apple-touch-icon" sizes="57x57" href="../apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="../apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="../android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+	<link rel="manifest" href="../manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <section class="social">
+        <ul>
+                    <li><a href="../index.html" title="Home"><i class="icon-home"></i></a></li>
+            <li><a href="../archive.html" title="Archives"><i class="icon-folder-open-alt"></i></a></li>
+            <li><a href="../categories/index.html" title="Tags"><i class="icon-tags"></i></a></li>
+            <li><a href="https://linkedin.com/in/davilaio" title="My LinkedIn"><i class="icon-linkedin"></i></a></li>
+            <li><a href="https://twitter.com/defionscode" title="My Twitter"><i class="icon-twitter"></i></a></li>
+            <li><a href="https://github.com/defionscode" title="My Github"><i class="icon-github"></i></a></li>
+            <li><a href="../rss.xml" title="RSS"><i class="icon-rss"></i></a></li>
+
+        </ul>
+    </section>
+    <section class="page-content">
+        <div class="content" rel="main">
+    <div class="post">
+        <h1 class="p-name entry-title" itemprop="headline name">How-to: Interactive Vote-Driven Presentations with Reveal.js, Twilio, and Redis</h1>
+
+        <div class="meta">
+            <div class="authordate">
+                <time class="timeago" datetime="2014-12-16T09:21:14-04:00">2014-12-16 09:21</time>
+            
+                      |  
+        <a href="how-to-interactive-vote-driven-presentations-with-revealjs-twilio-and-redis.md" id="sourcelink">Source</a>
+
+            </div>
+                    <div itemprop="keywords" class="tags">
+        <ul>
+        Tags : 
+           <li><a class="tag p-category" href="../categories/code-sample.html" rel="tag">code-sample</a></li>
+           <li><a class="tag p-category" href="../categories/meetups.html" rel="tag">meetups</a></li>
+           <li><a class="tag p-category" href="../categories/presentations.html" rel="tag">presentations</a></li>
+           <li><a class="tag p-category" href="../categories/python.html" rel="tag">python</a></li>
+           <li><a class="tag p-category" href="../categories/redis.html" rel="tag">redis</a></li>
+           <li><a class="tag p-category" href="../categories/tutorial.html" rel="tag">tutorial</a></li>
+           <li><a class="tag p-category" href="../categories/twilio.html" rel="tag">twilio</a></li>
+        </ul>
+        </div>
+
+        </div>
+        <div class="body">
+            <div>
+<p><img alt="Ansible at Nasa Main Page" src="../ansible-at-nasa.png"></p>
+<p>Inspired by Twilio’s, Matt Makai’s (<a href="https://twitter.com/mattmakai">@mattmakai</a>) blog post <a href="https://www.twilio.com/blog/2014/11/choose-your-own-adventure-presentations-with-reveal-js-python-and-websockets.html">here</a>. This post attempts to add instructions to his original tutorial to make it more beginner friendly as well as some additional suggestions. This guide will be oriented more toward Mac/Linux workstations.
+<!-- TEASER_END -->
+<em>Several parts below are word-for-word from Matt’s blog (with permission). Those sections are are prefixed with <code>&lt;(c) Matt Makai&gt;</code> and end with <code>&lt;/(c)&gt;</code>. And any wholly or partially copied code includes:</em></p>
+<pre class="code literal-block"># Copyright (c) 2014, Matt Makai
+# All rights reserved.
+# Full License can be read here: http://bit.ly/1qBgqzn
+</pre>
+
+
+<h2>Summary:</h2>
+<p>I recently made a presentation at [DC Python] where I talked about Ansible and the lesson’s we learned at NASA while using it (both the <a href="https://github.com/ansible/ansible">open source</a> project and <a href="http://www.ansible.com/tower">Tower</a>). However, I came to the presentation without knowing everyone’s level of familiarity with Ansible. So I tweaked Matt’s original tutorial in order to get that intel from the audience. See below:</p>
+<p><img alt="Screen Showing Empty Votes" src="../voting-screen.png"></p>
+<p>After some votes, it looked like this:</p>
+<p><img alt="Screen Showing Votes" src="../voting-screen-yes.png"></p>
+<p>The best part about it all, is that it required no refreshing of the page. As each vote was cast, it ‘magically’ appeared on the screen and I immediately knew how to tailor my presentation.</p>
+<hr>
+<h2>Step-by-Step Tutorial</h2>
+<h4>Environment Prep</h4>
+<p>Install python pip</p>
+<p><code>sudo easy_install pip</code></p>
+<p>Install virtualenvwrapper</p>
+<p><code>sudo pip install virtualenvwrapper</code></p>
+<p>Configure virtualenvwrapper by following these instructions.</p>
+<p>Create the scaffolding of directories.</p>
+<p>Navigate to the place where you want to store your presentation then do the following</p>
+<pre class="code literal-block">mkdir presentation
+mkdir presentation/static/
+mkdir presentation/templates
+</pre>
+
+
+<p>In this base directory we’ll create a file called requirements.txt with the following content</p>
+<pre class="code literal-block"># requirements.txt
+Flask==0.10.1
+Flask-Script==2.0.5
+Flask-SocketIO==0.4.1
+gunicorn==19.1.1
+redis==2.10.3
+twilio==3.6.8
+</pre>
+
+
+<p><code>&lt;(c) Matt Makai&gt;</code></p>
+<p><em>This application uses Flask to serve up the presentation. The Flask-Script extension will assist us in creating a manage.py file with helper commands to run the web application. The Flask-SocketIO extension handles the server-side websockets communication.</em></p>
+<p><em>First create a new virtualenv outside the base project directory to separate your Python dependencies from other apps you’re working on.</em></p>
+<p><code>&lt;/(c)&gt;</code></p>
+<p>Create a new virtualenv for your presentation</p>
+<p><code>mkvirtualenv pres</code></p>
+<p>You should automatically be placed in the new virtualenv at which point you should run the following:</p>
+<p><code>pip install -r requirements.txt</code></p>
+<h4>Base Code</h4>
+<p>In this base directory make a file called manage.py with the following contents</p>
+<p>
+</p>
+<div class="gist">
+<script src="https://gist.github.com/8f689a6694e5407333c4.js"></script>
+<noscript>
+<pre># Copyright (c) 2014, Matt Makai
+# All rights reserved.
+# Full License can be read here: http://bit.ly/1qBgqzn
+ 
+from gevent import monkey
+monkey.patch_all()
+ 
+import os
+import redis
+ 
+from presentation import app, redis_db, socketio
+from flask.ext.script import Manager, Shell
+ 
+manager = Manager(app)
+ 
+def make_shell_context():
+    return dict(app=app, redis_db=redis_db)
+ 
+manager.add_command("shell", Shell(make_context=make_shell_context))
+ 
+@manager.command
+def runserver():
+    socketio.run(app, "0.0.0.0", port=5001)
+ 
+@manager.command
+def clear_redis():
+    redis_cli = redis.StrictRedis(host=REDIS_SERVER, port=REDIS_PORT, db=REDIS_DB)
+    redis_cli.delete('noob')
+    redis_cli.delete('some')
+    redis_cli.delete('great')
+ 
+if __name__ == '__main__':
+    manager.run()</pre>
+</noscript>
+</div>
+
+<p>Now create a file in presentation/config.py with the following content</p>
+<p>
+</p>
+<div class="gist">
+<script src="https://gist.github.com/26ec2bb35c332887cc6a.js"></script>
+<noscript>
+<pre># Copyright (c) 2014, Matt Makai
+# All rights reserved.
+# Full License can be read here: http://bit.ly/1qBgqzn
+ 
+import os
+ 
+# General Flask app settings
+DEBUG = os.environ.get('DEBUG', None)
+SECRET_KEY = os.environ.get('SECRET_KEY', None)
+ 
+# Redis connection
+REDIS_SERVER = os.environ.get('REDIS_SERVER', None)
+REDIS_PORT = os.environ.get('REDIS_PORT', None)
+REDIS_DB = os.environ.get('REDIS_DB', None)
+ 
+# Twilio API credentials
+TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID', None)
+TWILIO_AUTH_TOKEN = os.environ.get('TWILIO_AUTH_TOKEN', None)
+TWILIO_NUMBER = os.environ.get('TWILIO_NUMBER', None)</pre>
+</noscript>
+</div>
+
+<p>Here’s a run down of what each of these environment variables specified in config.py is for:</p>
+<p><code>&lt;(c) Matt Makai&gt;</code></p>
+<ol>
+<li>DEBUG – True or False for whether Flask should display error messages if something goes wrong</li>
+<li>SECRET_KEY – a long key that should be kept secret</li>
+<li>REDIS_SERVER – in this case likely to be localhost or wherever Redis is running</li>
+<li>REDIS_PORT – generally set to 6379 for the default Redis port</li>
+<li>REDIS_DB – set to 0</li>
+<li>TWILIO_ACCOUNT_SID – found on your Twilio account dashboard</li>
+<li>TWILIO_AUTH_TOKEN – also found on your Twilio account dashboard</li>
+<li>TWILIO_NUMBER – a number you’ve purchased on Twilio</li>
+</ol>
+<p><code>&lt;/(c)&gt;</code></p>
+<p>You can set these now either via export commands or in your shell profile. On mac/linux you can usually just do the following:</p>
+<pre class="code literal-block"><span class="nb">export </span><span class="nv">DEBUG</span><span class="o">=</span><span class="nb">true</span>
+<span class="nb">export </span><span class="nv">SECRET_KEY</span><span class="o">=</span>someRandomKeyYouMakeUp
+<span class="nb">export </span><span class="nv">REDIS_SERVER</span><span class="o">=</span>localhost
+<span class="nb">export </span><span class="nv">REDIS_PORT</span><span class="o">=</span>6379
+<span class="nb">export </span><span class="nv">REDIS_DB</span><span class="o">=</span>0
+<span class="nb">export </span><span class="nv">TWILIO_ACCOUNT_SID</span><span class="o">=</span>SIDfromTWILIOdashboard
+<span class="nb">export </span><span class="nv">TWILIO_AUTH_TOKEN</span><span class="o">=</span>ALSOfromTWILIOdashboard
+<span class="nb">export </span><span class="nv">TWILIO_NUMBER</span><span class="o">=</span>TWILIOPHONENUMBER
+</pre>
+
+
+<p><strong>NOTE:</strong> A very import piece is to make sure TWILIO_NUMBER is formatted like:  +17031234567</p>
+<p>Also, it is okay that redis isn’t installed just yet, we’ll do that in a bit.</p>
+<p>Now create a file in <code>presentation/__init__.py</code></p>
+<p>
+</p>
+<div class="gist">
+<script src="https://gist.github.com/3f62eaedf56fe4711424.js"></script>
+<noscript>
+<pre># Copyright (c) 2014, Matt Makai
+# All rights reserved.
+# Full License can be read here: http://bit.ly/1qBgqzn
+ 
+from flask import Flask
+from flask.ext.socketio import SocketIO
+import redis
+ 
+app = Flask(__name__, static_url_path='/static')
+app.config.from_pyfile('config.py')
+ 
+from config import REDIS_SERVER, REDIS_PORT, REDIS_DB
+ 
+redis_db = redis.StrictRedis(host=REDIS_SERVER, port=REDIS_PORT, db=REDIS_DB)
+ 
+socketio = SocketIO(app)
+ 
+from . import views
+from . import websockets</pre>
+</noscript>
+</div>
+
+<p>Now we’ll create a file presentation/views.py</p>
+<p>
+</p>
+<div class="gist">
+<script src="https://gist.github.com/6e533365c70dc31a1571.js"></script>
+<noscript>
+<pre># Copyright (c) 2014, Matt Makai
+# All rights reserved.
+# Full License can be read here: http://bit.ly/1qBgqzn
+ 
+import cgi
+from flask import render_template, abort, request
+from jinja2 import TemplateNotFound
+from twilio import twiml
+from twilio.rest import TwilioRestClient
+ 
+from .config import TWILIO_NUMBER
+ 
+from . import app, redis_db, socketio
+ 
+client = TwilioRestClient()
+ 
+@app.route('/&lt;presentation_name&gt;/', methods=['GET'])
+def landing(presentation_name):
+    try:
+        return render_template(presentation_name + '.html')
+    except TemplateNotFound:
+        abort(404)
+ 
+@app.route('/presentation/twilio/webhook/', methods=['POST'])
+def twilio_callback():
+    to = request.form.get('To', '')
+    from_ = request.form.get('From', '')
+    message = request.form.get('Body', '').lower()
+    if to == TWILIO_NUMBER:
+        redis_db.incr(cgi.escape(message))
+        socketio.emit('msg', {'div': cgi.escape(message),
+                              'val': redis_db.get(message)},
+                               namespace='/presentation')
+    resp = twiml.Response()
+    resp.message("Thanks for your vote! Whatever message you want attendees to see goes here")
+    return str(resp)</pre>
+</noscript>
+</div>
+
+<p><code>&lt;(c) Matt Makai&gt;</code></p>
+<p>For now the above file contains a single view named landing. This view landing obtains a presentation name from the URL and checks the [ presentation/templates/ ] directory for an HTML template file matching that name. If a matching file is found, landing renders the HTML template. If no file name matches the presentation name in the URL, landing returns a 404 HTTP response.</p>
+<p><code>&lt;/(c)&gt;</code></p>
+<p>Just a few more steps to go.</p>
+<h4>Front End</h4>
+<p>Now create a file <code>presentation/templates/presentation.html</code> with the following content:</p>
+<p>
+</p>
+<div class="gist">
+<script src="https://gist.github.com/6c5dd8a1f9d16856ab91.js"></script>
+<noscript>
+<pre>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;title&gt;Ansible Lessons Learned at NASA&lt;/title&gt;
+        &lt;meta name="apple-mobile-web-app-capable" content="yes" /&gt;
+        &lt;meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"&gt;
+        &lt;link rel="stylesheet" href="/static/css/reveal.css"&gt;
+        &lt;link rel="stylesheet" href="/static/css/default.css" id="theme"&gt;
+        &lt;link rel="stylesheet" href="/static/css/zenburn.css"&gt;
+        &lt;!--[if lt IE 9]&gt;
+        &lt;script src="lib/js/html5shiv.js"&gt;&lt;/script&gt;
+        &lt;![endif]--&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class="reveal"&gt;
+            &lt;div class="slides"&gt;
+                &lt;section&gt;
+                    &lt;h1&gt;Ansible @ NASA&lt;/h1&gt;
+                    &lt;h3&gt;Lessons Learned&lt;/h3&gt;
+                &lt;/section&gt;
+
+                &lt;section&gt;
+                    &lt;div&gt;
+			&lt;h4&gt;What is your level of familiarity with Ansible?&lt;/h4&gt;
+			&lt;/br&gt;
+                        &lt;h3&gt;Text "noob", "some" or "great" to&lt;/h3&gt;
+                        &lt;!-- replace this with your Twilio number --&gt;
+                        &lt;h1&gt;571-xxx-xxxx&lt;/h1&gt;
+                    &lt;/div&gt;
+                    &lt;br&gt;
+                    &lt;div style="display: inline;"&gt;
+                        &lt;div style="float: left;"&gt;
+                            &lt;h2&gt;&lt;div id="noob"&gt;0&lt;/div&gt;&lt;h2 style="color: green"&gt;noob&lt;/h2&gt; 
+                        &lt;/div&gt;
+                        &lt;div style="float: right;"&gt;
+                            &lt;h2&gt;&lt;div id="great"&gt;0&lt;/div&gt;&lt;h2 style="color: orange"&gt;great&lt;/h2&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;h2&gt;&lt;div id="some"&gt;0&lt;/div&gt;&lt;h2 style="color: teal"&gt;Some&lt;/h2&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/section&gt;
+
+		&lt;section data-markdown data-separator="---" data-vertical="--"&gt; 
+			&lt;script type="text/template"&gt;
+				## About Me
+				*  Based in Washington D.C
+				*  Former Military
+				*  StartUp Developer
+				*  DevOps @ NASA WESTPrime
+				*  Ansible as of yesterday
+
+				---
+
+				### **What are we going to discuss?**
+				![hmmm](http://user-cdn.spring.me/photos/20120509/n4faa1ff76b6a9.jpg)
+				---
+					
+				![Ansible Logo](https://avatars3.githubusercontent.com/u/1507452?v=3&amp;s=200) 
+				#+
+				![NASA Logo](http://bolo.berkeley.edu/drupal/sites/default/files/AboutUs/NASALogo.jpg)
+
+				---
+
+				## Biggest Lessons
+				* Access Control
+				* Speed
+				* Directory Structure &amp; Style-Guide
+				* Bastion/Jump Servers â To Not
+				* Upgrading Ansible w/o losing your Custom Hacks
+				* AWS Tags to boost efficiency
+
+				---
+
+				##Access Control
+				![Old Rusty Lock](http://srpearceart.com/wp-content/uploads/2013/11/Old-Lock2.jpg)
+				--
+
+				## Ansible-Core Only
+				 - Key-based SSH Access into Servers
+				 - Ansible then works only on servers you have access to
+				 - Ops &amp; Security Access to Everything. Not Devs.
+				 - Bastion Access Point
+				 - Ansible installed on bastion
+				 - Ppl could also run locally
+ 				 - Playbooks stored on a shared directory/git
+				 - Cron...lots of cron
+
+				--
+
+				# **There were problems**
+				![Angry Spongebob](http://media.giphy.com/media/90FH7I3McAQ7u/giphy.gif)
+
+				--
+				
+				## Painful Compliance
+				![Baby crying](http://www.shoestringmarketinguniversity.com/wp-content/uploads/2013/10/painful-emotions1.jpg)
+
+				--
+
+				## Trust Issues
+				![Fine in Dev](http://www.globalnerdy.com/wordpress/wp-content/uploads/2012/09/worked-fine-in-dev.jpg)
+				
+				--
+
+				## Managment != Help
+				![Manager](http://www.youngandprosperous.com/wp-content/uploads/2010/09/middle-manager1.jpg)
+
+				--
+
+				## Cron =! Good Scheduler
+
+				--
+
+				### Solution?
+				# Ansible Tower
+
+				--
+
+				##  RBAC
+				** Beautiful for Multi-Tenancy **
+
+				-  Organizations
+				-  Teams
+				-  Users
+
+				--
+
+				## Built-in Logging
+				
+				- Who
+				- What
+				- When
+				- Success/Failure
+
+				--
+
+				## Non-Techie Friendly
+
+				- One-click Updates
+
+				--
+
+				## Tower Scheduler &gt; Cron
+
+				---
+				
+				# Speed
+				![Speed](http://www.alejandrobarros.com/media/users/1/50369/images/public/4363/fast.gif?v=1310340865696)
+
+				--
+
+				### 2x Performance with Pipelining
+
+				- !Requiretty
+				- Modify ansible.cfg
+
+				--
+	
+				# ansible.cfg
+			
+				```
+				# By default, this option is disabled to preserve compatibility with
+				# sudoers configurations that have requiretty (the default on many distros).
+				# 
+				#pipelining = False
+
+				# if True, make ansible use scp if the connection type is ssh 
+				# (default is sftp)
+				#scp_if_ssh = True
+				```
+
+				--
+
+				## Disable requiretty for sudo
+				Sample { Jinja2 } Template file for a SysAdmin
+				```
+				%{{ item }} ALL=(ALL) NOPASSWD: ALL
+				%{{ item }} ALL=(ALL) NOPASSWD:/bin/*sh *, !/bin/bash
+				%{{ item }} ALL=(ALL) NOPASSWD:/usr/bin/sudoedit, !/usr/bin/vi*, !/usr/bin/emacs
+				Defaults:%{{ item }} !requiretty
+				```
+
+				--
+
+				## Control Machine Linux Flavor
+				- Easier with Debian family OS
+				- Opted for Ubuntu
+				- RHEL Machines &lt; 7 known to have ControlPersist issues
+				  - Patched?
+
+				---
+
+				## Style &amp; Uniformity
+				![Military Formation](http://randommization.com/wp-content/uploads/2011/11/10000-toy-soldier-installation.jpg)
+
+				--
+
+				## Why?
+				- YAML != Strict syntax
+				- 100+ Playbooks w/o a Standard is Hell
+
+				--
+
+				## Style-Guide
+				- Borrowed from edx
+				- Covers Formatting ==&gt; Security Guidelines
+				- Available on GH
+
+				---
+
+				# Architecture
+				![nice house](http://cdn.designhomes.pics/design/www.free3dmodelz.com/wp-content/uploads/Three-fan-style-architecture-490x367.jpg)
+				
+				--
+
+				## Core Only:
+				- Bastion Setup
+				  - Ansible installed
+				  - Inside of various VPCs
+
+				--
+
+				## Pain in the ass
+				- Patching across env required SSHing multiple times
+				- Helping devs connect through bastions sucked
+				- Just simply inefficient
+				- Created more snowflakes
+
+				--
+
+				# Simple Solution
+
+				--
+
+				## Rennovated the Environment
+				- Created a Single Managment VPC
+				  - VPC Peered into all the other VPCs
+				  - Home for all tools
+				- Tower connected via private IP addresses (faster)
+
+				---
+
+				# Upgrading &amp; Custom Hacks
+
+				--
+
+				## My Mods
+				- More detail in RAM
+				- List of apt/yum installed packages
+				- Also available on GH
+
+				--
+
+				## Realized that Upgrading Ansible Removed my mods
+
+				--
+
+				## Solution:
+				### An ansible playbook to reapply my modifications
+				On GH soon...
+				**Note:** Requires a quick check on release notes
+
+				---
+
+				## AWS Tagging
+				![tags](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/images/AddEdit-Tags.png)
+				
+				--
+
+				## Basic Tagging Scheme
+				*  op_env: prod/staging/dev
+				*  Name: ansible-webapp-1-prod-mgmt
+				*  Windows:
+
+				--
+
+				## Name Tag Technique enables
+
+				```yaml
+				hosts: *_webapp_*_dev_*
+				```
+				
+				Or...
+
+				```
+				hosts: *_prod_*_mgmt
+				```
+
+				Dynamic Inventory Script does all the heavy lifting
+
+				---
+
+				# Thank You!
+				## Questions?
+			&lt;/script&gt;
+                &lt;/section&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;script type="text/javascript" 
+            src="http://code.jquery.com/jquery-1.11.1.min.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"&gt;&lt;/script&gt;
+        &lt;script src="/static/js/reveal.js"&gt;&lt;/script&gt;
+	&lt;script src="/static/js/head.min.js"&gt;&lt;/script&gt;
+
+        &lt;script&gt;
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                theme: Reveal.getQueryHash().theme,
+                transition: Reveal.getQueryHash().transition || 'default',
+                dependencies: [
+                                        { src: '/static/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                                        { src: '/static/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                                        { src: '/static/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                                        { src: '/static/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                                        { src: '/static/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                                        { src: '/static/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+            $(document).ready(function() {
+                namespace = '/presentation';
+                var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
+
+                /* add and edit choices here */
+                var appropriate_choices = ['noob','some','great'];
+
+                socket.on('msg', function(msg) {
+                    /* ensure valid vote and div exists */
+                    if (appropriate_choices.indexOf(msg.div) &gt;= 0) {
+                        var checkDiv = $('#' + msg.div);
+                        if (checkDiv.length &gt; 0) {
+                            checkDiv.html(msg.val);
+                        }
+                    }
+                });
+            });
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+
+</pre>
+</noscript>
+</div>
+
+<p>Now navigate to your <code>presentation/static directory</code> and download/extract <a href="https://github.com/defionscode/Ansible-at-NASA/raw/master/Lessons-Learned/nasa/static/staticfiles.tar.gz">this tarball</a> within the directory.</p>
+<p>You should now have the following folders within your static directory:</p>
+<pre class="code literal-block">lib/
+css/
+plugin/
+js/
+</pre>
+
+
+<p>Change back to your base directory.</p>
+<p><code>&lt;(c) Matt Makai&gt;</code>
+Fire up ngrok on port 5001 where our Flask application will be running. See this <a href="https://www.twilio.com/blog/2014/03/configure-windows-for-local-webhook-testing-using-ngrok.html">configuring Ngrok post</a> if you’re running Windows. On Linux and Mac OS X Ngrok can be run with the following command when you’re in the directory that ngrok is located in.</p>
+<p><code>&lt;/(c)&gt;</code></p>
+<p><code>./ngrok 5001</code></p>
+<p>From here you should screen that looks like the following on your terminal:</p>
+<pre class="code literal-block">ngrok
+
+Tunnel Status online
+Version 1.3/1.3
+Forwarding http://3a8bfceb.ngrok.com -&gt; 127.0.0.1:80
+Forwarding https://3a8bfceb.ngrok.com -&gt; 127.0.0.1:80
+Web Interface http://127.0.0.1:4040
+<span class="c"># Conn 0</span>
+Avg Conn Time 0.00ms
+</pre>
+
+
+<p>Take note of your ngrok URL, in this example it is http://3a8bfceb.ngrok.com</p>
+<p>Now we will setup the Twilio webhook:</p>
+<p><code>&lt;(c) Matt Makai&gt;</code></p>
+<p>So far we’ve written the Python code to serve a Reveal.js presentation and [prepared it to be] exposed it via a localhost tunnel. Now we need a way for the audience to vote on which path they want the presentation to go. To do that we’ll show a Twilio phone number on the screen and use Twilio SMS to let the audience vote. If you’ve already got an account grab a new or existing phone number, otherwise sign up and upgrade a Twilio account.
+We’ll need to set up the message webhook so that each vote SMS to the Twilio number is sent to our Flask app. The Twilio number screen should look like the following.</p>
+<p><img alt="View of Twilio Webhook Setup Screen" src="../twilio-webhook.png"></p>
+<p>Paste in your Ngrok forwarding URL, which will look like “https://[unique Ngrok code].ngrok.com”, along with “/presentation/twilio/webhook/” to the Messaging Request URL text box then hit save. For example, using the above example of “3a8bfceb” your URL to paste into the webhook text box should look like the following URL.</p>
+<p>https://3a8bfceb.ngrok.com/presentation/twilio/webhook/</p>
+<p>Now Twilio will send a POST HTTP request to the ngrok port forwarding URL which will be sent down to your localhost server.
+Make sure to update the phone number in your presentation/templates/presentation.html presentation file. Look for the line like the following and replace it with your Twilio number.</p>
+<p><code>&lt;/(c)&gt;</code></p>
+<pre class="code literal-block">&lt;!-- update your number here --&gt;
+(571) xxx-xxxx
+</pre>
+
+
+<p>For the real time updates we’re going to add the websockets piece. Add a file in presentation/websockets.py with the following content:</p>
+<p>
+</p>
+<div class="gist">
+<script src="https://gist.github.com/a667bf73a1b167f98ed3.js"></script>
+<noscript>
+<pre># Copyright (c) 2014, Matt Makai
+# All rights reserved.
+# Full License can be read here: http://bit.ly/1qBgqzn
+ 
+from flask.ext.socketio import emit
+ 
+from . import socketio
+ 
+@socketio.on('connect', namespace='/presentation')
+def test_connect():
+    pass
+ 
+@socketio.on('disconnect', namespace='/presentation')
+def test_disconnect():
+    pass</pre>
+</noscript>
+</div>
+
+<p>Now we need to install Redis:</p>
+<p>You can install via OSX brew or your respective package manager, alternatively you can download it directly from <a href="http://redis.io/download">the redis website</a></p>
+<p>Go ahead and start it up.</p>
+<p>At this point, ngrok and redis should be running.</p>
+<p>Now go to your base directory where manage.py is located and run:</p>
+<p><code>python manage.py runserver</code></p>
+<p>The presentation should be accessbile at http://localhost:5001/presentation and at <code>&lt;your ngrok url&gt;/presentation</code></p>
+<p>Navigate to the screen with the votes.</p>
+<p>Now send a text to your twilio number with the word “noob” and you should get back a reply:</p>
+<pre class="code literal-block">"Thanks for your vote! For contact info, links about Ansible or this presentation, please go here: http://bit.ly/1tAGcyo"
+</pre>
+
+
+<p>And the number under “noob” in the presentation should increase by one.</p>
+<h4>Clean Up</h4>
+<p>Whenever you are done with your presentation or doing a test run, you can clean up the Redis database by going to your base directory and running</p>
+<p>python manage.py clear_redis()
+That’s it!</p>
+<p>From here you should be able to make modifications to your desire in order to get you presentation up and running.</p>
+<p>For contact info, GitHub links, and other goodies, <a href="http://bit.ly/1tAGcyo">check this out</a>.</p>
+</div>
+        </div>
+                <ul class="pager">
+            <li class="previous">
+                <a href="my-oath-of-non-allegiance-being-a-technical-rationalist.html" rel="prev" title="My Oath of Non-Allegiance; being a technical rationalist">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="code-sample-python-set-types-for-intelligent-manipulation-of-aws-groups-via-boto.html" rel="next" title="Code Sample: Python Set Types For Intelligent Manipulation of AWS Groups via Boto">Next post</a>
+            </li>
+        </ul>
+
+                            <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="davilaio",
+            disqus_url="http://blog.davila.io/posts/how-to-interactive-vote-driven-presentations-with-revealjs-twilio-and-redis.html",
+        disqus_title="How-to: Interactive Vote-Driven Presentations with Reveal.js, Twilio, and Redis",
+        disqus_identifier="cache/posts/how-to-interactive-vote-driven-presentations-with-revealjs-twilio-and-redis.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        
+    </div>
+                    <footer id="footer" role="contentinfo">
+            <p>Contents © 2015         <a href="mailto:jonathan@davila.io">Jonathan I. Davila</a> under <a href="../LICENSE"> GPLv2</a></p>
+            
+        </footer>
+
+        </div>
+    </section>
+    
+    
+                <script src="../assets/js/all-nocdn.js" type="text/javascript"></script>
+    
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
+</div>
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<!-- End of social buttons -->
+
+
+        <script type="text/javascript">
+            $(function(){
+                $('.timeago').timeago();
+            });
+        </script>
+</body>
+</html>

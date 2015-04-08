@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="es">
+    <head>
+    <meta charset="utf-8">
+    <meta name="description" content="A quick post on how to collect more facts with Ansible's gathering of facts.">
+    <meta name="viewport" content="width=device-width">
+    <title>Extending Ansible's Gathered Facts: Memory (RAM) Example | Davila.io Blog</title>
+
+                <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+                    <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../rss.xml">
+                <link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../rss.xml">
+
+      <link rel="canonical" href="http://blog.davila.io/es/posts/extending-ansibles-gathered-facts-memory-ram-example.html">
+
+
+
+    
+        <!--[if lt IE 9]><script src="/assets/js/html5.js"></script><![endif]-->
+
+    
+
+    
+    <meta name="author" content="Jonathan I. Davila">
+        <meta property="og:site_name" content="Davila.io Blog">
+    <meta property="og:title" content="Extending Ansible's Gathered Facts: Memory (RAM) Example">
+    <meta property="og:url" content="http://blog.davila.io/es/posts/extending-ansibles-gathered-facts-memory-ram-example.html">
+    <meta property="og:description" content="A quick post on how to collect more facts with Ansible's gathering of facts.">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2014-10-28T13:30:18-04:00">
+           <meta property="article:tag" content="ansible">
+           <meta property="article:tag" content="code-samples">
+           <meta property="article:tag" content="hacking">
+           <meta property="article:tag" content="python">
+
+    
+                    <link rel="alternate" hreflang="en" href="../../posts/extending-ansibles-gathered-facts-memory-ram-example.html">
+
+
+	<link rel="apple-touch-icon" sizes="57x57" href="../../apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="../../apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../../apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../../apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../../apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../../apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../../apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../../apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../../apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="../../android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../../favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+	<link rel="manifest" href="../../manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <section class="social">
+        <ul>
+                    <li><a href="../../index.html" title="Home"><i class="icon-home"></i></a></li>
+            <li><a href="../../archive.html" title="Archives"><i class="icon-folder-open-alt"></i></a></li>
+            <li><a href="../../categories/index.html" title="Tags"><i class="icon-tags"></i></a></li>
+            <li><a href="https://linkedin.com/in/davilaio" title="My LinkedIn"><i class="icon-linkedin"></i></a></li>
+            <li><a href="https://twitter.com/defionscode" title="My Twitter"><i class="icon-twitter"></i></a></li>
+            <li><a href="https://github.com/defionscode" title="My Github"><i class="icon-github"></i></a></li>
+            <li><a href="../../rss.xml" title="RSS"><i class="icon-rss"></i></a></li>
+
+        </ul>
+    </section>
+    <section class="page-content">
+        <div class="content" rel="main">
+    <div class="post">
+        <h1 class="p-name entry-title" itemprop="headline name">Extending Ansible's Gathered Facts: Memory (RAM) Example</h1>
+
+        <div class="meta">
+            <div class="authordate">
+                <time class="timeago" datetime="2014-10-28T13:30:18-04:00">2014-10-28 13:30</time>
+                            <a href="../../posts/extending-ansibles-gathered-facts-memory-ram-example.html" rel="alternate" hreflang="en">
+                English</a>
+
+                      |  
+        <a href="extending-ansibles-gathered-facts-memory-ram-example.md" id="sourcelink">Código fuente</a>
+
+            </div>
+                    <div itemprop="keywords" class="tags">
+        <ul>
+        Etiquetas : 
+           <li><a class="tag p-category" href="../categories/ansible.html" rel="tag">ansible</a></li>
+           <li><a class="tag p-category" href="../categories/code-samples.html" rel="tag">code-samples</a></li>
+           <li><a class="tag p-category" href="../categories/hacking.html" rel="tag">hacking</a></li>
+           <li><a class="tag p-category" href="../categories/python.html" rel="tag">python</a></li>
+        </ul>
+        </div>
+
+        </div>
+        <div class="body">
+            <div>
+<p>For those unfamiliar with Ansible I would highly suggest making the discovery for yourself at <a href="http://docs.ansible.com">docs.ansible.com</a>. This post assumes a working knowledge of Ansible and a solid understanding of Python.
+<!-- TEASER_END -->
+Ansible Facts
+=============</p>
+<p>Generally, playbook execution connects to remote hosts and collects facts before anything else in order to make machine specific information available during runtime and useable through variables within the playbook itself. I won’t go into detail about the concept of facts, but more information is available <a href="http://docs.ansible.com/playbooks_variables.html#information-discovered-from-systems-facts">here</a>.</p>
+<h4>Extending the facts collection</h4>
+<p>Whether you run Ansible from source or installed via a package manager, there will be a facts.py file. The locations will be similar or exactly like the following:</p>
+<pre class="code literal-block"><span class="p">$</span><span class="nv">ANSIBLE_SOURCE_DIR</span><span class="x">/lib/ansible/module_utils/facts.py</span>
+
+<span class="x">/usr/local/lib/python2.7/dist-packages/ansible/module_utils/facts.py</span>
+
+<span class="x">/usr/share/pyshared/ansible/module_utils/facts.py</span>
+</pre>
+
+
+<p>This file is where the magic happens and what we’ll modify.</p>
+<h4>
+<strong>Modification #1:</strong> Retrieving more specific memory data</h4>
+<p>Currently, ansible only provides two memory facts, total memory and available memory. At first glance, this is fine, but digging deeper I discovered the available memory is not showing the ‘real’ memory avaiable as it is taking into buffer/cache memory when making that determination (see LinuxAteMyRam).</p>
+<p>Solution: Make a simple addition to facts.py which includes more detailed RAM data.</p>
+<p>Open up <code>facts.py</code></p>
+<p>The changes will occur within the LinuxHardware class. You can do a quick search for LinuxHardware.</p>
+<p>Here, you should see a line</p>
+<p><code>MEMORY_FACTS = ['MemTotal', 'SwapTotal', 'MemFree', 'SwapFree']</code></p>
+<p>Immediately under this line add the following line</p>
+<p><code>EXTRA_MEMORY_FACTS = ['Buffers', 'Cached', 'SwapCached']</code></p>
+<p>Now we we will create a new function, this can be placed anywhere within this class (probably a good idea to place it after the <strong>init</strong> and populate functions)</p>
+<p>The following is the full code of the function with comments added to explain certain parts.</p>
+<p>
+</p>
+<div class="gist">
+<script src="https://gist.github.com/2db5eeeee9da6796dac9.js"></script>
+<noscript>
+<pre>  def get_memory_facts(self):
+ 
+# Here we declare a new list
+ 
+        memstats = {}
+        if not os.access("/proc/meminfo", os.R_OK):
+            return
+        for line in open("/proc/meminfo").readlines():
+            data = line.split(":", 1)
+            key = data[0]
+            if key in LinuxHardware.MEMORY_FACTS:
+                val = data[1].strip().split(' ')[0]
+                self.facts["%s_mb" % key.lower()] = long(val) / 1024
+            if key in LinuxHardware.MEMORY_FACTS or key in LinuxHardware.EXTRA_MEMORY_FACTS:
+                 val = data[1].strip().split(' ')[0]
+ 
+# This is where we use the list we created earlier and start populating it with information
+ 
+                 memstats[key.lower()] = long(val) / 1024
+ 
+# Here we simply add another key to the self.facts list which is proper json format and references the memstats key:values with some trivial math included
+ 
+        self.facts['memory_mb'] = {
+                     'real' : {
+                         'total': memstats['memtotal'],
+                         'used': (memstats['memtotal'] - memstats['memfree']),
+                         'free': memstats['memfree']
+                     },
+                     'nocache' : {
+                         'free': memstats['cached'] + memstats['memfree'] + memstats['buffers'],
+                         'used': memstats['memtotal'] - (memstats['cached'] + memstats['memfree'] + memstats['buffers'])
+                     },
+                     'swap' : {
+                         'total': memstats['swaptotal'],
+                         'free': memstats['swapfree'],
+                         'used': memstats['swaptotal'] - memstats['swapfree'],
+                         'cached': memstats['swapcached']
+                     }
+                 }</pre>
+</noscript>
+</div>
+
+<p>And that is all there is to it. You can follow a similar procedure to add any other fact you’d like to always gather.</p>
+</div>
+        </div>
+                <ul class="pager">
+            <li class="previous">
+                <a href="devops-in-federal-government-a-high-level-approach.html" rel="prev" title="DevOps in Federal Government, A High-Level Approach">Publicación anterior</a>
+            </li>
+            <li class="next">
+                <a href="my-oath-of-non-allegiance-being-a-technical-rationalist.html" rel="next" title="My Oath of Non-Allegiance; being a technical rationalist">Siguiente publicación</a>
+            </li>
+        </ul>
+
+                            <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="davilaio",
+            disqus_url="http://blog.davila.io/es/posts/extending-ansibles-gathered-facts-memory-ram-example.html",
+        disqus_title="Extending Ansible's Gathered Facts: Memory (RAM) Example",
+        disqus_identifier="cache/posts/extending-ansibles-gathered-facts-memory-ram-example.html",
+        disqus_config = function () {
+            this.language = "es_ES";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        
+    </div>
+                    <footer id="footer" role="contentinfo">
+            <p>Contents © 2015         <a href="mailto:jonathan@davila.io">Jonathan I. Davila</a> under <a href="../../LICENSE"> GPLv2</a></p>
+            
+        </footer>
+
+        </div>
+    </section>
+    
+    
+                <script src="../../assets/js/all-nocdn.js" type="text/javascript"></script>
+    
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
+</div>
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<!-- End of social buttons -->
+
+
+        <script type="text/javascript">
+            $(function(){
+                $('.timeago').timeago();
+            });
+        </script>
+</body>
+</html>

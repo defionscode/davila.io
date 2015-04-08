@@ -5,92 +5,316 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
+  <loc>http://blog.davila.io/2014/index.html</loc>
+  <lastmod>2015-03-22</lastmod>
+ </url>
+ <url>
   <loc>http://blog.davila.io/2015/index.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/archive.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-22</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/categories/ansible.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/categories/automation.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/aws.html</loc>
+  <lastmod>2015-04-08</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/categories/blogging.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/boto.html</loc>
+  <lastmod>2015-04-08</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/categories/cat_automatic-security.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/cat_combinatronics-in-python.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/cat_extending-ansible-with-code.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/cat_interactive-presentations-at-meetups.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/cat_redhat-and-opensource-follys.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/cat_technical-philosophies.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/cat_transformation-of-government-through-technical-innovation.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/code-sample.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/code-samples.html</loc>
+  <lastmod>2015-04-08</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/categories/continuous-integration.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/devops.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/docker.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/dogma.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/failure.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/government.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/hacking.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/how-to.html</loc>
+  <lastmod>2015-04-08</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/categories/index.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/meetups.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/opensource.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/philosophy.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/presentations.html</loc>
+  <lastmod>2015-04-08</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/categories/python.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/reason.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/redhat.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/redis.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/rhel7.html</loc>
+  <lastmod>2015-04-08</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/categories/security.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/categories/stig.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/tutorial.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/categories/twilio.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/2014/index.html</loc>
+  <lastmod>2015-03-22</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/es/2015/index.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/es/archive.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-22</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/es/categories/ansible.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/es/categories/automation.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/aws.html</loc>
+  <lastmod>2015-04-08</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/es/categories/blogging.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/boto.html</loc>
+  <lastmod>2015-04-08</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/es/categories/cat_automatic-security.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/cat_combinatronics-in-python.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/cat_extending-ansible-with-code.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/cat_interactive-presentations-at-meetups.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/cat_redhat-and-opensource-follys.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/cat_technical-philosophies.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/cat_transformation-of-government-through-technical-innovation.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/code-sample.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/code-samples.html</loc>
+  <lastmod>2015-04-08</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/es/categories/continuous-integration.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/devops.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/docker.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/dogma.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/failure.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/government.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/hacking.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/how-to.html</loc>
+  <lastmod>2015-04-08</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/es/categories/index.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/meetups.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/opensource.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/philosophy.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/presentations.html</loc>
+  <lastmod>2015-04-08</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/es/categories/python.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/reason.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/redhat.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/redis.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/rhel7.html</loc>
+  <lastmod>2015-04-08</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/es/categories/security.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/es/categories/stig.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/tutorial.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/categories/twilio.html</loc>
+  <lastmod>2015-04-08</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/es/galleries/index.html</loc>
@@ -98,11 +322,39 @@
  </url>
  <url>
   <loc>http://blog.davila.io/es/index.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/posts/automatically-testing-and-validation-the-ansible-stig-role-for-red-hat-6.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/posts/code-sample-python-set-types-for-intelligent-manipulation-of-aws-groups-via-boto.html</loc>
+  <lastmod>2015-03-22</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/posts/devops-in-federal-government-a-high-level-approach.html</loc>
+  <lastmod>2015-03-22</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/posts/extending-ansibles-gathered-facts-memory-ram-example.html</loc>
+  <lastmod>2015-03-22</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/posts/how-to-interactive-vote-driven-presentations-with-revealjs-twilio-and-redis.html</loc>
+  <lastmod>2015-03-22</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/es/posts/moving-from-wordpresscom-to-nikola.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-22</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/posts/my-oath-of-non-allegiance-being-a-technical-rationalist.html</loc>
+  <lastmod>2015-03-22</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/es/posts/red-hat-7-and-docker-hub-the-simple-fix.html</loc>
+  <lastmod>2015-04-08</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/galleries/index.html</loc>
@@ -110,14 +362,42 @@
  </url>
  <url>
   <loc>http://blog.davila.io/index.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
  </url>
  <url>
   <loc>http://blog.davila.io/listings/index.html</loc>
   <lastmod>2015-03-17</lastmod>
  </url>
  <url>
+  <loc>http://blog.davila.io/posts/automatically-testing-and-validation-the-ansible-stig-role-for-red-hat-6.html</loc>
+  <lastmod>2015-04-08</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/posts/code-sample-python-set-types-for-intelligent-manipulation-of-aws-groups-via-boto.html</loc>
+  <lastmod>2015-03-22</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/posts/devops-in-federal-government-a-high-level-approach.html</loc>
+  <lastmod>2015-03-22</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/posts/extending-ansibles-gathered-facts-memory-ram-example.html</loc>
+  <lastmod>2015-03-22</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/posts/how-to-interactive-vote-driven-presentations-with-revealjs-twilio-and-redis.html</loc>
+  <lastmod>2015-03-22</lastmod>
+ </url>
+ <url>
   <loc>http://blog.davila.io/posts/moving-from-wordpresscom-to-nikola.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-22</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/posts/my-oath-of-non-allegiance-being-a-technical-rationalist.html</loc>
+  <lastmod>2015-03-22</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.davila.io/posts/red-hat-7-and-docker-hub-the-simple-fix.html</loc>
+  <lastmod>2015-04-08</lastmod>
  </url>
 </urlset>

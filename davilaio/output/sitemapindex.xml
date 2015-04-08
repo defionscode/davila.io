@@ -6,67 +6,283 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>http://blog.davila.io/categories/ansible.xml</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-22</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/categories/automation.xml</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-19</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/aws.xml</loc>
+  <lastmod>2015-03-22</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/categories/blogging.xml</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/boto.xml</loc>
+  <lastmod>2015-03-22</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/categories/cat_automatic-security.xml</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-19</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/cat_combinatronics-in-python.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/cat_extending-ansible-with-code.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/cat_interactive-presentations-at-meetups.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/cat_redhat-and-opensource-follys.xml</loc>
+  <lastmod>2015-04-08</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/cat_technical-philosophies.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/cat_transformation-of-government-through-technical-innovation.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/code-sample.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/code-samples.xml</loc>
+  <lastmod>2015-03-22</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/categories/continuous-integration.xml</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-19</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/devops.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/docker.xml</loc>
+  <lastmod>2015-04-08</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/dogma.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/failure.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/government.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/hacking.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/how-to.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/meetups.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/opensource.xml</loc>
+  <lastmod>2015-04-08</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/philosophy.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/presentations.xml</loc>
+  <lastmod>2015-03-22</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/categories/python.xml</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/reason.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/redhat.xml</loc>
+  <lastmod>2015-04-08</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/redis.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/rhel7.xml</loc>
+  <lastmod>2015-04-08</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/categories/security.xml</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-19</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/categories/stig.xml</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-19</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/tutorial.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/categories/twilio.xml</loc>
+  <lastmod>2015-03-22</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/es/categories/ansible.xml</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-22</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/es/categories/automation.xml</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-19</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/aws.xml</loc>
+  <lastmod>2015-03-22</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/es/categories/blogging.xml</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/boto.xml</loc>
+  <lastmod>2015-03-22</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/es/categories/cat_automatic-security.xml</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-19</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/cat_combinatronics-in-python.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/cat_extending-ansible-with-code.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/cat_interactive-presentations-at-meetups.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/cat_redhat-and-opensource-follys.xml</loc>
+  <lastmod>2015-04-08</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/cat_technical-philosophies.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/cat_transformation-of-government-through-technical-innovation.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/code-sample.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/code-samples.xml</loc>
+  <lastmod>2015-03-22</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/es/categories/continuous-integration.xml</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-19</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/devops.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/docker.xml</loc>
+  <lastmod>2015-04-08</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/dogma.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/failure.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/government.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/hacking.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/how-to.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/meetups.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/opensource.xml</loc>
+  <lastmod>2015-04-08</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/philosophy.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/presentations.xml</loc>
+  <lastmod>2015-03-22</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/es/categories/python.xml</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/reason.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/redhat.xml</loc>
+  <lastmod>2015-04-08</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/redis.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/rhel7.xml</loc>
+  <lastmod>2015-04-08</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/es/categories/security.xml</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-19</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/es/categories/stig.xml</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-19</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/tutorial.xml</loc>
+  <lastmod>2015-03-22</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.davila.io/es/categories/twilio.xml</loc>
+  <lastmod>2015-03-22</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/es/galleries/rss.xml</loc>
@@ -74,7 +290,7 @@
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/es/rss.xml</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/galleries/rss.xml</loc>
@@ -82,10 +298,10 @@
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/rss.xml</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.davila.io/sitemap.xml</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-04-08</lastmod>
  </sitemap>
 </sitemapindex>

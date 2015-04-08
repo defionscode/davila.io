@@ -9,10 +9,12 @@
 .. type: text
 -->
 
+**UPDATE:** Old blog is no longer available, all the posts have been moved here.
+
 I've Moved
 -----------
 
-This is a simple post. I've decided to use [Nikola][nikola] + [GitHub Pages][ghpages] to do my blogging instead of using WordPress.com. The reason is straightforward; the friendliness of <!-- TEASER_END -->doing technical writeups. In wordpress.com there is no support for writing posts in markdown and codeblocks are a glorious pain to use and require a constant check of the 'preview' to produce something that looks decent. In a subsequent post I'll write out how I made the transtion and few minor obstacles that came out of it. The old blog, should you desire to take a look can be found [here][wordpress-blog].
+This is a simple post. I've decided to use [Nikola][nikola] + [GitHub Pages][ghpages] to do my blogging instead of using WordPress.com. The reason is straightforward; the friendliness of <!-- TEASER_END -->doing technical writeups. In wordpress.com there is no support for writing posts in markdown and codeblocks are a glorious pain to use and require a constant check of the 'preview' to produce something that looks decent. In a subsequent post I'll write out how I made the transtion and few minor obstacles that came out of it. The old blog, should you desire to take a look can be ~~found here~~.
 
 ```yaml
 ---
@@ -24,4 +26,3 @@ So you see, I can add a typical markdown codeblock or even import a GitHub Gist 
 
 [nikola]:http://getnikola.com/
 [ghpages]:https://pages.github.com/
-[wordpress-blog]:https://oldblog.davila.io/

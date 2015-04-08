@@ -1,0 +1,74 @@
+<p>For those unfamiliar with Ansible I would highly suggest making the discovery for yourself at <a href="http://docs.ansible.com">docs.ansible.com</a>. This post assumes a working knowledge of Ansible and a solid understanding of Python.
+<!-- TEASER_END -->
+Ansible Facts
+=============</p>
+<p>Generally, playbook execution connects to remote hosts and collects facts before anything else in order to make machine specific information available during runtime and useable through variables within the playbook itself. I won’t go into detail about the concept of facts, but more information is available <a href="http://docs.ansible.com/playbooks_variables.html#information-discovered-from-systems-facts">here</a>.</p>
+<h3>Extending the facts collection</h3>
+<p>Whether you run Ansible from source or installed via a package manager, there will be a facts.py file. The locations will be similar or exactly like the following:</p>
+<pre class="code literal-block"><span class="p">$</span><span class="nv">ANSIBLE_SOURCE_DIR</span><span class="x">/lib/ansible/module_utils/facts.py</span>
+
+<span class="x">/usr/local/lib/python2.7/dist-packages/ansible/module_utils/facts.py</span>
+
+<span class="x">/usr/share/pyshared/ansible/module_utils/facts.py</span>
+</pre>
+
+
+<p>This file is where the magic happens and what we’ll modify.</p>
+<h3><strong>Modification #1:</strong> Retrieving more specific memory data</h3>
+<p>Currently, ansible only provides two memory facts, total memory and available memory. At first glance, this is fine, but digging deeper I discovered the available memory is not showing the ‘real’ memory avaiable as it is taking into buffer/cache memory when making that determination (see LinuxAteMyRam).</p>
+<p>Solution: Make a simple addition to facts.py which includes more detailed RAM data.</p>
+<p>Open up <code>facts.py</code></p>
+<p>The changes will occur within the LinuxHardware class. You can do a quick search for LinuxHardware.</p>
+<p>Here, you should see a line</p>
+<p><code>MEMORY_FACTS = ['MemTotal', 'SwapTotal', 'MemFree', 'SwapFree']</code></p>
+<p>Immediately under this line add the following line</p>
+<p><code>EXTRA_MEMORY_FACTS = ['Buffers', 'Cached', 'SwapCached']</code></p>
+<p>Now we we will create a new function, this can be placed anywhere within this class (probably a good idea to place it after the <strong>init</strong> and populate functions)</p>
+<p>The following is the full code of the function with comments added to explain certain parts.</p>
+<p>
+<div class="gist">
+<script src="https://gist.github.com/2db5eeeee9da6796dac9.js"></script>
+<noscript>
+<pre>  def get_memory_facts(self):
+ 
+# Here we declare a new list
+ 
+        memstats = {}
+        if not os.access("/proc/meminfo", os.R_OK):
+            return
+        for line in open("/proc/meminfo").readlines():
+            data = line.split(":", 1)
+            key = data[0]
+            if key in LinuxHardware.MEMORY_FACTS:
+                val = data[1].strip().split(' ')[0]
+                self.facts["%s_mb" % key.lower()] = long(val) / 1024
+            if key in LinuxHardware.MEMORY_FACTS or key in LinuxHardware.EXTRA_MEMORY_FACTS:
+                 val = data[1].strip().split(' ')[0]
+ 
+# This is where we use the list we created earlier and start populating it with information
+ 
+                 memstats[key.lower()] = long(val) / 1024
+ 
+# Here we simply add another key to the self.facts list which is proper json format and references the memstats key:values with some trivial math included
+ 
+        self.facts['memory_mb'] = {
+                     'real' : {
+                         'total': memstats['memtotal'],
+                         'used': (memstats['memtotal'] - memstats['memfree']),
+                         'free': memstats['memfree']
+                     },
+                     'nocache' : {
+                         'free': memstats['cached'] + memstats['memfree'] + memstats['buffers'],
+                         'used': memstats['memtotal'] - (memstats['cached'] + memstats['memfree'] + memstats['buffers'])
+                     },
+                     'swap' : {
+                         'total': memstats['swaptotal'],
+                         'free': memstats['swapfree'],
+                         'used': memstats['swaptotal'] - memstats['swapfree'],
+                         'cached': memstats['swapcached']
+                     }
+                 }</pre>
+</noscript>
+</div>
+</p>
+<p>And that is all there is to it. You can follow a similar procedure to add any other fact you’d like to always gather.</p>
