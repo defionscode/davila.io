@@ -1,0 +1,3 @@
+[submodule "davilaio/themes/dimension"]
+	path = davilaio/themes/dimension
+	url = https://github.com/sethmacleod/dimension.git
