@@ -1,7 +1,7 @@
 ---
 title: "Hire Me"
 date: 2017-11-03T06:03:04-04:00
-draft: true
+draft: false
 weight: 4
 markup: "markdown"
 ---

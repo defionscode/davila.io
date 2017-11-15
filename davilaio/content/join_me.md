@@ -1,7 +1,7 @@
 ---
 title: "Join Me"
 date: 2017-11-03T06:03:15-04:00
-draft: true
+draft: false
 weight: 5
 ---
 
