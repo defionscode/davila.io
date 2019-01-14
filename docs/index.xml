@@ -6,10 +6,43 @@
     <description>Recent content on Jonathan Davila</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Jul 2018 10:18:22 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 05 Jan 2019 12:23:35 -0500</lastBuildDate>
     
 	<atom:link href="https://davila.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Projects</title>
+      <link>https://davila.io/projects/</link>
+      <pubDate>Sat, 05 Jan 2019 12:23:35 -0500</pubDate>
+      
+      <guid>https://davila.io/projects/</guid>
+      <description>Talks Using Ansible to Satisfy Compliance Controls; FedRAMP is a pain (video not avaible due to AV issues) || AnsibleFest 2018 NASA Born: Secure OS Baslines with Ansible And CodeShip || DevOpsDays Austin 2015 Developing Custom Ansible Modules || DC Python How NASA Uses Ansible || DC Python Open Source STIG CLI The first ever command line utitity which makes it fast and easy to explore DISA STIG content from the terminal.</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://davila.io/contact/</link>
+      <pubDate>Sat, 05 Jan 2019 09:45:15 -0500</pubDate>
+      
+      <guid>https://davila.io/contact/</guid>
+      <description>Work Opportunities  Recruiters Before you contact me you should know who I am professionally. If I emailed you linking you to this page it is because you failed to do basic research. There are three easy steps to understanding me in a professional sense.
+ Look at my LinkedIn Visit my Projects page Read a few things from my blog  After you have done that, if you still feel that your job is a proper fit then feel free to reach out to me directly.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://davila.io/about/</link>
+      <pubDate>Thu, 03 Jan 2019 15:13:10 -0500</pubDate>
+      
+      <guid>https://davila.io/about/</guid>
+      <description>Jonathan I. Davila I am good at solving problems and I have diverse experience. My track record is strong across multiple disciplines.
+ Business Strategy
+ Software and Cloud Infrastructure Engineering
+ Marketing
+ Engineering and Technical Consulting Management
+Current Project Presently, I am creating a SaaS platform at MindPointGroup that aims to make it easier to manage golden images at scale in large AWS environments. This is an idea I conceived and have been buidling from scratch with my team.</description>
+    </item>
     
     <item>
       <title>30 Lies Puppetlabs Made About Ansible, #25 Will Shock You</title>
