@@ -1,0 +1,26 @@
+{
+  "name": "davilaio",
+  "version": "1.0.0",
+  "description": "Jonathan Davila's Personal Site",
+  "main": "",
+  "scripts": {
+    "index": "./bin/search.js > ./static/index.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/defionscode/davila.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/defionscode/davila.io/issues"
+  },
+  "homepage": "https://github.com/defionscode/davila.io#readme",
+  "dependencies": {
+    "lunr": "^2.3.5"
+  },
+  "devDependencies": {
+    "front-matter": "^3.0.1"
+  }
+}
