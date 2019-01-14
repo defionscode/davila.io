@@ -27,6 +27,8 @@
 
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131788790-1"></script>
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+<script src="/search.js"></script>
 <script>
     var htmlEl = document.querySelector('html')
     if (document.location.pathname !== '/') {
@@ -40,6 +42,7 @@
 
     gtag('config', 'UA-131788790-1');
 </script>
+
 
     
 
@@ -189,9 +192,7 @@ Template.MyTemplate.onRendered( <span style="color:#8be9fd;font-style:italic">fu
 <p>I hope this helps out someone else as it certainly took some trial and error on my part to get it just right.</p>
 
 </div>
-
-
-        <div id="disqus_thread"></div>
+<div id="disqus_thread"></div>
 <script type="application/javascript">
     var disqus_config = function () {
     
@@ -211,6 +212,8 @@ Template.MyTemplate.onRendered( <span style="color:#8be9fd;font-style:italic">fu
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
 
         
 <div class="section bottom-menu">
