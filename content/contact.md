@@ -1,7 +1,7 @@
 ---
 title: "Contact"
 date: 2019-01-05T09:45:15-05:00
-draft: true
+draft: false
 ---
 
 # [<i class="fab fa-linkedin-in"></i>](https://www.linkedin.com/in/davilaio/) [<i class="fab fa-twitter"></i>](https://twitter.com/DefionsCode) [<i class="fal fa-envelope"></i>](mailto:jonathan@davia.io?subject=Hi Jonathan)

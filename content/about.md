@@ -1,7 +1,7 @@
 ---
 title: "About"
 date: 2019-01-03T15:13:10-05:00
-draft: true
+draft: false
 ---
 
 # Jonathan I. Davila
