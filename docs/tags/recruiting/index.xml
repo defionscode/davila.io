@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Recruiting on Jonathan Davila</title>
+    <link>https://davila.io/tags/recruiting/</link>
+    <description>Recent content in Recruiting on Jonathan Davila</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 Aug 2017 16:39:04 -0500</lastBuildDate>
+    
+	<atom:link href="https://davila.io/tags/recruiting/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Open Salary Systems, the Individual Loses</title>
+      <link>https://davila.io/posts/open-salary-systems-the-individual-loses/</link>
+      <pubDate>Wed, 09 Aug 2017 16:39:04 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/open-salary-systems-the-individual-loses/</guid>
+      <description>Disclosure: As with all of my posts this is going to be highly opinionated and will probably bother some folks. The premises and arguments I ultimately present are solely based on my experience. I also want to make clear that I am open to being wrong and if you find fault in my logic or conclusions (maybe there are studies I’m not privy to) I hope that you bring it up either in public or privately, whatever you feel comfortable with.</description>
+    </item>
+    
+    <item>
+      <title>The Technical Competence Spiral Theory</title>
+      <link>https://davila.io/posts/the-technical-competence-spiral-theory/</link>
+      <pubDate>Thu, 02 Feb 2017 09:05:37 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/the-technical-competence-spiral-theory/</guid>
+      <description>The Technical Competence Spiral Theory The Technical Competence Spiral states this:
+ An organization’s continuing ability to hire and retain senior, competent, technical leadership for each of its IT domains, dictates its ability to continue a competitive technical competence.
+ Let’s break it down.
+  An organization’s continuing ability to hire and retain senior, competent, technical leadership for each of its IT domains…
+  The simple truth is that it’s difficult to hire an individual who is considered a subject matter expert (SME) in a technical discipline, and who is also capable (let alone experienced) of managing humans along with their technical estate.</description>
+    </item>
+    
+    <item>
+      <title>Attracting Top Tech Engineers</title>
+      <link>https://davila.io/posts/attracting-top-tech-engineers/</link>
+      <pubDate>Tue, 04 Nov 2014 16:24:41 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/attracting-top-tech-engineers/</guid>
+      <description>I preface this article by saying I am not a recruiter nor have ever been and that &amp;lsquo;Top&amp;rsquo; isn&amp;rsquo;t necessarily implying senior in terms of time in tech. For example, I am a strong believer that there are people who have been in tech less than 5 years who are of a higher caliber than engineers who&amp;rsquo;ve been in tech for 20+ years, but of course this is not always true.</description>
+    </item>
+    
+  </channel>
+</rss>

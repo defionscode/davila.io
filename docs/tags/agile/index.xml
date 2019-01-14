@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Agile on Jonathan Davila</title>
+    <link>https://davila.io/tags/agile/</link>
+    <description>Recent content in Agile on Jonathan Davila</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 Mar 2015 08:45:15 -0500</lastBuildDate>
+    
+	<atom:link href="https://davila.io/tags/agile/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Silos to Devops In Just 7 Minutes Per Day</title>
+      <link>https://davila.io/posts/silos-to-devops/</link>
+      <pubDate>Fri, 06 Mar 2015 08:45:15 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/silos-to-devops/</guid>
+      <description>With this post you will learn how to implement DevOps in your organization with as little as 7 minutes a day in just 3 months!
+  NOT!!!!
+  If you are part of a company that has been around for longer than a day and runs a &amp;lsquo;traditional&amp;rsquo; IT shop, you cannot expect to be a DevOps shop quickly, no matter how much it is mandated.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Who is Jonathan Davila?">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:domain" content="https://davila.io/">
+
+<meta name="twitter:image" content="https://davila.io/tn.png">
+<meta name="twitter:title" property="og:title" itemprop="title name" content="Jonathan Davila">
+<meta name="twitter:description" property="og:description" itemprop="description" content="Who is Jonathan Davila?">
+<meta name="og:type" content="website">
+<meta name="og:url" content="https://davila.io/">
+<meta name="og:image" itemprop="image primaryImageOfPage" content="https://davila.io/tn.png">
+
+<link rel="shortcut icon" href="https://davila.io/davila.ico" id="favicon">
+<link rel="stylesheet" href="https://davila.io/css/style.css">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131788790-1"></script>
+<script>
+    var htmlEl = document.querySelector('html')
+    if (document.location.pathname !== '/') {
+        htmlEl.style.background = '#fff'
+    }
+</script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-131788790-1');
+</script>
+
+    
+
+    
+    
+    
+    <title>
+        
+        Quick Tip: Making Ansible Execute Python Within a Virtualenv or Non Standard Path on Targets
+        
+    </title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="section" id="title">Quick Tip: Making Ansible Execute Python Within a Virtualenv or Non Standard Path on Targets</div>
+
+        
+<div class="section" id="content">
+    Mon Feb 06, 2017 &#183; 165 words
+    
+    <div class="tag-container">
+        
+        <span class="tag">
+            <a href="https://davila.io/tags/ansible">
+                ansible
+            </a>
+        </span>
+        
+        <span class="tag">
+            <a href="https://davila.io/tags/python">
+                python
+            </a>
+        </span>
+        
+        <span class="tag">
+            <a href="https://davila.io/tags/quick-tips">
+                quick-tips
+            </a>
+        </span>
+        
+    </div>
+    
+    <hr/>
+    <p>One of the interesting things in Ansible-land is that all of the (non-Windows) modules in the upstream contain a very specific shebang, in particular #!/usr/bin/python.</p>
+
+<p>As a result I’ve seen a few bad patterns in the wild:</p>
+
+<ol>
+<li><p>Symlinking the desired Python executable to /usr/bin/python</p></li>
+
+<li><p>Manually installing Python on that path</p></li>
+
+<li><p>Giving up and use the raw module</p></li>
+</ol>
+
+<p>Good news, you don’t need to do any of that. Within group_vars/host_vars or inside of your INI-style inventory you can simply do something like:</p>
+
+<p><strong>INI-Style</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#ff79c6">[all:vars]</span>
+<span style="color:#50fa7b">ansible_python_interpreter</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">’/usr/bin/env python’</span></code></pre></div>
+<p>Or in the case of inventory vars:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#6272a4"># group_vars/all</span>
+ansible_python_interpreter: /usr/bin/env python
+
+<span style="color:#6272a4"># host_vars/web-node-1</span>
+ansible_python_interpreter: /usr/my/custom/path/python-<span style="color:#bd93f9">2.6</span></code></pre></div>
+<p>Notice how this implies (and correctly so!) that you can specify different python interpreter paths for different segments of you inventory.</p>
+
+<p><strong>Pro-Tip:</strong> You can also leverage this patten whenever you dynamically add hosts via the <a href="http://docs.ansible.com/ansible/add_host_module.html">add_host module</a>. This would looks something like:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#6272a4"># someplaybook_or_taskfile.yml</span>
+...
+
+- name: Add new hosts to in-memory inventory
+  add_host:
+      host: <span style="color:#f1fa8c">&#34;{{ some_dynamic_var }}&#34;</span>
+      groups: bitcoin_workers
+      ansible_python_interpreter: /my/python/installed/here
+
+...</code></pre></div>
+<p>Salud!</p>
+
+</div>
+
+
+        
+<div class="section bottom-menu">
+    
+<hr />
+<p>
+
+
+    
+        <a href="/posts">Back</a>
+        
+            &#183;
+        
+    
+
+    
+        
+            <a href="/about">
+                About
+            </a>
+        
+    
+    
+        
+            &#183; 
+            <a href="/posts">
+                Blog
+            </a>
+        
+            &#183; 
+            <a href="/projects">
+                Projects
+            </a>
+        
+            &#183; 
+            <a href="/contact">
+                Contact
+            </a>
+        
+    
+    &#183; 
+    <a href="https://davila.io/">
+        Home
+    </a>
+
+</p>
+</div>
+
+
+        <div class="section footer">© Jonathan I. Davila</div>
+    </div>
+</body>
+
+</html>

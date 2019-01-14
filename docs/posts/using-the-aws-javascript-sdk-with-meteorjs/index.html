@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Who is Jonathan Davila?">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:domain" content="https://davila.io/">
+
+<meta name="twitter:image" content="https://davila.io/tn.png">
+<meta name="twitter:title" property="og:title" itemprop="title name" content="Jonathan Davila">
+<meta name="twitter:description" property="og:description" itemprop="description" content="Who is Jonathan Davila?">
+<meta name="og:type" content="website">
+<meta name="og:url" content="https://davila.io/">
+<meta name="og:image" itemprop="image primaryImageOfPage" content="https://davila.io/tn.png">
+
+<link rel="shortcut icon" href="https://davila.io/davila.ico" id="favicon">
+<link rel="stylesheet" href="https://davila.io/css/style.css">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131788790-1"></script>
+<script>
+    var htmlEl = document.querySelector('html')
+    if (document.location.pathname !== '/') {
+        htmlEl.style.background = '#fff'
+    }
+</script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-131788790-1');
+</script>
+
+    
+
+    
+    
+    
+    <title>
+        
+        Using the Aws Javascript Sdk With Meteorjs
+        
+    </title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="section" id="title">Using the Aws Javascript Sdk With Meteorjs</div>
+
+        
+<div class="section" id="content">
+    Wed Jul 05, 2017 &#183; 764 words
+    
+    <div class="tag-container">
+        
+        <span class="tag">
+            <a href="https://davila.io/tags/javascript">
+                javascript
+            </a>
+        </span>
+        
+        <span class="tag">
+            <a href="https://davila.io/tags/aws">
+                aws
+            </a>
+        </span>
+        
+    </div>
+    
+    <hr/>
+    
+
+<p>I’ve been working on developing a new SaaS product (specific details are secret for now) from scratch using Meteorjs. For the uninitiated it’s an excellent Nodejs/Mongo framework (you can use their UI templating called Blaze or simply bring your own a la React, etc). It handles a lot of things for you out of the box that would otherwise consume a good amount of time to implement (like websockets, user management, cross browser magic, etc.</p>
+
+<p>That being said, every once in a while doing something in Meteorjs doesn’t line up 1:1 with how you’d do it with vanilla Nodejs. One such thing is the <a href="http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/welcome.html">AWS SDK for JavaScript</a>.</p>
+
+<p>This post will be a fairly straight forward walk through on how to leverage the AWS JavaScript SDK with Meteorjs (version 1.5). This will use an example on how to display all AWS regions (that you have access to) as a reactive element in the UI.</p>
+
+<h2 id="installation"><strong>Installation</strong></h2>
+
+<p>This actually was not as straightforward as I hoped. You need to do the following from the root of your meteor project:</p>
+
+<p>meteor npm install aws-sdk &ndash;save &amp;&amp; npm install aws-sdk &ndash;save</p>
+
+<p>I’m actually not sure why I have to call npm install the second time but for whatever reason meteor is unable to detect the sdk unless I call npm without the meteor wrapper.</p>
+
+<h2 id="html"><strong>HTML</strong></h2>
+
+<p>Now lets write a template, for the purposes of this guide I’ll be using Blaze-isms but the same logic applies across the board. The following is a simple template snippet:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">template</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;MyTemplate&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">div</span>&gt;      
+        {{#each region in regionsList }}      
+        &lt;<span style="color:#ff79c6">div</span>&gt;&lt;<span style="color:#ff79c6">h4</span>&gt;{{region}}&lt;/<span style="color:#ff79c6">h4</span>&gt;&lt;/<span style="color:#ff79c6">div</span>&gt;
+        {{/each}}
+    &lt;/<span style="color:#ff79c6">div</span>&gt;
+&lt;/<span style="color:#ff79c6">template</span>&gt;</code></pre></div>
+<p>This should tell you that we’re leveraging a <a href="http://blazejs.org/guide/spacebars.html">Blaze Helper</a>.</p>
+
+<h2 id="blaze-helper"><strong>Blaze Helper</strong></h2>
+
+<p>To make this more straightforward, we’ll define this as a global Helper:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">import</span> { Template } from <span style="color:#f1fa8c">&#39;meteor/templating&#39;</span>;
+
+Template.registerHelper(<span style="color:#f1fa8c">&#34;regionsList&#34;</span>, <span style="color:#8be9fd;font-style:italic">function</span>(){
+  <span style="color:#ff79c6">if</span>(Template.instance().regionList){
+    <span style="color:#ff79c6">return</span> Template.instance().regionList.get()
+  }
+});
+</code></pre></div>
+<p>Here we define the helper. You’ll notice this helper doesn’t actually <em>do</em> anything it simply returns the value of a <a href="https://themeteorchef.com/tutorials/reactive-dict-reactive-vars-and-session-variables">ReactiveVar</a> if it’s set. The ReactiveVar is set with the associated JS file which we’ll look at next.</p>
+
+<h2 id="javascript-for-mytemplate"><strong>JavaScript for MyTemplate</strong></h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">import</span> { ReactiveVar } from <span style="color:#f1fa8c">&#39;meteor/reactive-var&#39;</span>; 
+
+Template.MyTemplate.onCreated( <span style="color:#8be9fd;font-style:italic">function</span>(){
+  <span style="color:#ff79c6">this</span>.regionList <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ReactiveVar([]);
+});
+
+Template.MyTemplate.onRendered( <span style="color:#8be9fd;font-style:italic">function</span>(){
+  Meteor.call(<span style="color:#f1fa8c">&#39;getAwsRegions&#39;</span>, <span style="color:#8be9fd;font-style:italic">function</span>(error, result){
+    <span style="color:#ff79c6">if</span>(error){
+      console.log(error);
+    } <span style="color:#ff79c6">else</span> {
+      template.regionList.set(result);
+    }  
+  });
+});
+</code></pre></div>
+<p>This again, fairly standard. We simply instantiate a new ReactiveVar when the template is created and then call a server-side <a href="https://guide.meteor.com/methods.html">Meteor Method</a> called getAwsRegions and then store the result as the value of the ReactiveVar regionList .</p>
+
+<h2 id="method-where-the-magic-occurs"><strong>Method (where the magic occurs).</strong></h2>
+
+<p>On server-side code do this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">import</span> { ValidatedMethod } from <span style="color:#f1fa8c">&#39;meteor/mdg:validated-method&#39;</span>;
+<span style="color:#ff79c6">import</span> { Meteor } from <span style="color:#f1fa8c">&#39;meteor/meteor&#39;</span>;
+<span style="color:#ff79c6">import</span> { EC2, Credentials } from <span style="color:#f1fa8c">&#39;aws-sdk&#39;</span>
+
+<span style="color:#6272a4">// You should NOT store your access keys in your source code, this is purely for demo purposes. 
+</span><span style="color:#6272a4">// Store them in your meteor settings or expose them as environment variables.
+</span><span style="color:#6272a4"></span>
+<span style="color:#ff79c6">const</span> AWS_ACCESS_KEY <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;XXXYOUR_AWS_API_ACCESS_KEYXXX&#39;</span>
+<span style="color:#ff79c6">const</span> AWS_SECRET_KEY <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;XXYOUR_AWS_API_SECRET_KEYXXX&#39;</span>
+
+<span style="color:#ff79c6">export</span> <span style="color:#ff79c6">const</span> getAwsRegions <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ValidatedMethod({
+  name<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;getAwsRegions&#39;</span>,
+  validate<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">null</span>,
+  run(){
+    <span style="color:#ff79c6">const</span> AwsAuth <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Credentials(AWS_ACCESS_KEY, AWS_SECRET_KEY);
+    <span style="color:#ff79c6">const</span> ec2 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> EC2({credentials<span style="color:#ff79c6">:</span> AwsAuth, region<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;us-east-1&#39;</span>});
+    <span style="color:#8be9fd;font-style:italic">let</span> resp <span style="color:#ff79c6">=</span> ec2.describeRegions({},<span style="color:#8be9fd;font-style:italic">function</span>(err, data){
+      <span style="color:#ff79c6">if</span>(err){
+        <span style="color:#ff79c6">return</span> err;
+      }
+    }).promise();
+
+    result <span style="color:#ff79c6">=</span> resp.then(<span style="color:#8be9fd;font-style:italic">function</span>(data) {
+      <span style="color:#ff79c6">return</span> data.Regions.map(<span style="color:#8be9fd;font-style:italic">function</span>(regionObj){<span style="color:#ff79c6">return</span> regionObj.RegionName})
+    }).<span style="color:#ff79c6">catch</span>(<span style="color:#8be9fd;font-style:italic">function</span>(err) {
+      <span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> Meteor.<span style="color:#8be9fd;font-style:italic">Error</span>(<span style="color:#f1fa8c">&#39;get-regions-error&#39;</span>, err.message)
+    });
+
+    <span style="color:#ff79c6">return</span> result;
+  }
+});
+</code></pre></div>
+<p>First, you’ll notice I’m using <a href="https://guide.meteor.com/methods.html#validated-method">ValidatedMethod</a> I think it’s the best way of doing methods the right way without having to build out the logic yourself.</p>
+
+<p>In the run() section I’m instantiating a Credentials() and a EC2() object which will be used to make the call.</p>
+
+<p>Next, I followed the guidance from <a href="http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/using-promises.html">AWS docs on how to make API calls via promises</a>. It’s fairly simple, just add a .promise() to the end of a call to the AWS JavaScript SDK method and then make the proper then/catch call and store its output to a variable ( result in this case) and finally return that variable.
+&gt; A quick note on the map() call. The API call for describeRegions() returns a list of objects with the region name and region endpoint, in this example we just want the names so we leverage map().</p>
+
+<p>It is because we are dealing with promise that we are storing the output of the Meteor Method into a ReactiveVar.</p>
+
+<p>Some might point out that I could have used <a href="https://github.com/stubailo/meteor-reactive-method">reactive-method</a> package instead, however this particular implementation makes handling AWS error responses impossible based on my attempts.</p>
+
+<p>Doing it the way I’ve demonstrated allows you to leverage the Helper reactively while also letting you have more control over the server-side logic, including errors.</p>
+
+<p>I hope this helps out someone else as it certainly took some trial and error on my part to get it just right.</p>
+
+</div>
+
+
+        
+<div class="section bottom-menu">
+    
+<hr />
+<p>
+
+
+    
+        <a href="/posts">Back</a>
+        
+            &#183;
+        
+    
+
+    
+        
+            <a href="/about">
+                About
+            </a>
+        
+    
+    
+        
+            &#183; 
+            <a href="/posts">
+                Blog
+            </a>
+        
+            &#183; 
+            <a href="/projects">
+                Projects
+            </a>
+        
+            &#183; 
+            <a href="/contact">
+                Contact
+            </a>
+        
+    
+    &#183; 
+    <a href="https://davila.io/">
+        Home
+    </a>
+
+</p>
+</div>
+
+
+        <div class="section footer">© Jonathan I. Davila</div>
+    </div>
+</body>
+
+</html>

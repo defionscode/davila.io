@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hiring on Jonathan Davila</title>
+    <link>https://davila.io/tags/hiring/</link>
+    <description>Recent content in Hiring on Jonathan Davila</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 Aug 2017 16:39:04 -0500</lastBuildDate>
+    
+	<atom:link href="https://davila.io/tags/hiring/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Open Salary Systems, the Individual Loses</title>
+      <link>https://davila.io/posts/open-salary-systems-the-individual-loses/</link>
+      <pubDate>Wed, 09 Aug 2017 16:39:04 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/open-salary-systems-the-individual-loses/</guid>
+      <description>Disclosure: As with all of my posts this is going to be highly opinionated and will probably bother some folks. The premises and arguments I ultimately present are solely based on my experience. I also want to make clear that I am open to being wrong and if you find fault in my logic or conclusions (maybe there are studies I’m not privy to) I hope that you bring it up either in public or privately, whatever you feel comfortable with.</description>
+    </item>
+    
+    <item>
+      <title>Personality Diversity, Limit Looking for Rockstars</title>
+      <link>https://davila.io/posts/personality-diversity-limit-looking-for-rockstars/</link>
+      <pubDate>Tue, 08 Aug 2017 16:29:50 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/personality-diversity-limit-looking-for-rockstars/</guid>
+      <description>I’m in the process of brainstorming and writing some job reqs for a team I’ll possibly start building early next year and it got me thinking about personalities…
+There is a common pattern in technical recruiting that I have observed, both as the one being recruited, and as the one doing the recruiting which doesn’t seem to get much attention. This is the habit of whipping up recruiting copy, job ads, and other ‘come-work-for-us’ mediums with a sort of elitist element, one that searches for the “The Rockstar”.</description>
+    </item>
+    
+    <item>
+      <title>Attracting Top Tech Engineers</title>
+      <link>https://davila.io/posts/attracting-top-tech-engineers/</link>
+      <pubDate>Tue, 04 Nov 2014 16:24:41 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/attracting-top-tech-engineers/</guid>
+      <description>I preface this article by saying I am not a recruiter nor have ever been and that &amp;lsquo;Top&amp;rsquo; isn&amp;rsquo;t necessarily implying senior in terms of time in tech. For example, I am a strong believer that there are people who have been in tech less than 5 years who are of a higher caliber than engineers who&amp;rsquo;ve been in tech for 20+ years, but of course this is not always true.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Diversity on Jonathan Davila</title>
+    <link>https://davila.io/tags/diversity/</link>
+    <description>Recent content in Diversity on Jonathan Davila</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 08 Aug 2017 16:29:50 -0500</lastBuildDate>
+    
+	<atom:link href="https://davila.io/tags/diversity/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Personality Diversity, Limit Looking for Rockstars</title>
+      <link>https://davila.io/posts/personality-diversity-limit-looking-for-rockstars/</link>
+      <pubDate>Tue, 08 Aug 2017 16:29:50 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/personality-diversity-limit-looking-for-rockstars/</guid>
+      <description>I’m in the process of brainstorming and writing some job reqs for a team I’ll possibly start building early next year and it got me thinking about personalities…
+There is a common pattern in technical recruiting that I have observed, both as the one being recruited, and as the one doing the recruiting which doesn’t seem to get much attention. This is the habit of whipping up recruiting copy, job ads, and other ‘come-work-for-us’ mediums with a sort of elitist element, one that searches for the “The Rockstar”.</description>
+    </item>
+    
+  </channel>
+</rss>

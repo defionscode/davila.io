@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Who is Jonathan Davila?">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:domain" content="https://davila.io/">
+
+<meta name="twitter:image" content="https://davila.io/tn.png">
+<meta name="twitter:title" property="og:title" itemprop="title name" content="Jonathan Davila">
+<meta name="twitter:description" property="og:description" itemprop="description" content="Who is Jonathan Davila?">
+<meta name="og:type" content="website">
+<meta name="og:url" content="https://davila.io/">
+<meta name="og:image" itemprop="image primaryImageOfPage" content="https://davila.io/tn.png">
+
+<link rel="shortcut icon" href="https://davila.io/davila.ico" id="favicon">
+<link rel="stylesheet" href="https://davila.io/css/style.css">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131788790-1"></script>
+<script>
+    var htmlEl = document.querySelector('html')
+    if (document.location.pathname !== '/') {
+        htmlEl.style.background = '#fff'
+    }
+</script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-131788790-1');
+</script>
+
+    
+
+    
+    
+    
+    <title>
+        
+        30 Lies Puppetlabs Made About Ansible, #25 Will Shock You
+        
+    </title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="section" id="title">30 Lies Puppetlabs Made About Ansible, #25 Will Shock You</div>
+
+        
+<div class="section" id="content">
+    Wed Jul 11, 2018 &#183; 4573 words
+    
+    <div class="tag-container">
+        
+        <span class="tag">
+            <a href="https://davila.io/tags/ansible">
+                ansible
+            </a>
+        </span>
+        
+        <span class="tag">
+            <a href="https://davila.io/tags/marketing">
+                marketing
+            </a>
+        </span>
+        
+        <span class="tag">
+            <a href="https://davila.io/tags/deceptive-tech">
+                deceptive-tech
+            </a>
+        </span>
+        
+        <span class="tag">
+            <a href="https://davila.io/tags/puppet">
+                puppet
+            </a>
+        </span>
+        
+    </div>
+    
+    <hr/>
+    
+
+<blockquote>
+<p>Disclaimer: While I was once an employee of Red Hat and Ansible. I am not employed by Red Hat anymore and this blog post was not sanctioned or endorsed by Red Hat in any way.</p>
+</blockquote>
+
+<p>On June 26th, 2018, PuppetLabs via their Twitter account made the following tweet</p>
+
+<p><a href="https://twitter.com/puppetize/status/1011726555645599744"><img src="/puppet-tweet.png" alt="PuppetLabs' original tweet" /></a></p>
+
+<p>If you rather not go through their form-wall you can get it directly here <a href="https://puppet.com/system/files/2018-06/puppet-wp-compare-puppet-and-ansible.pdf">https://puppet.com/system/files/2018-06/puppet-wp-compare-puppet-and-ansible.pdf</a></p>
+
+<h2 id="this-tweet-sparked-my-interest">This tweet sparked my interest.</h2>
+
+<p>For one, I was previously one of the original 4 members of Ansible’s professional services team and stuck through with Red Hat for a bit doing the same thing but at a larger scale (in terms of the internal organization).</p>
+
+<p>Secondly, this topic has always interested me from the perspective that both technologies do indeed have differentiators and for some systems they can even be complimentary.</p>
+
+<p>I was genuinely interested to see what Puppet had to say because I assumed it would have been based on <em>honest</em> research…</p>
+
+<p>So I decided to click, fill out the form, and download the whitepaper.</p>
+
+<p>I read it and I was sorely disappointed. The tone was quite patronizing to Ansible and its community at large. Furthermore, the text was full of outright lies (or maybe just plain ignorance?) mingled with elements of truth to make it sound accurate.</p>
+
+<p><div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/3o7WILIjQRUWy7ENUY" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/trixieandkatya-viceland-trixie-katya-3o7WILIjQRUWy7ENUY"></a></p></p>
+
+<p>I am all for comparing technologies, competition, etc. But to issue a white paper of this dirty is surprising; I really want to believe this was a rogue agent (no pun intended) at PuppetLabs and not indicative of a new culture there. The paper is highly dishonest, and will probably mislead at least some IT professionals on completely inaccurate information.</p>
+
+<p>With this post I’m going to break down specific falsehoods (dare I say ‘lies’?) contained in the whitepaper. I will ignore generalizations such as</p>
+
+<blockquote>
+<p>While Ansible sounds great at first, particularly to those looking to start and finish their automation journey by automating a handful of routine chores, users quickly run into problems that Puppet easily solves</p>
+</blockquote>
+
+<p>These statements are not real arguments, so instead I will focus only on arguments that go into specifics. I will also go in order of appearance to make it easy to follow along…</p>
+
+<h2 id="lie-1-ansible-is-basically-a-ifttt-wrapper-to-shell-scripts">Lie #1 =&gt; Ansible is basically a IFTTT wrapper to shell scripts</h2>
+
+<blockquote>
+<p>Ansible follows this iterative scripting approach — if this, do that, then this.</p>
+</blockquote>
+
+<p>While Ansible <em>can</em> be used this way, it almost never is.</p>
+
+<p>In terms of configuration management with Ansible you declare the state you want and Ansible makes that state come to pass. It’s not at all like piping Bash or Powershell in sequential order.</p>
+
+<h2 id="lie-2-scheduling-in-ansible-can-lead-to-conflicting-automation">Lie #2 =&gt; Scheduling in Ansible can lead to conflicting automation</h2>
+
+<blockquote>
+<p>To schedule repeat actions, you use a tool like cron. The flaw in this approach is that Ansible allows you to manage the same resource differently, and allows two or more playbooks to silently make conflicting configuration changes.</p>
+</blockquote>
+
+<p>Or you can use free and open source AWX (Tower). Not what you want? What about RunDeck, Jenkins, or cron? And sure you <em>could</em> write playbooks that do different things and target the same resources but this is a fault of an organizations process and people, not of the tool itself.</p>
+
+<p>This argument is the same as me trying to discredit Puppet because a rogue sysadmin could turn off Puppet agents or continuously run Puppet Bolt. Show me a tool that eliminates all possibility of user-error or bad actors…I’m waiting…</p>
+
+<h2 id="massive-lie-3-ansible-tower-was-developed-for-to-replace-bash-powershell-scripting-with-a-workflow-feature"><strong>MASSIVE Lie #3 =&gt; Ansible Tower was developed for to replace bash/powershell scripting with a workflow feature</strong></h2>
+
+<blockquote>
+<p>Ansible Tower evolved from Ansible, which was developed as an imperative scripting tool to replace the tangle of Bash and PowerShell scripts sysadmins used to automate routine tasks. As a result, it relies on individually scripted job templates that Ansible Tower attempts to coordinate with its Workflows tool.</p>
+</blockquote>
+
+<p>This is really off. I rather address this one with bullet points:</p>
+
+<ol>
+<li><p>Ansible Tower only recently released the ability to do workflow type execution. It’s feature set provides MUUUCH more than workflows such as scheduling, audit logging, node level data caching, first class integration with tools like Splunk, Red Hat Satellite, CloudForms, robust permissions control, etc etc. The list goes on</p></li>
+
+<li><p>Ansible itself was developed to replace manual scripting AND to provide a simpler, linear method of doing IT automation as opposed to one based on eventual consistency and agents.</p></li>
+
+<li><p>Individually scripted job templates? The author has no idea what they’re talking about. Job templates in Tower are methods of defining how a given playbook should be executed by Tower based on code located in version control…so not sure what they were trying to say here…</p></li>
+</ol>
+
+<p>If you really want to read about Ansible’s origin story check out <a href="https://www.ansible.com/blog/2013/12/08/the-origins-of-ansible">this blog post by Michael Dehaan,</a> the creator of Ansible.</p>
+
+<h2 id="lie-4-ansible-tower-cannot-offer-a-single-source-of-truth-for-automation-that-can-scale">Lie #4 =&gt; Ansible/Tower cannot offer a single source of truth for automation that can scale</h2>
+
+<blockquote>
+<p>[Ansible] stops well short of offering users a single source of truth for automation that can scale</p>
+</blockquote>
+
+<p>This is patently false. I’ve personally helped implement Ansible at scale across multiple continents and over 100k nodes. Ansible can be partially leveraged in which case it would not be a single point of truth but when done properly it can absolutely function as one and it is what larger orgs tend to use it for.</p>
+
+<p>In fact, checkout this video from over 4 years ago about how Twitter left Puppet and went with Ansible in particular for the ‘single point of truth’ use case:</p>
+
+<p><center><iframe width="560" height="315" src="https://www.youtube.com/embed/fwGrKXzocg4" frameborder="0" allowfullscreen></iframe></center></p>
+
+<h2 id="lie-5-only-puppet-can-do-model-and-task-driven-automation">Lie #5 =&gt; Only Puppet can do model and task driven automation</h2>
+
+<blockquote>
+<p>Puppet Enterprise is the only solution that offers users both model-driven and task-based automation capabilities.</p>
+</blockquote>
+
+<p>False. Ansible can. Ansible Tower can. And other tools are likely to be able to this too. This is flat out false.</p>
+
+<h2 id="lie-6-ansible-tower-requires-clustering-as-you-scale-out-a-non-trivial-deployment-that-adds-complexity">Lie #6 =&gt; Ansible Tower requires clustering as you scale out, a non-trivial deployment that adds complexity.</h2>
+
+<p>No, not really. It doesn’t ever require clustering if your use case doesn’t need it. Sure if you wanted to manage 100k nodes at the EXACT same time, then yeah, you probably would need to cluster, but nobody needs that. Instead, clustering facilitates other more common uses cases like redundancy and the ability to work across complex network architectures that may have nuanced DMZ requirements. <em>Most</em> organizations/teams will never need to use this feature.</p>
+
+<p>Puppet Enterprise also offers fail-over capabilities but do you see me saying Puppet is more complex because of redundancy measures? C’mon…</p>
+
+<p><a href="https://www.ansible.com/resources/case-studies">Oh look Ansible case studies…</a></p>
+
+<h2 id="lie-7-ansible-s-simplicity-falters-as-you-scale-out">Lie #7 =&gt; Ansible’s simplicity falters as you scale out</h2>
+
+<blockquote>
+<p>Though Ansible’s agentless approach has certain advantages for small deployments, its simplicity falters as you grow.</p>
+</blockquote>
+
+<p>Again another lie. Here’s the bottom line. Given a particular system you wish to automate/manage/etc, when done in Ansible it will always be less lines of code and much easier for most people to understand than the equivalent in Puppet’s DSL. That is not to say that Puppet is less capable in most regards, just that Ansible’s syntax and constructs are much simpler.</p>
+
+<h2 id="lie-8-tower-can-leave-nodes-in-a-unstable-or-partially-configured-state">Lie #8 =&gt; Tower can leave nodes in a unstable or partially configured state</h2>
+
+<blockquote>
+<p>Ansible is job-based, with the Tower server running various automation tasks on nodes as one-off activities or scheduled jobs. Those jobs execute tasks blindly, allowing automation tasks to overlap and conflict, potentially leaving nodes in an unstable, partially configured state.</p>
+</blockquote>
+
+<p>Yes, Ansible is job based and Tower can run those as scheduled or one off launches. Those jobs execute blindly? Again this is a weak argument that addresses user error rather than a fault with the technology.</p>
+
+<p>Couldn&rsquo;t a sysadmin spin up a different Puppet master and use a manifest that conflicts with organizational polices? Theoretically, sure. Just like, in theory, if an ops team is running wild with no policies or oversight they could indeed make Ansible do a bunch of things it shouldn&rsquo;t.</p>
+
+<p>Equally, couldn&rsquo;t a user, in either tool make them do something akin to rm -rf /?</p>
+
+<h2 id="lie-8-same-nodes-are-managed-differently">Lie #8 =&gt; Same nodes are managed differently?</h2>
+
+<p>I honestly couldnt decipher what argument the author was trying to make here:</p>
+
+<blockquote>
+<p>By contrast, Ansible takes a fully iterative approach, running modules in a named set of sequences. Generally, in the Ansible inventory, nodes are grouped by function or application. It’s also common to privately manage the inventory so that it’s scoped only within an application or system. The use of passwordless SSH makes this a convenience, but it’s a risk, again by silently managing the same node differently</p>
+</blockquote>
+
+<p>Not sure what is trying to be said by fully iterative. Ansible is typically used in a declarative way…but okay sure, modules are executed in sequence, sure.</p>
+
+<p>Nodes are grouped by function or application, or whatever the heck you want them to be grouped by. Use AWS? You can have them be grouped automatically by region, tag, AMI id, etc etc.</p>
+
+<p>Privately manage the inventory? WTF does that even mean? Are there ‘public’ inventories in Ansible? (hint: NOPE).</p>
+
+<p>Passwordless SSH? Sure that’s one way. You can also do Kerberos, password SSH (including via pam mechanisms such as AD/LDAP tie-ins), ssh with password protected keys, etc etc. You can authenticate however you need to authenticated. <strong>And how in the world does passwordless SSH even relate to managing the same node differently? I’m honestly scratching my head. If Ansible used HTTPS to manage nodes the way that Puppet does, would that make it so we manage the same node the same way? Huh? I feel dumber after reading this particular argument</strong>.</p>
+
+<h2 id="lie-9-ansible-can-t-help-you-with-big-picture-desired-state">Lie #9 =&gt; Ansible can’t help you with big picture desired state</h2>
+
+<blockquote>
+<p>Ansible can perform intentional changes, too, but it executes its automation tasks based on independent playbooks without a greater sense of the overall desired state.</p>
+</blockquote>
+
+<p>It behaves this way only if you make it behave this way. Playbooks can be independent or as anyone who has spent any <em>real</em> amount of time working with Ansible will know, you can combine playbooks, which can contain many plays, which can invoke many roles, which can indeed declare the overall desired state. This is just 101 stuff and still…lies.</p>
+
+<h2 id="lie-10-tower-address-idempotentency-with-check-and-diff">Lie #10 =&gt; Tower address idempotentency with check and diff</h2>
+
+<blockquote>
+<p>Ansible Tower enforces idempotency by running playbooks in &ndash;check &ndash;diff mode to test drift for each host.
+This has two shortcomings: First, there’s no automatic way to make this run. It must be triggered by a user, so timeliness is a moving target. Second, running in &ndash;check &ndash;diff mode requires considerable network resources to carry the SSH and WinRM traffic needed to iteratively check node drift.</p>
+</blockquote>
+
+<p><div style="width:100%;height:0;padding-bottom:48%;position:relative;"><iframe src="https://giphy.com/embed/z8yYEX4pE3lkc" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/taylor-swift-what-confused-z8yYEX4pE3lkc"></a></p></p>
+
+<p>Really? This is the level of marketing PuppetLabs has to stoop to? Just make shit up out of thin air? Again, bullet points:</p>
+
+<ol>
+<li><p>No automatic way to make this run? 100% false.</p></li>
+
+<li><p><strong><em>Bless your heart.</em></strong> Idempotency is enforced by Ansible (not anything Tower specific) by simply running the same way you run it any other time. Since there seems to be such a non-existent understanding about anything in Ansible land, let me explain.
+The &ndash;check is a flag that can be applied with OR without Tower in order to do a dry run. It can be used to check for drift but it has nothing to do with enforcing idempotency. In fact, I don’t think the term “enforce idempotency” even make sense. <a href="https://docs.ansible.com/ansible/2.5/user_guide/playbooks_checkmode.html">Maybe RTFM before creating alternative facts.</a></p></li>
+
+<li><p>Requires considerable network resources? Where do they even get this stuff? Please, show me the research. Check and diff do not cause any more traffic than invoking Ansible without those flags. In the case of Ansible, check mode is actually less expensive on the managed node since you’re not applying all the logic just the subset that detects non conformity to the desired state.</p></li>
+</ol>
+
+<h2 id="lie-11-comparing-key-differentiators">Lie #11 =&gt; Comparing key differentiators</h2>
+
+<p><img src="/key-diff-puppet.png" alt="Screenshot from Puppet's whitepaper showing a deceptive comparison of differentiators" /></p>
+
+<p>As explained above, Ansible easily ticks of the bottom two rows. Nice attempt to deceive there.</p>
+
+<h2 id="lie-12-ansible-tower-is-essentially-a-wrapper-for-ad-hoc-tasks-so-that-functionality-is-there-too">Lie #12 =&gt; Ansible Tower is essentially a wrapper for ad hoc tasks, so that functionality is there, too.</h2>
+
+<p>What? No. Again if anyone involved with writing this whitepaper would have done their homework you would know that while you <em>can</em> do Ansible ad-hoc with Tower, it’s but a very tiny, rarely used, feature available in Tower.</p>
+
+<h2 id="lie-13-comparison-of-puppet-and-ansible-command-line-tools">Lie #13 =&gt; Comparison of Puppet and Ansible command-line tools</h2>
+
+<p><img src="/puppet-cli-compare.png" alt="Screenshot from Puppet's whitepaper showing a deceptive comparison of command line utility features" /></p>
+
+<p>Again, RTFM. Ever heard of ansible-playbook ? FFS. Ansible is absolutely model driven and can absolutely be used to do ongoing state management. I feel like this is getting repetitive.</p>
+
+<h2 id="lie-13-command-line-interfaces-are-the-same">Lie #13 =&gt; Command line interfaces are the same</h2>
+
+<p><img src="/puppet-compare-cli-1.png" alt="Screenshot from Puppet's whitepaper showing a deceptively selective snippet of an Ansible ad-hoc execution" /></p>
+
+<p>This is literally the screenshot provided. It doesn’t even show how they executed this.</p>
+
+<p>Then it shows this example</p>
+
+<p><img src="/puppet-compare-cli-2.png" alt="Screenshot from Puppet's whitepaper showing a poorly invoked snippet of an Ansible ad-hoc execution" /></p>
+
+<p>This is a clear example of someone not knowing what they are doing. What this person should have done is</p>
+
+<p><code>ansible local -m apt -a 'name=cowsay' -b --ask-become-pass</code></p>
+
+<p>Which would give better output and would enable idempotency. As I said early, you can’t prevent user error or ensure that documentation is read and understood…even in whitepapers.</p>
+
+<p>Based on the example given for Puppet Bolt it would seem that Bolt would not offer you any level of idempotency when ran as shown, it would try to run things even if not needed.</p>
+
+<h2 id="lie-14-implying-that-ansible-doesn-t-add-scale-governance-or-flexibility-to-larger-orgs">Lie #14 =&gt; Implying that Ansible doesn’t add scale, governance or flexibility to larger orgs</h2>
+
+<blockquote>
+<p>At the enterprise level, Puppet and Ansible quickly begin to diverge, with Ansible hewing close to its scripting roots and Puppet adding scale, governance, and flexibility for larger organizations and infrastructures.</p>
+</blockquote>
+
+<p>I have many choice words I want to say right now, but know that this is <strong>very</strong> misleading in terms of how it implies that Ansible does not give scale/governance/flexibility for larger organizations at the enterprise offering level. I’ve personally implemented Ansible Tower successfully at organizations that have to deal with one or more of FedRAMP, HIPAA, PCI, SOX, among others.</p>
+
+<h2 id="lie-15-tower-doesn-t-give-you-node-level-details-facts">Lie #15 =&gt; Tower doesn’t give you node level details/facts</h2>
+
+<blockquote>
+<p>You can drill down into events, hosts, and easily export data for reporting, seeing details about specific packages and versions. This deep foraging isn’t available in Ansible Tower.</p>
+</blockquote>
+
+<p><a href="https://docs.ansible.com/ansible-tower/latest/html/userguide/job_templates.html#ug-fact-caching">Check the docs</a>. It’s true, very deep, pretty, node level info isn’t a big thing in Tower. Personally, I think that’s kind of an old school way of thinking about servers. Maybe Puppet encourages the servers-as-pets mentality. Ansible makes it easy to treat your system resources as cattle.</p>
+
+<h2 id="lie-16-rbac-in-tower-is-weak">Lie #16 RBAC in Tower is Weak</h2>
+
+<blockquote>
+<p>With Ansible Tower, different users can run different jobs, even if the jobs overlap or conflict. That might be fine in a small-scale, non-production deployment, but in a production environment, it will cause headaches — or worse.</p>
+</blockquote>
+
+<p>Yet another user error argument. If you screw up RBAC in Puppet wouldn’t users also be able to create havoc? What about if the 30 min check-in time is turned off? Then what? Again, these arguments that are “if users can shoot themselves in the foot then the product is bad” are weak.</p>
+
+<p>Small scale? Non production? Oh jeeze. I’ve personally implemented Ansible Tower at highly regulated government agencies, multi national corporations, banks, IN PRODUCTION, without any of these problems.</p>
+
+<h2 id="lie-17-tower-is-only-ifttt-for-automation">Lie #17 =&gt; Tower is only IFTTT for automation</h2>
+
+<blockquote>
+<p>By contrast, Ansible Tower is job-based and relies on an iterative approach. That is, it triggers a series of if-this-then-that tasks that can overlap, conflict,</p>
+</blockquote>
+
+<p>It can work in an IFTTT like way if that’s what you want. And sometimes that’s the right way of doing a particular thing. But again, it’s yet another jab at user error instead of the technology itself.</p>
+
+<h2 id="lie-18-tasks-can-quietly-fail">Lie #18 =&gt; Tasks can quietly fail…</h2>
+
+<blockquote>
+<p>or quietly fail if a later task depends on an earlier one that didn’t succeed.</p>
+</blockquote>
+
+<p>Another “LOL WAT?”</p>
+
+<p>Hmm, not sure what Ansible the author has been using but the Ansible I’ve known for 5 years has never failed quietly.</p>
+
+<p>Indeed, <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_error_handling.html">if you RTFM,</a> you read that Ansible, by default, fails fast for any given system. That is to say, if something fails during the execution of a playbook, that playbook (by default) will stop running on that host where the error occurred. This is also anything but silent since not only will the error appear in stdout or in the job details (in Tower/AWX) but the final report will let you know that failures occurred and on which host.</p>
+
+<p>Not only that but if you <em>really</em> want to, you can have Ansible halt execution for ALL targets in the even that a certain quantity (or percentage) of hosts experience failure.</p>
+
+<p>You can have Ansible ignore errors or make it so certain tasks never cause an error but it has to be done intentionally. There is no way this happens ‘accidentally’ or by default.</p>
+
+<p>So what the heck is the author talking about? I have no clue.</p>
+
+<h2 id="lie-19-tower-doesn-t-help-at-all-with-infra-code-testing">Lie #19 =&gt; Tower doesn’t help at all with infra code testing…</h2>
+
+<blockquote>
+<p>It offers full control and visibility over how your infrastructure code is tested and promoted so you can deliver changes faster and with more confidence. Ansible Tower doesn’t offer anything equivalent.</p>
+</blockquote>
+
+<p>This is a false comparison fallacy. Tower doesn’t have a built in CI platform for testing Ansible code, that’s correct. Because <code>&lt;shocker&gt; YAML isn’t a programming language &lt;/shocker&gt;</code>.</p>
+
+<p>Ansible is simple enough that trying to bake in a CI tool would be overkill.</p>
+
+<p>I personally think that it would be annoying to have a CI for your configuration management/automation tooling and another CI for other stuff. Based on my experience, most organization are already all in with CircleCI, Jenkins, GoCD, etc etc. And guess what? It’s easy to do thing like syntax checking or <a href="https://github.com/willthames/ansible-lint">Ansible linting</a> for Ansible code in the CI system you already use.</p>
+
+<h2 id="lie-20-tower-is-just-a-nice-wrapper-to-ansible-core">Lie #20 =&gt; Tower is just a nice wrapper to Ansible core</h2>
+
+<blockquote>
+<p>Ansible Tower has many strengths, but at its core, it’s primarily a nice wrapper for open source Ansible.</p>
+</blockquote>
+
+<p><a href="https://github.com/ansible/awx">News flash, Tower (AWX) is open source.</a> And while it does wrap Ansible, it’s not just a UI for the Ansible CLI. This is something that was closer to true very early on in Ansible’s startup days. Today Ansible Tower/AWX gives you</p>
+
+<ol>
+<li><p>RBAC</p></li>
+
+<li><p>Audit Logging</p></li>
+
+<li><p>Credentials Management</p></li>
+
+<li><p>Native tie ins with major enterprise tools such as Insights, CloudForms,</p></li>
+
+<li><p>Native tie ins with notification mechanisms such as webhooks, slack, hipchat, etc</p></li>
+
+<li><p>SSO (SAML2, Oauth, etc)</p></li>
+
+<li><p>Workflows</p></li>
+
+<li><p>Multi tenancy</p></li>
+
+<li><p>Prompt based execution ability</p></li>
+</ol>
+
+<p>And this is complemented by a robust API supplementary CLI so you can tie in Tower with virtually anything (including CI/CD pipelines).</p>
+
+<h2 id="lie-21-tower-isn-t-suitable-for-large-scale">Lie =&gt; #21 Tower isn’t suitable for large scale</h2>
+
+<blockquote>
+<p>not well-suited for large-scale enterprise automation and DevOps practices.</p>
+</blockquote>
+
+<p>The author tries to make this argument multiple times. It’s patently false. Again, I’ve rolled out Ansible at Fortune level organizations from big banks to mega telcos and never ran into a significant ‘scale’ problem (even when clustering wasn’t available).</p>
+
+<h2 id="lie-22-ansible-cannot-facilitate-having-a-gold-standard-in-terms-of-desired-state">Lie #22 =&gt; Ansible cannot facilitate having a gold standard in terms of desired state</h2>
+
+<p><img src="/puppet-compare-ds.png" alt="Screenshot of PuppetLabs whitepaper showing yet another deceptive comparison of desired-state features" /></p>
+
+<p>Yet another argument that attacks user error instead of the technology itself. It’s very simple to have Ansible function in a non conflicting way that adopts a ‘gold standard’ so long as the right people and processes are in place.</p>
+
+<p>If, like the author, you don’t RTFM, then sure, you could run into issues.</p>
+
+<h2 id="lie-23-ansible-is-only-imperative">Lie #23 =&gt; Ansible is only imperative</h2>
+
+<p><img src="/puppet-compare-imp.png" alt="Screenshot of Puppetlabs whitepaper showing deception of imperative logic in Ansible" /></p>
+
+<p>Any <em>real</em> Ansible user will tell you that almost always, Ansible is typically used in a declarative fashion.</p>
+
+<p>Sure, you could operate it imperatively, as might be the case for rolling updates, and other more nuanced patterns. But in terms of pure CM-speak, Ansible is declarative by default.</p>
+
+<p>Check it</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">- name: Uninstall Puppet
+  yum:
+    name: puppet
+    state: absent</code></pre></div>
+<p>Explain to me how that is imperative? It sure looks pretty damn declarative if you ask me. I’m <em>declaring</em> the state that I want. Do you see any if/else logic in that interface?</p>
+
+<h2 id="lie-24-tower-doesn-t-give-any-sort-of-view-into-nodes-infra-etc">Lie #24 =&gt; Tower doesn’t give any sort of view into nodes, infra, etc</h2>
+
+<p><img src="/puppet-compare-graphs.png" alt="Another screenshot showing PuppetLabs being deceptive again with regards to Ansible Tower" /></p>
+
+<p>Not exactly a lie, this one is just deceptive. Tower gives you some view, but like with CI, it’s about the right tool for the job.</p>
+
+<p>Tower doesn’t need to reinvent the wheel for tools that already exist, such as going to town with different dashboard and reports. Why? Because it’s built with a native integration into Red Hat Insights (<a href="https://github.com/RedHatInsights">also open source</a>) which absolutely blows Puppet Enterprise out of the water in terms of capability for node level insights. Insights not your thing? Well no problem there is <a href="https://www.ansible.com/integrations/devops-tools/splunk">Splunk</a> integration too!</p>
+
+<h2 id="lie-25-automating-your-network-gear-with-ansible-costs-extra">Lie #25 =&gt; Automating your network gear with Ansible costs extra</h2>
+
+<p><img src="/puppet-compare-network.png" alt="Screenshot of PuppetLabs flat out lying about network features costing extra" /></p>
+
+<p><strong>Hahahahahaha….</strong></p>
+
+<p><div style="width:100%;height:0;padding-bottom:75%;position:relative;"><iframe src="https://giphy.com/embed/O5NyCibf93upy" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/new-O5NyCibf93upy"></a></p></p>
+
+<p>You’ll pay more? Geeze. What an absolute lie. Not only do you not pay more for network capabilities in Ansible Tower, but it’s 1000000000% free to leverage with Ansible core or in AWX.</p>
+
+<p>Here is the list of networking modules <a href="https://docs.ansible.com/ansible/latest/modules/list_of_network_modules.html">https://docs.ansible.com/ansible/latest/modules/list_of_network_modules.html</a> all free, all open source.</p>
+
+<p>Customers can optionally choose to pay for premium support around these modules but that’s only if they REALLY want to. 95% of the time, the support given by our robust community and the Ansible engineering team is more than enough.</p>
+
+<p>So again, the networking add-on is not the way to enable the ability to manage network devices, it’s to simply give you higher priority in the event that you come across a bug when using the <strong>FREE</strong> networking modules. Every Ansible user has the ability to automate networking without giving Red Hat a single penny.</p>
+
+<h2 id="lie-26-ansible-runs-things-even-if-not-needed">Lie #26=&gt; Ansible runs things even if not needed</h2>
+
+<p><img src="/puppet-compare-runs-things.png" alt="Screenshot of PuppetLabs lying about Ansible running things when not needed" /></p>
+
+<p>No, Ansible is not limited to cron.</p>
+
+<p>I think the author has a hard time understanding how Ansible works.</p>
+
+<p>Let’s talk Puppet. By default, and as explained in this white paper, it checks in every 30 minutes (is this not also based on time? or maybe it’s based on the Sun’s position…but that still would be time…).</p>
+
+<p>What does this mean, actually? It means that roughly every 30 minutes some logic, <strong>driven by the agent,</strong> checks the current state of the managed resource and applies changes if needed <strong>as dictated by the manifest.</strong> Cool, that’s what it should do. <strong>Good job Puppet.</strong></p>
+
+<p>What do you think Ansible does? When you run a playbook, Ansible <strong>checks the current state of the managed resource and applies changes if needed</strong> as dictated by the playbook.</p>
+
+<p>See the similarity there? The only difference is agents vs agentless.</p>
+
+<h2 id="lie-27-ansible-can-t-identify-when-changes-occur">Lie #27 =&gt; Ansible can’t identify when changes occur</h2>
+
+<p><img src="/puppet-compare-sit.png" alt="Screenshot of PuppetLabs lying about Ansible not being able to identify changes" /></p>
+
+<p>Another user error based argument. Assuming you follow best practices, you can get all these nice benefits of knowing when drift occurred including the ability to trigger notifications based on a change being detected.</p>
+
+<p>Guess what? Someone can turn off a Puppet agent and you wont be able to know what they’re doing after the fact. Neither tool can solve a process or people problem automagically.</p>
+
+<h2 id="lie-28-ansible-can-t-purge-unmanaged-unwanted-things-such-as-firewall-rules-keys-etc">Lie #28=&gt; Ansible can’t purge unmanaged/unwanted things such as firewall rules, keys, etc</h2>
+
+<p><img src="/puppet-compare-purge.png" alt="Screenshot of PuppetLabs lying that Ansible cant purge unwanted things" /></p>
+
+<p>Wrong…again…</p>
+
+<p>From the <a href="https://docs.ansible.com/ansible/devel/modules/authorized_key_module.html">authorized_key</a> module in Ansible:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">exclusive: Whether to remove all other non-specified keys from the authorized_keys file. Multiple keys can be specified in a single key string value by separating them by newlines.</pre></div>
+<p>And, whenever a module doesn’t have this type of functionality it’s quite trivial to have Ansible purge things.</p>
+
+<p>Here’s a complex and complete working example for tagging AWS instances and ensuring any tags you don’t specify are purged, including the situation where an instance might have a CloudFormation Tags that you don’t necessarily know the values of ahead of time.</p>
+
+<p><script src="https://gist.github.com/defionscode/122f6eff04a7d5df8f9e9f18bbbf94bb.js"></script>
+<div style="width:100%;height:0;padding-bottom:55%;position:relative;"><iframe src="https://giphy.com/embed/xT0Gqj4aRBmBofN1yo" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/betawards-bet-awards-jesse-williams-sit-down-xT0Gqj4aRBmBofN1yo"></a></p></p>
+
+<h2 id="lie-29-tower-requires-clustering-after-500-nodes">Lie #29 =&gt; Tower requires clustering after 500 nodes</h2>
+
+<p><img src="/puppet-compare-cluster.png" alt="Screenshot of PuppetLabs lying about when clusting is needed" /></p>
+
+<p>OMG STAHP! This is false in its entirety. I’ve managed thousands of nodes with and without Tower all without ever needing to cluster. So no, you need WAY more than 500 nodes to justify clustering (or a really wild network architecture with layered DMZs or some crazy shit).</p>
+
+<h2 id="lie-30-ansible-does-not-review-or-rate-roles-and-somehow-this-is-related-to-core-modules">Lie #30 =&gt; Ansible does not review or rate roles and somehow this is related to core modules…</h2>
+
+<p><img src="/puppet-compare-modules.png" alt="Screenshot of PuppetLabs comingling roles and modules and using that to deceive" /></p>
+
+<p>I will concede that this is likely more due to ignorance than having an intent to deceive.</p>
+
+<p>Puppet Forge has 5500 modules? That’s great! Any open source community is a great community.</p>
+
+<p><strong>Ansible Galaxy has over 17 thousand roles available.</strong> How convenient that they left that out…</p>
+
+<p>While Ansible doesn’t currently support specific roles via Galaxy (AFAIK), I present <a href="https://github.com/ansible/ansible-lockdown">Ansible Lockdown</a> which is an officially endorsed, though community supported, set of roles for hardening.</p>
+
+<p>I agree that it would nice for there to be curated/supported roles in Galaxy. I’ve advocated for this to be a thing for many years.</p>
+
+<p>Now, the last point. Ansible Engine…I don’t think the author understands what Engine is. It’s intended to be premium support around Ansible modules (which isn’t synonymous to Puppet Modules). Ansible modules are specific utilities such as yum, ec2, stat, etc that you can leverage in a task, within a role, within a play, within a playbook. The interface to an Ansible module is a YAML and it’s backed by Python.</p>
+
+<p>Example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">- apt:
+    name: puppet
+    state: absent</code></pre></div>
+<p>This is one task, it uses the apt module.</p>
+
+<p>Ansible Engine is priority/premium support around the python that backs the logic of apt .</p>
+
+<blockquote>
+<p>…explicit support for ‘core modules’ which is not provided for the community edition</p>
+</blockquote>
+
+<p>This can be interpreted a couple of different ways and both ways are off.</p>
+
+<p>Red Hat does not support (in terms of paid premium support) ‘community’ tagged modules. Why? Well my guess is because of support scale and practicality. Realistically, you can only support that which you can test. There is no practical way to test EVERY single module especially when it comes to modules that operate against COTS tools. So instead of doing all or nothing, Ansible embraces the community and implemented a support model that allows for organizations to have a level of stability for ‘core’ modules that 99% of all users use (such as file, copy, template, etc) while letting the community iterate on the development of modules that fall into more niche categories.</p>
+
+<p>Core modules are absolutely supported in free and open source Ansible you just wont get priority support. You open a ticket on GitHub and the community works to address it. The community INCLUDES Red Hat employees and the Ansible engineering team.</p>
+
+<p><a href="https://github.com/ansible/ansible/commit/9350a81ae47e64dc0862ef8d285da59e58591371#diff-718a011831f6893ac02e0aa970c14cf6">Check it…</a></p>
+
+<p><em>Note: Toshio is a beast! I hope we cross paths again one day.</em></p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Look, I’m friendly when it comes to technical comparisons, and with being open minded, etc.</p>
+
+<p>What I cannot stand is deceptive content such as this white paper. There necessarily was malicious intent or someone was simply to busy (or lazy) to do real research and make sure they were putting out something both useful and accurate. Those are literally the only two options and either is totally inexcusable.</p>
+
+<p>Reading PuppetLab’s white paper made me upset. Not just on technical grounds but because I’ve been in positions where I have had to select technologies based on merit on numerous occasions and articles like this are fully capable of fooling someone who isn’t familiar with the competing technologies. It can literally screw over an entire organization!</p>
+
+<p>Comparisons between products that compete/overlap should absolutely be made. They should be objective, based on concrete examples, and with thorough research to back the final conclusions and done by an independent party OR done by both parties to ensure a proper balance.</p>
+
+<p>PuppetLabs <em>could have</em> reached out to the Ansible Product team at Red Hat and a joint whitepaper <em>could have</em> been written that was fair, accurate, and balanced. Instead, they clearly did zero vetting prior to publishing, and as a result, their credibility (at least in regards to marketing) might, and should, suffer.</p>
+
+<p>I hope this ruffles some feathers.</p>
+
+</div>
+
+
+        
+<div class="section bottom-menu">
+    
+<hr />
+<p>
+
+
+    
+        <a href="/posts">Back</a>
+        
+            &#183;
+        
+    
+
+    
+        
+            <a href="/about">
+                About
+            </a>
+        
+    
+    
+        
+            &#183; 
+            <a href="/posts">
+                Blog
+            </a>
+        
+            &#183; 
+            <a href="/projects">
+                Projects
+            </a>
+        
+            &#183; 
+            <a href="/contact">
+                Contact
+            </a>
+        
+    
+    &#183; 
+    <a href="https://davila.io/">
+        Home
+    </a>
+
+</p>
+</div>
+
+
+        <div class="section footer">© Jonathan I. Davila</div>
+    </div>
+</body>
+
+</html>

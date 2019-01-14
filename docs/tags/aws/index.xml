@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aws on Jonathan Davila</title>
+    <link>https://davila.io/tags/aws/</link>
+    <description>Recent content in Aws on Jonathan Davila</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 05 Jul 2017 16:22:36 -0500</lastBuildDate>
+    
+	<atom:link href="https://davila.io/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using the Aws Javascript Sdk With Meteorjs</title>
+      <link>https://davila.io/posts/using-the-aws-javascript-sdk-with-meteorjs/</link>
+      <pubDate>Wed, 05 Jul 2017 16:22:36 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/using-the-aws-javascript-sdk-with-meteorjs/</guid>
+      <description>I’ve been working on developing a new SaaS product (specific details are secret for now) from scratch using Meteorjs. For the uninitiated it’s an excellent Nodejs/Mongo framework (you can use their UI templating called Blaze or simply bring your own a la React, etc). It handles a lot of things for you out of the box that would otherwise consume a good amount of time to implement (like websockets, user management, cross browser magic, etc.</description>
+    </item>
+    
+  </channel>
+</rss>

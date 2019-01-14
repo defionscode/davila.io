@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Books on Jonathan Davila</title>
+    <link>https://davila.io/tags/books/</link>
+    <description>Recent content in Books on Jonathan Davila</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 10 Aug 2017 16:51:05 -0500</lastBuildDate>
+    
+	<atom:link href="https://davila.io/tags/books/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Reading List: for Those Currently Managing or Those Who Are About To</title>
+      <link>https://davila.io/posts/reading-list-for-those-currently-managing-or-those-who-are-about-to/</link>
+      <pubDate>Thu, 10 Aug 2017 16:51:05 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/reading-list-for-those-currently-managing-or-those-who-are-about-to/</guid>
+      <description>This year I’ve read many books on management, some that are tech-specific and others that are more broadly focused. I present to you a short list (in no particular order) on the books I feel are the best with a brief into allowing to get a feel for whether or not the particular book is for you.
+ Note: The links to the books are not affiliate links at all, this is purely for the public’s benefit.</description>
+    </item>
+    
+  </channel>
+</rss>

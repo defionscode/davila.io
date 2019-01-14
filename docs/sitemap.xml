@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://davila.io/posts/30-lies-puppetlabs-made-about-ansible-25-will-shock-you/</loc>
+    <lastmod>2018-07-11T10:18:22-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/posts/mocking-http-requests-with-meteorjs-with-nock-via-chimp/</loc>
+    <lastmod>2018-01-16T16:55:26-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/posts/reading-list-for-those-currently-managing-or-those-who-are-about-to/</loc>
+    <lastmod>2017-08-10T16:51:05-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/posts/open-salary-systems-the-individual-loses/</loc>
+    <lastmod>2017-08-09T16:39:04-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/posts/personality-diversity-limit-looking-for-rockstars/</loc>
+    <lastmod>2017-08-08T16:29:50-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/posts/using-the-aws-javascript-sdk-with-meteorjs/</loc>
+    <lastmod>2017-07-05T16:22:36-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/posts/quick-tip-making-ansible-execute-python-within-a-virtualenv-or-non-standard-path-on-targets/</loc>
+    <lastmod>2017-02-06T09:34:55-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/posts/the-technical-competence-spiral-theory/</loc>
+    <lastmod>2017-02-02T09:05:37-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/posts/disa-stig-automation/</loc>
+    <lastmod>2015-03-19T07:41:37-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/posts/silos-to-devops/</loc>
+    <lastmod>2015-03-06T08:45:15-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/posts/attracting-top-tech-engineers/</loc>
+    <lastmod>2014-11-04T16:24:41-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/posts/devops-in-federal-government-a-high-level-approach/</loc>
+    <lastmod>2014-06-09T16:11:19-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/agile/</loc>
+    <lastmod>2015-03-06T08:45:15-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/ansible/</loc>
+    <lastmod>2018-07-11T10:18:22-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/automation/</loc>
+    <lastmod>2015-03-19T07:41:37-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/aws/</loc>
+    <lastmod>2017-07-05T16:22:36-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/books/</loc>
+    <lastmod>2017-08-10T16:51:05-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/deceptive-tech/</loc>
+    <lastmod>2018-07-11T10:18:22-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/devops/</loc>
+    <lastmod>2015-03-06T08:45:15-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/diversity/</loc>
+    <lastmod>2017-08-08T16:29:50-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/government/</loc>
+    <lastmod>2014-06-09T16:11:19-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/hiring/</loc>
+    <lastmod>2017-08-09T16:39:04-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/http/</loc>
+    <lastmod>2018-01-16T16:55:26-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/javascript/</loc>
+    <lastmod>2017-07-05T16:22:36-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/</loc>
+    <lastmod>2018-07-11T10:18:22-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/management/</loc>
+    <lastmod>2017-08-10T16:51:05-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/marketing/</loc>
+    <lastmod>2018-07-11T10:18:22-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/meteorjs/</loc>
+    <lastmod>2018-01-16T16:55:26-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/mocking/</loc>
+    <lastmod>2018-01-16T16:55:26-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/nodejs/</loc>
+    <lastmod>2018-01-16T16:55:26-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/posts/</loc>
+    <lastmod>2018-07-11T10:18:22-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/process/</loc>
+    <lastmod>2015-03-06T08:45:15-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/puppet/</loc>
+    <lastmod>2018-07-11T10:18:22-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/python/</loc>
+    <lastmod>2017-02-06T09:34:55-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/quick-tips/</loc>
+    <lastmod>2017-02-06T09:34:55-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/recruiting/</loc>
+    <lastmod>2017-08-09T16:39:04-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/security/</loc>
+    <lastmod>2015-03-19T07:41:37-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/stig/</loc>
+    <lastmod>2015-03-19T07:41:37-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/</loc>
+    <lastmod>2015-03-06T08:45:15-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

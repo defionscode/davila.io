@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jonathan Davila</title>
+    <link>https://davila.io/</link>
+    <description>Recent content on Jonathan Davila</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 11 Jul 2018 10:18:22 -0500</lastBuildDate>
+    
+	<atom:link href="https://davila.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>30 Lies Puppetlabs Made About Ansible, #25 Will Shock You</title>
+      <link>https://davila.io/posts/30-lies-puppetlabs-made-about-ansible-25-will-shock-you/</link>
+      <pubDate>Wed, 11 Jul 2018 10:18:22 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/30-lies-puppetlabs-made-about-ansible-25-will-shock-you/</guid>
+      <description>Disclaimer: While I was once an employee of Red Hat and Ansible. I am not employed by Red Hat anymore and this blog post was not sanctioned or endorsed by Red Hat in any way.
+ On June 26th, 2018, PuppetLabs via their Twitter account made the following tweet
+
+If you rather not go through their form-wall you can get it directly here https://puppet.com/system/files/2018-06/puppet-wp-compare-puppet-and-ansible.pdf
+This tweet sparked my interest.</description>
+    </item>
+    
+    <item>
+      <title>Mocking Http Requests With Meteorjs With Nock via Chimp</title>
+      <link>https://davila.io/posts/mocking-http-requests-with-meteorjs-with-nock-via-chimp/</link>
+      <pubDate>Tue, 16 Jan 2018 16:55:26 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/mocking-http-requests-with-meteorjs-with-nock-via-chimp/</guid>
+      <description>Disclaimer: I wrote this in a bit of haste. Let me know of any errata or missing details and I’ll make prompt edits.
+At MindPoint Group, I am busy building a nifty SaaS utility that aims to help folks manage their cloud images (think AMIs or “golden images”) in an automated and intuitive way.
+In the process of developing the application I’ve been diligent in having proper end-to-end testing in place.</description>
+    </item>
+    
+    <item>
+      <title>Reading List: for Those Currently Managing or Those Who Are About To</title>
+      <link>https://davila.io/posts/reading-list-for-those-currently-managing-or-those-who-are-about-to/</link>
+      <pubDate>Thu, 10 Aug 2017 16:51:05 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/reading-list-for-those-currently-managing-or-those-who-are-about-to/</guid>
+      <description>This year I’ve read many books on management, some that are tech-specific and others that are more broadly focused. I present to you a short list (in no particular order) on the books I feel are the best with a brief into allowing to get a feel for whether or not the particular book is for you.
+ Note: The links to the books are not affiliate links at all, this is purely for the public’s benefit.</description>
+    </item>
+    
+    <item>
+      <title>Open Salary Systems, the Individual Loses</title>
+      <link>https://davila.io/posts/open-salary-systems-the-individual-loses/</link>
+      <pubDate>Wed, 09 Aug 2017 16:39:04 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/open-salary-systems-the-individual-loses/</guid>
+      <description>Disclosure: As with all of my posts this is going to be highly opinionated and will probably bother some folks. The premises and arguments I ultimately present are solely based on my experience. I also want to make clear that I am open to being wrong and if you find fault in my logic or conclusions (maybe there are studies I’m not privy to) I hope that you bring it up either in public or privately, whatever you feel comfortable with.</description>
+    </item>
+    
+    <item>
+      <title>Personality Diversity, Limit Looking for Rockstars</title>
+      <link>https://davila.io/posts/personality-diversity-limit-looking-for-rockstars/</link>
+      <pubDate>Tue, 08 Aug 2017 16:29:50 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/personality-diversity-limit-looking-for-rockstars/</guid>
+      <description>I’m in the process of brainstorming and writing some job reqs for a team I’ll possibly start building early next year and it got me thinking about personalities…
+There is a common pattern in technical recruiting that I have observed, both as the one being recruited, and as the one doing the recruiting which doesn’t seem to get much attention. This is the habit of whipping up recruiting copy, job ads, and other ‘come-work-for-us’ mediums with a sort of elitist element, one that searches for the “The Rockstar”.</description>
+    </item>
+    
+    <item>
+      <title>Using the Aws Javascript Sdk With Meteorjs</title>
+      <link>https://davila.io/posts/using-the-aws-javascript-sdk-with-meteorjs/</link>
+      <pubDate>Wed, 05 Jul 2017 16:22:36 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/using-the-aws-javascript-sdk-with-meteorjs/</guid>
+      <description>I’ve been working on developing a new SaaS product (specific details are secret for now) from scratch using Meteorjs. For the uninitiated it’s an excellent Nodejs/Mongo framework (you can use their UI templating called Blaze or simply bring your own a la React, etc). It handles a lot of things for you out of the box that would otherwise consume a good amount of time to implement (like websockets, user management, cross browser magic, etc.</description>
+    </item>
+    
+    <item>
+      <title>Quick Tip: Making Ansible Execute Python Within a Virtualenv or Non Standard Path on Targets</title>
+      <link>https://davila.io/posts/quick-tip-making-ansible-execute-python-within-a-virtualenv-or-non-standard-path-on-targets/</link>
+      <pubDate>Mon, 06 Feb 2017 09:34:55 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/quick-tip-making-ansible-execute-python-within-a-virtualenv-or-non-standard-path-on-targets/</guid>
+      <description>One of the interesting things in Ansible-land is that all of the (non-Windows) modules in the upstream contain a very specific shebang, in particular #!/usr/bin/python.
+As a result I’ve seen a few bad patterns in the wild:
+ Symlinking the desired Python executable to /usr/bin/python
+ Manually installing Python on that path
+ Giving up and use the raw module
+  Good news, you don’t need to do any of that.</description>
+    </item>
+    
+    <item>
+      <title>The Technical Competence Spiral Theory</title>
+      <link>https://davila.io/posts/the-technical-competence-spiral-theory/</link>
+      <pubDate>Thu, 02 Feb 2017 09:05:37 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/the-technical-competence-spiral-theory/</guid>
+      <description>The Technical Competence Spiral Theory The Technical Competence Spiral states this:
+ An organization’s continuing ability to hire and retain senior, competent, technical leadership for each of its IT domains, dictates its ability to continue a competitive technical competence.
+ Let’s break it down.
+  An organization’s continuing ability to hire and retain senior, competent, technical leadership for each of its IT domains…
+  The simple truth is that it’s difficult to hire an individual who is considered a subject matter expert (SME) in a technical discipline, and who is also capable (let alone experienced) of managing humans along with their technical estate.</description>
+    </item>
+    
+    <item>
+      <title>DISA STIG Remediation: Automagically</title>
+      <link>https://davila.io/posts/disa-stig-automation/</link>
+      <pubDate>Thu, 19 Mar 2015 07:41:37 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/disa-stig-automation/</guid>
+      <description>Why? DISA STIGs for operating systems have long been a glorious pain to remediate. Solutions such as Bastille and Aqueduct have fallen short or simply fallen behind and other pre-baked solutions can be costly.
+I am here to announce, that this problem shall plague us no more! Read on for the glorious details&amp;hellip;
+What? Ansible, in close collaboration with MindPoint Group, has decided to team up in order to provide a FREE collection of Official Ansible Security Roles which will allow any organization to:</description>
+    </item>
+    
+    <item>
+      <title>Silos to Devops In Just 7 Minutes Per Day</title>
+      <link>https://davila.io/posts/silos-to-devops/</link>
+      <pubDate>Fri, 06 Mar 2015 08:45:15 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/silos-to-devops/</guid>
+      <description>With this post you will learn how to implement DevOps in your organization with as little as 7 minutes a day in just 3 months!
+  NOT!!!!
+  If you are part of a company that has been around for longer than a day and runs a &amp;lsquo;traditional&amp;rsquo; IT shop, you cannot expect to be a DevOps shop quickly, no matter how much it is mandated.</description>
+    </item>
+    
+    <item>
+      <title>Attracting Top Tech Engineers</title>
+      <link>https://davila.io/posts/attracting-top-tech-engineers/</link>
+      <pubDate>Tue, 04 Nov 2014 16:24:41 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/attracting-top-tech-engineers/</guid>
+      <description>I preface this article by saying I am not a recruiter nor have ever been and that &amp;lsquo;Top&amp;rsquo; isn&amp;rsquo;t necessarily implying senior in terms of time in tech. For example, I am a strong believer that there are people who have been in tech less than 5 years who are of a higher caliber than engineers who&amp;rsquo;ve been in tech for 20+ years, but of course this is not always true.</description>
+    </item>
+    
+    <item>
+      <title>Devops in Federal Government a High Level Approach</title>
+      <link>https://davila.io/posts/devops-in-federal-government-a-high-level-approach/</link>
+      <pubDate>Mon, 09 Jun 2014 16:11:19 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/devops-in-federal-government-a-high-level-approach/</guid>
+      <description>Disclaimer: This is a personal article. The opinions expressed here represent my own and not those of my employer.
+ DevOps is one of the biggest trends in the IT space, especially within the cloud world; many organizations that have DevOps in place have already started to see the benefits. However, just like with Agile, Federal Agencies see the benefits, understand the &amp;lsquo;awesomeness&amp;rsquo; and want it, but don&amp;rsquo;t know how to do it and most attempts have not hit the mark.</description>
+    </item>
+    
+  </channel>
+</rss>

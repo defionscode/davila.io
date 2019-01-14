@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Who is Jonathan Davila?">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:domain" content="https://davila.io/">
+
+<meta name="twitter:image" content="https://davila.io/tn.png">
+<meta name="twitter:title" property="og:title" itemprop="title name" content="Jonathan Davila">
+<meta name="twitter:description" property="og:description" itemprop="description" content="Who is Jonathan Davila?">
+<meta name="og:type" content="website">
+<meta name="og:url" content="https://davila.io/">
+<meta name="og:image" itemprop="image primaryImageOfPage" content="https://davila.io/tn.png">
+
+<link rel="shortcut icon" href="https://davila.io/davila.ico" id="favicon">
+<link rel="stylesheet" href="https://davila.io/css/style.css">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131788790-1"></script>
+<script>
+    var htmlEl = document.querySelector('html')
+    if (document.location.pathname !== '/') {
+        htmlEl.style.background = '#fff'
+    }
+</script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-131788790-1');
+</script>
+
+    
+
+    
+    
+    
+    <title>
+        
+        Silos to Devops In Just 7 Minutes Per Day
+        
+    </title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="section" id="title">Silos to Devops In Just 7 Minutes Per Day</div>
+
+        
+<div class="section" id="content">
+    Fri Mar 06, 2015 &#183; 732 words
+    
+    <div class="tag-container">
+        
+        <span class="tag">
+            <a href="https://davila.io/tags/devops">
+                devops
+            </a>
+        </span>
+        
+        <span class="tag">
+            <a href="https://davila.io/tags/agile">
+                agile
+            </a>
+        </span>
+        
+        <span class="tag">
+            <a href="https://davila.io/tags/process">
+                process
+            </a>
+        </span>
+        
+    </div>
+    
+    <hr/>
+    
+
+<p><img src="/drevil.jpg" alt="Doctor Evil Doing Air Quotes" /></p>
+
+<blockquote>
+<blockquote>
+<p>With this post you will learn how to implement DevOps in your organization with as little as 7 minutes a day in just 3 months!</p>
+</blockquote>
+</blockquote>
+
+<p><strong>NOT!!!!</strong></p>
+
+<blockquote>
+<blockquote>
+<p>If you are part of a company that has been around for longer than a day and runs a &lsquo;traditional&rsquo; IT shop, you cannot expect to be a DevOps shop quickly, no matter how much it is <strong>mandated</strong>.</p>
+</blockquote>
+</blockquote>
+
+<p>What I am about to explain to you is the best process, in summary, for getting the ball rolling when you already have large IT footprint and you really aren&rsquo;t sure how to do this DevOps thing everyone is talking about. This is based on my experience automating multiple large IT environments and many in-depth discussions I&rsquo;ve had with multiple IT managers/directors.</p>
+
+<h1 id="what-is-devops">What is DevOps?</h1>
+
+<p>This question has been answered at least 32 billion times. What I am going to do is define it as it pertains to this post.</p>
+
+<p>Let&rsquo;s define it as having at least these things, in no particular order:</p>
+
+<ol>
+<li>Any member of your dev team(s) can talk/deal with ops without any obstacles (ie management layer)</li>
+<li>Making a change to development triggers an automated process which includes a thorough testing suite followed by a promotion of that change to production (actual step vary by need). This all happens in the same day (or hour, maybe you can boast having SOA). Note: This does not mean to move to SOA if your monolithic app(s) is plagued with issues</li>
+<li>100% Test coverage for all code</li>
+<li>All code is properly versioned and controlled via some source control management tool (git, svn, cvs, etc)</li>
+<li>All of your infrastructure exists in version control as code (or data).</li>
+<li>Rebuilding a given environment from the ground up is quicker than debugging a production breaking change.</li>
+<li>You do Agile very well (no 2-month long sprints)</li>
+</ol>
+
+<h1 id="how">How?</h1>
+
+<p>This is actually quite simple to conceptualize but can become quite complex to actually implement. A lot of the time and effort needed will depend on how many or how few of the above you currently satisfy. The general steps you want to take are as follows:</p>
+
+<ul>
+<li>Identify your most trivial (or smallest) application</li>
+<li>Focus some percentage of man hours for developing tests to eventually achieve complete coverage. This includes unit, regression and functional testing.</li>
+<li>Configure a CI tool in such a way that testing happens automatically with every commit or pull-request (depends on your git workflow).</li>
+<li>Because your test coverage is so complete, there should be complete confidence in that same CI tool making a promotion from Dev to Test/QA which would potentially undergo other tests followed by the final promotion to Production. <strong>Note:</strong> For organizations that are unable to practice CI/CD fully due to compliance, the process can still be used. Instead of automatic promotion, the workflow can be modified to require manual approval by relevant stakeholders (the testing should still be able to occur automatically).</li>
+<li>Repeat for the next application</li>
+</ul>
+
+<p>Again, this is at higher level and doesn&rsquo;t include the possibilities of running a container (ie Docker or LXC) based environment, or an an environment running across a distributed, fault-tolerant OS cluster (such as CoreOS), or a combination of the aforementioned. There are also additional challenges when using CSP provided tools like SQS, S3, etc. Bottom line, there can never be a definitive guide to implementing DevOps as the answer is almost always &lsquo;It Depends&rsquo;.</p>
+
+<p>Notice the action list made no mention of management taking down silos or forcing a fusion of the Ops and Dev teams. This was intentional. By following the process, ops and dev will necessarily start working more as one cohesive unit instead of independent teams with differing interests.</p>
+
+<h1 id="finally">Finally&hellip;</h1>
+
+<p>The process to fall in line with DevOps methodologies is not quick. The DevOps-ification of a given application can take anywhere from 2 weeks, for the most trivial of applications, to well past a year for complex monolithic applications with little to no automated testing in place.</p>
+
+<p>Ultimately, this post was born out of personal frustration. Time and time again I hear of IT managers or even C-level leadership making a top down push for DevOps when that is simply a near guaranteed way of making their IT departments fall on their face. The best way to do DevOps is through trickle-up IT transformation, starting small and letting that snowball.</p>
+
+<p>Feel free to comment below or reach out directly.</p>
+
+<p>Cheers!</p>
+
+</div>
+
+
+        
+<div class="section bottom-menu">
+    
+<hr />
+<p>
+
+
+    
+        <a href="/posts">Back</a>
+        
+            &#183;
+        
+    
+
+    
+        
+            <a href="/about">
+                About
+            </a>
+        
+    
+    
+        
+            &#183; 
+            <a href="/posts">
+                Blog
+            </a>
+        
+            &#183; 
+            <a href="/projects">
+                Projects
+            </a>
+        
+            &#183; 
+            <a href="/contact">
+                Contact
+            </a>
+        
+    
+    &#183; 
+    <a href="https://davila.io/">
+        Home
+    </a>
+
+</p>
+</div>
+
+
+        <div class="section footer">© Jonathan I. Davila</div>
+    </div>
+</body>
+
+</html>

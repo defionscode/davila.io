@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Process on Jonathan Davila</title>
+    <link>https://davila.io/tags/process/</link>
+    <description>Recent content in Process on Jonathan Davila</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 Mar 2015 08:45:15 -0500</lastBuildDate>
+    
+	<atom:link href="https://davila.io/tags/process/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Silos to Devops In Just 7 Minutes Per Day</title>
+      <link>https://davila.io/posts/silos-to-devops/</link>
+      <pubDate>Fri, 06 Mar 2015 08:45:15 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/silos-to-devops/</guid>
+      <description>With this post you will learn how to implement DevOps in your organization with as little as 7 minutes a day in just 3 months!
+  NOT!!!!
+  If you are part of a company that has been around for longer than a day and runs a &amp;lsquo;traditional&amp;rsquo; IT shop, you cannot expect to be a DevOps shop quickly, no matter how much it is mandated.</description>
+    </item>
+    
+    <item>
+      <title>Devops in Federal Government a High Level Approach</title>
+      <link>https://davila.io/posts/devops-in-federal-government-a-high-level-approach/</link>
+      <pubDate>Mon, 09 Jun 2014 16:11:19 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/devops-in-federal-government-a-high-level-approach/</guid>
+      <description>Disclaimer: This is a personal article. The opinions expressed here represent my own and not those of my employer.
+ DevOps is one of the biggest trends in the IT space, especially within the cloud world; many organizations that have DevOps in place have already started to see the benefits. However, just like with Agile, Federal Agencies see the benefits, understand the &amp;lsquo;awesomeness&amp;rsquo; and want it, but don&amp;rsquo;t know how to do it and most attempts have not hit the mark.</description>
+    </item>
+    
+  </channel>
+</rss>

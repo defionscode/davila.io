@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Who is Jonathan Davila?">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:domain" content="https://davila.io/">
+
+<meta name="twitter:image" content="https://davila.io/tn.png">
+<meta name="twitter:title" property="og:title" itemprop="title name" content="Jonathan Davila">
+<meta name="twitter:description" property="og:description" itemprop="description" content="Who is Jonathan Davila?">
+<meta name="og:type" content="website">
+<meta name="og:url" content="https://davila.io/">
+<meta name="og:image" itemprop="image primaryImageOfPage" content="https://davila.io/tn.png">
+
+<link rel="shortcut icon" href="https://davila.io/davila.ico" id="favicon">
+<link rel="stylesheet" href="https://davila.io/css/style.css">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131788790-1"></script>
+<script>
+    var htmlEl = document.querySelector('html')
+    if (document.location.pathname !== '/') {
+        htmlEl.style.background = '#fff'
+    }
+</script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-131788790-1');
+</script>
+
+    
+
+    
+    
+    
+    <title>
+        
+        Mocking Http Requests With Meteorjs With Nock via Chimp
+        
+    </title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="section" id="title">Mocking Http Requests With Meteorjs With Nock via Chimp</div>
+
+        
+<div class="section" id="content">
+    Tue Jan 16, 2018 &#183; 1363 words
+    
+    <div class="tag-container">
+        
+        <span class="tag">
+            <a href="https://davila.io/tags/http">
+                http
+            </a>
+        </span>
+        
+        <span class="tag">
+            <a href="https://davila.io/tags/mocking">
+                mocking
+            </a>
+        </span>
+        
+        <span class="tag">
+            <a href="https://davila.io/tags/nodejs">
+                nodejs
+            </a>
+        </span>
+        
+        <span class="tag">
+            <a href="https://davila.io/tags/meteorjs">
+                meteorjs
+            </a>
+        </span>
+        
+    </div>
+    
+    <hr/>
+    
+
+<p>Disclaimer: I wrote this in a bit of haste. Let me know of any errata or missing details and I’ll make prompt edits.</p>
+
+<p>At MindPoint Group, I am busy building a nifty SaaS utility that aims to help folks manage their cloud images (think AMIs or “golden images”) in an automated and intuitive way.</p>
+
+<p>In the process of developing the application I’ve been diligent in having proper end-to-end testing in place. Whenever possible and practical I like to avoid mocking for e2e testing; in other words, if it’s possible to test “for reals” why not? However, for my app there are a couple of places where this is not very practical at all.</p>
+
+<h2 id="testing-challenge-importing-machine-images-from-an-s3-bucket"><strong>Testing Challenge— Importing machine images from an S3 bucket</strong></h2>
+
+<p>This a basic feature that the app will have, it simply allows for users to pick an Amazon compatible machine image from an S3 bucket and subsequently import that image as a proper AMI into AWS for usage within EC2. From purely an AWS API perspective this is a <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">straightforward task</a>, it isn’t anything magical. However, with our utility you’ll be able to streamline some of the other odds and ends such as tagging, sharing with other accounts, replication across N regions, etc. That’s all great. However, with testing, I quickly realized that it would not be practical to avoid mocking since doing an import from S3 to an AMI can take well over 20 minutes. This means a single test-case for S3 based imports would add 20 minutes to the total test time and I certainly have more than a single test case. No thank you.</p>
+
+<h2 id="app-api-gateway-lambda-aws-api">App &gt;&gt; API Gateway &gt;&gt; Lambda &gt;&gt; AWS API</h2>
+
+<p><img src="/lambawf.png" alt="Drawn diagram showing the logic flow from App to API-Gateway" /></p>
+
+<p>To make it easier to grok this is a quick and trivial overview of how our application interacts with AWS. The app itself does not call any AWS API directly. Instead we leverage <a href="https://serverless.com/">Serverless Framework</a> to manage our Lambda functions and API Gateway endpoints. It is these endpoints that the app makes HTTP requests against.</p>
+
+<h2 id="enter-nock">Enter Nock</h2>
+
+<p>Nock is a fantastic JavaScript utility which I discovered. <a href="https://github.com/node-nock/nock">Taken from the README of its GitHub page:</a></p>
+
+<blockquote>
+<p>Nock is an HTTP mocking and expectations library for Node.js
+Nock can be used to test modules that perform HTTP requests in isolation.
+For instance, if a module performs HTTP requests to a CouchDB server or makes HTTP requests to the Amazon API, you can test that module in isolation.
+Nock works by overriding Node’s http.request function. Also, it overrides http.ClientRequest too to cover for modules that use it directly.</p>
+</blockquote>
+
+<p>Given how it works, it ends up working seamlessly with <a href="https://docs.meteor.com/api/http.html">Meteor’s HTTP mechanism</a> which is just a wrapper around http.request. In short, you tell nock the type of outbound request to look for (you can specify query params, headers, body, etc) and if nock sees a matching request, it will intercept it and give you the response you specified when <a href="https://github.com/node-nock/nock#read-this---about-interceptors">defining the interceptor</a>.</p>
+
+<p><strong><em>Example</em></strong>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8be9fd;font-style:italic">var</span> scope <span style="color:#ff79c6">=</span> nock(<span style="color:#f1fa8c">&#39;http://www.example.com&#39;</span>)
+    .get(<span style="color:#f1fa8c">&#39;/resource&#39;</span>)
+    .reply(<span style="color:#bd93f9">200</span>, <span style="color:#f1fa8c">&#39;domain matched&#39;</span>);
+</code></pre></div>
+<p>In this trivial example, nock is told to lookout for an outbound GET request to ‘<a href="http://ww.example.com/resource’">http://ww.example.com/resource’</a> and when it’s detected, intercept it and respond with a 200 response code and a text message response of ‘domain matched’. I think it’s a wonderfully simple interface.</p>
+
+<p>Installation should be done as follows:</p>
+
+<p><code>meteor npm install nock --save-dev</code></p>
+
+<h2 id="a-primer-on-chimpjs">A Primer on Chimpjs</h2>
+
+<p><a href="https://chimp.readme.io/">Chimp is a test runner</a>. It takes away some of the pain points of having to configure and setup testing frameworks. You can practically go from installing Chimp to immediately writing tests in Mocha, Jasmine, and or Cucumber with Selenium/WebDriver. I believe there are significant shifts underway for Chimp 2.0 but for now just know that it’s a utility that makes it easier to get going with writing and running tests.</p>
+
+<h2 id="test-setup">Test Setup</h2>
+
+<p>As with any testing tool, tests are run independently and in isolation of any actual application process.</p>
+
+<p>The following is a diagram of how the processes interact.</p>
+
+<p><img src="/procdiagram.png" alt="A diagram showing the interaction between different processes" /></p>
+
+<p>In my testing we have two processes. One is Chimp itself which is responsible for invoking Cucumber to execute the various step files for the application’s features. The second process is the local Meteor server.</p>
+
+<h3 id="acceptance-test-driver">Acceptance Test Driver</h3>
+
+<p>It is important to note that I am running Meteor server in AppTest mode by leveraging <a href="https://github.com/tmeasday/acceptance-test-driver">tmeasday:acceptance-test-driver</a>. The driver can be installed via meteor add tmeasday:acceptance-test-driver.</p>
+
+<p>This allows you to run Meteor server in such a way that it stays running similar to the meteor run invocation, but as a test, you get access to Meteor.isAppTest thus letting you leverage testing fixtures while developing your application. In my <code>package.json</code> I have something akin to:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;scripts&#34;</span> {
+    <span style="color:#ff79c6">&#34;uatmode&#34;</span>: <span style="color:#f1fa8c">&#34;meteor test --full-app --driver-package tmeasday:acceptance-test-driver --settings settings/dev.json&#34;</span>
+  }
+}</code></pre></div>
+<h3 id="xolvio-backdoor">Xolvio Backdoor</h3>
+
+<p>The next piece which is needed is <a href="https://github.com/xolvio/meteor-backdoor">Xolvio’s backdoor package</a> which allows you define some logic in the Chimp (Cucumber step file) process that gets executed in the Meteor process. This is also easy to install via <code>meteor add xolvio:backdoor</code>.</p>
+
+<p>It is important to note that this is a <a href="https://github.com/xolvio/meteor-backdoor/blob/master/package.js#L5">debugOnly utility</a>, meaning that even if you wanted to, you would not be able to leverage the backdoor in production (assuming you installed directly from source without modification).</p>
+
+<h3 id="pre-load-nock">“Pre Load” Nock</h3>
+
+<p>Something that caught me off guard initially was getting nock to actually work. When I first attempted to set things up I kept getting “module not found” errors. I was erroneously trying to <code>require(&quot;nock&quot;)</code> inside of a Chimp <code>server.execute()</code> block (through the backdoor mechanism). I eventually consulted the extremely talented folks at Xolvio via their Slack channel and found the solution.</p>
+
+<p>Since Meteorjs does magical things it is necessary to lazy load/require any modules you might need before the meteor server process kicks off otherwise you won’t have success in loading libraries in the testing process.</p>
+
+<p>The relevant parts of my directory structure (I follow <a href="https://guide.meteor.com/structure.html#javascript-structure">Meteor’s guidance</a> on directory layout using the <code>/imports</code> dir) are below:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">└── startup
+    └── server
+        ├── index.js
+        └── module-loader.js</pre></div>
+<p>Keep in mind I’ve omitted a bunch of directories and files to reduce confusion.</p>
+
+<p>Inside of the <code>index.js</code> file I have a line <code>import ‘./module-loader.js’;</code></p>
+
+<p>And inside of <code>module-loader.js</code> I have</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">false</span>) {
+    require(<span style="color:#f1fa8c">&#39;nock&#39;</span>);
+}
+</code></pre></div>
+<p>It’s a bit of a hack but this is the best way to be able to lazy load nock in order to then leverage it within the test suite (Chimp/Cucumber).</p>
+
+<p>If you’ve done everything above, you should be ready to start writing a test.</p>
+
+<h2 id="using-nock-within-a-cucumber-step-file">Using Nock within a Cucumber Step File</h2>
+
+<p>Let’s see what it all looks like when put together.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">module.exports <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>() {
+    <span style="color:#ff79c6">this</span>.When(<span style="color:#f1fa8c">/^we demo nock usage$/</span>, <span style="color:#8be9fd;font-style:italic">function</span> (){
+        <span style="color:#ff79c6">const</span> setupApiMock =&gt; {
+            <span style="color:#ff79c6">const</span> nock <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#34;nock&#34;</span>);
+            <span style="color:#ff79c6">const</span> scope <span style="color:#ff79c6">=</span> nock(<span style="color:#f1fa8c">&#34;http://example.com&#34;</span>)
+                            .post(<span style="color:#f1fa8c">&#34;/add/example&#34;</span>, {
+                              msg<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;foo&#34;</span>,
+                              data<span style="color:#ff79c6">:</span> {a <span style="color:#ff79c6">:</span> <span style="color:#bd93f9">1</span>, b<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;two&#34;</span>}
+                             })
+                            .reply(<span style="color:#bd93f9">200</span>, {
+                             <span style="color:#f1fa8c">&#34;message&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;success&#34;</span>
+                             })
+
+        } <span style="color:#6272a4">// end of setupApiMock
+</span><span style="color:#6272a4"></span>
+        <span style="color:#ff79c6">const</span> isDone <span style="color:#ff79c6">=</span> () =&gt; scope.isDone();
+        server.execute(setupApiMock);
+        browser.click(<span style="color:#f1fa8c">&#34;#submit-form-post-to-example&#34;</span>);
+        <span style="color:#8be9fd;font-style:italic">let</span> done <span style="color:#ff79c6">=</span> server.execute(isDone);
+        <span style="color:#ff79c6">while</span>(<span style="color:#ff79c6">!</span>done){
+            done <span style="color:#ff79c6">=</span> server.execute(isDone);
+        };
+    } <span style="color:#6272a4">// end of this.When
+</span><span style="color:#6272a4"></span>} <span style="color:#6272a4">// end of module.exports
+</span><span style="color:#6272a4"></span></code></pre></div>
+<p>We first setup the interceptor via setupApiMock(). This initiates the nock interceptor. Please note that that function doesn’t get ran until the line <code>server.execute(setupApiMock)</code>.</p>
+
+<p>Then we setup a utility to check if the interceptor has been consumed with <code>isDone()</code>. The <code>scope.isDone()</code> call is a helper method within the nock library that returns a boolean value depending on whether the defined interceptors have been exhausted. We leverage it here to make sure that the interceptors have been fully used prior to moving on to the next test case. We want to avoid moving into a new test case with interceptors defined/used in a prior test.</p>
+
+<p>Then we use Chimp’s WebDriver helper browser, which is just a connector to the WebDriver API, to click on some element in our browser which POSTs to example.com. It is at this point that the interceptor should be consumed. We verify this with the while loop.</p>
+
+<h2 id="a-couple-of-protips">A couple of ProTips</h2>
+
+<ul>
+<li><p>Define nock/scope via global.nock and global.scope when you need to set up an interceptor that needs to be used across more than one test case.</p></li>
+
+<li><p>You may only need to mock certain endpoints for a hostname but still want to do “real” requests for all other endpoints. When that’s what you want, use <a href="https://github.com/node-nock/nock#allow-unmocked-requests-on-a-mocked-hostname">allowUnmocked</a>.</p></li>
+</ul>
+
+<p><strong>That’s it! The end.</strong></p>
+
+</div>
+
+
+        
+<div class="section bottom-menu">
+    
+<hr />
+<p>
+
+
+    
+        <a href="/posts">Back</a>
+        
+            &#183;
+        
+    
+
+    
+        
+            <a href="/about">
+                About
+            </a>
+        
+    
+    
+        
+            &#183; 
+            <a href="/posts">
+                Blog
+            </a>
+        
+            &#183; 
+            <a href="/projects">
+                Projects
+            </a>
+        
+            &#183; 
+            <a href="/contact">
+                Contact
+            </a>
+        
+    
+    &#183; 
+    <a href="https://davila.io/">
+        Home
+    </a>
+
+</p>
+</div>
+
+
+        <div class="section footer">© Jonathan I. Davila</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Automation on Jonathan Davila</title>
+    <link>https://davila.io/tags/automation/</link>
+    <description>Recent content in Automation on Jonathan Davila</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 19 Mar 2015 07:41:37 -0500</lastBuildDate>
+    
+	<atom:link href="https://davila.io/tags/automation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>DISA STIG Remediation: Automagically</title>
+      <link>https://davila.io/posts/disa-stig-automation/</link>
+      <pubDate>Thu, 19 Mar 2015 07:41:37 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/disa-stig-automation/</guid>
+      <description>Why? DISA STIGs for operating systems have long been a glorious pain to remediate. Solutions such as Bastille and Aqueduct have fallen short or simply fallen behind and other pre-baked solutions can be costly.
+I am here to announce, that this problem shall plague us no more! Read on for the glorious details&amp;hellip;
+What? Ansible, in close collaboration with MindPoint Group, has decided to team up in order to provide a FREE collection of Official Ansible Security Roles which will allow any organization to:</description>
+    </item>
+    
+  </channel>
+</rss>
