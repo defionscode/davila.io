@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://davila.io/posts/a-case-for-read-only-open-source/</loc>
+    <lastmod>2019-02-02T09:25:57-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://davila.io/projects/</loc>
     <lastmod>2019-01-05T12:23:35-05:00</lastmod>
   </url>
@@ -108,7 +113,19 @@
   </url>
   
   <url>
+    <loc>https://davila.io/tags/burnout/</loc>
+    <lastmod>2019-02-02T09:25:57-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://davila.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davila.io/tags/community/</loc>
+    <lastmod>2019-02-02T09:25:57-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -156,7 +173,7 @@
   
   <url>
     <loc>https://davila.io/</loc>
-    <lastmod>2019-01-05T12:23:35-05:00</lastmod>
+    <lastmod>2019-02-02T09:25:57-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -191,8 +208,14 @@
   </url>
   
   <url>
+    <loc>https://davila.io/tags/open-source/</loc>
+    <lastmod>2019-02-02T09:25:57-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://davila.io/posts/</loc>
-    <lastmod>2018-07-11T10:18:22-05:00</lastmod>
+    <lastmod>2019-02-02T09:25:57-05:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Who is Jonathan Davila?">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:domain" content="https://davila.io/">
+
+<meta name="twitter:image" content="https://davila.io/tn.png">
+<meta name="twitter:title" property="og:title" itemprop="title name" content="Jonathan Davila">
+<meta name="twitter:description" property="og:description" itemprop="description" content="Who is Jonathan Davila?">
+<meta name="og:type" content="website">
+<meta name="og:url" content="https://davila.io/">
+<meta name="og:image" itemprop="image primaryImageOfPage" content="https://davila.io/tn.png">
+
+<link rel="shortcut icon" href="https://davila.io/davila.ico" id="favicon">
+<link rel="stylesheet" href="https://davila.io/css/style.css">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131788790-1"></script>
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+<script defer src="https://pro.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-4Gm0M5DjJ0zGaEtLu0ztNIoHWiuJ5rKiaVlpZKeNqXAW49eIIa2ymxb3C4c3uEXR" crossorigin="anonymous"></script>
+<script src="/search.js"></script>
+<script>
+    var htmlEl = document.querySelector('html')
+    if (document.location.pathname !== '/') {
+        htmlEl.style.background = '#fff'
+    }
+</script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-131788790-1');
+</script>
+
+
+    
+
+    
+    
+    
+    <title>
+        
+        A Case for Read-Only Open Source
+        
+    </title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="section" id="title">A Case for Read-Only Open Source</div>
+
+        
+<div class="section" id="content">
+    Sat Feb 02, 2019 &#183; 1022 words
+    
+    <div class="tag-container">
+        
+        <span class="tag">
+            <a href="https://davila.io/tags/open-source">
+                open source
+            </a>
+        </span>
+        
+        <span class="tag">
+            <a href="https://davila.io/tags/community">
+                community
+            </a>
+        </span>
+        
+        <span class="tag">
+            <a href="https://davila.io/tags/burnout">
+                burnout
+            </a>
+        </span>
+        
+    </div>
+    
+    <hr/>
+    
+
+<p>This might stir some controversy.</p>
+
+<p>Contributions are really nice, but at scale they can be expensive. I think this dissuades some organizations from open sourcing any of their code. Recently, a thought ocurred to me, maybe it&rsquo;s okay to open source something while at the same time not really caring for community.</p>
+
+<h2 id="what-if-we-made-projects-that-didn-t-necessarily-care-for-contributions">What if we made projects that didn&rsquo;t necessarily care for contributions?</h2>
+
+<h2 id="would-companies-be-more-willing-to-be-transparent-with-their-code-if-there-wasn-t-an-implicit-expectation-of-free-support">Would companies be more willing to be transparent with their code if there wasn&rsquo;t an implicit expectation of &lsquo;free&rsquo; support?</h2>
+
+<p><strong>Allow me to explain</strong></p>
+
+<h1 id="generic-projects-make-for-extreme-complexity">Generic projects make for extreme complexity</h1>
+
+<p>There are ambitious projects that aim to please <em>most</em> people in a very large segment of an industry. Projects that fit this bucket are things like Webpack, which tries to work for <em>all</em> web developers, or Ansible which tries to work for all IT professionals. Those two projects and others like them have massive communities behind them, which is amazing. However, because they cater to such a vast audience (in the thousands), they are also very complex projects. The complexity lies in not only in the code base, but also in the management of the community.</p>
+
+<p>Looking at projects like these, you see the need to make specialized niche groups to discuss small areas of interest within the community at-large. I think those things are great! But! It&rsquo;s <em>usually</em> only great if the project is backed by a large business interest that can sustain paying several folks to work on the project full time. Netflix, Google, Microsoft, Facebook, Red Hat, and IBM, are examples of organizations that have the people and the $$ to maintain large and complex open source projects.</p>
+
+<blockquote>
+<p>Most Open Source is not governed, owned, or maintained by any of these organizations.</p>
+</blockquote>
+
+<h1 id="it-s-okay-for-an-open-source-project-to-exist-solely-for-transparency-purposes">It&rsquo;s okay for an open source project to exist solely for transparency purposes</h1>
+
+<p>If you provide something-as-a-service, there might be a time when you want to open source something you&rsquo;ve designed and built internally. Unfortunately, I&rsquo;ve seen many organizations refrain from this simply because they dont have people to deal with community. I think there&rsquo;s an alternative. I believe it is still valuable to open source your code even when there is no real intention of fostering a super-community.</p>
+
+<ol>
+<li>Transparency is always a great thing when it comes to software, especially software that touches your data.</li>
+<li>Given a suitable license, it&rsquo;s still valuable to be able to fork a project and modify it to fit your needs, that still saves you a TON of time over the long term. <strong>You don&rsquo;t necessarily need to rely on the upstream to leverage open source</strong>.</li>
+<li>If you&rsquo;re an end user, how dope would it be to be able to file a bug report on code that you actually use. Imagine if Spotify open sourced their core and you were able to suggest an improvement to some code that directly influences how you interact with music. I think most people would have zero desire to roll-their-own-Spotify, but plenty of folks would probably be down to contribute.</li>
+</ol>
+
+<h1 id="simpler-development-workflow">Simpler Development Workflow</h1>
+
+<p>If I open source a project under the model I&rsquo;m suggesting it means that I (and my team) can develop code without needing to loop-in a community; after all, all we are trying to accomplish by being open is just that, being open.</p>
+
+<p>This is a good thing. It makes development easier for us, because there are fewer cooks in the kitchen. I&rsquo;d effectively be saying &ldquo;I made this, I think it&rsquo;s worth sharing, and maybe it can help you, and if it doesn&rsquo;t, that&rsquo;s okay too&rdquo;. Certainly, issues and pull-requests would be considered, it just wouldn&rsquo;t be a priority, and there&rsquo;d be no expectation that they&rsquo;d be addressed.</p>
+
+<p>The community would be free to open up issues and even make contributions, but if it doesn&rsquo;t mesh with our own roadmap I can simply say &ldquo;This is a nice idea, but it&rsquo;s not something that makes sense for us&rdquo;. This would likely alienate some folks from our project, but that&rsquo;s okay, it means my project wasn&rsquo;t for them.</p>
+
+<p>As a result of being bound only to our own internal roadmap, we&rsquo;d be free to do things exactly how we want them. No different than anything closed-source, except that this path would be transparent. In a way we could call this read-only open source.</p>
+
+<h1 id="no-support-for-run-your-own">No support for run-your-own</h1>
+
+<p>One of the bigger headaches that can come with an open source project is supporting all the unique places that a given tool/platform/etc can run. If you run a project as read-only then that means all you have to concern yourself with is how <em>you</em> run things. This posture eliminates the overhead of having to support:</p>
+
+<ul>
+<li>N platforms</li>
+<li>Y edge-cases (that are not relevant for you)</li>
+<li>Community debates about roadmap</li>
+<li>anything that you don&rsquo;t have an explicit need for</li>
+</ul>
+
+<h1 id="being-selfish-might-mitigate-burn-out">Being selfish might mitigate burn-out</h1>
+
+<p>When you don&rsquo;t concern yourself with a &ldquo;community&rdquo; and all you worry about is transparency and perhaps general feedback, one of the causes of maintainer burn-out is eliminated.</p>
+
+<h1 id="you-might-still-want-community">You might still want community</h1>
+
+<p>If you want:</p>
+
+<ul>
+<li>fame (reputation)</li>
+<li>to help a large audience</li>
+<li>to start an open-core business model (like Ansible/Kubernetes)</li>
+<li>a labor of love</li>
+</ul>
+
+<p>None of these things are bad but I do not believe it&rsquo;s the right path for <em>most</em> people. Personally, I think it&rsquo;s better to provide help to a small audience exceptionally well, than it is to try to <em>generally</em> help a <em>general</em> audience.</p>
+
+<h1 id="consider-it">Consider it</h1>
+
+<p>Next time you want to open source a lib that you (or your team/org) uses, consider this model. I think it&rsquo;s a good option. The software world could use more transparency, and you don&rsquo;t need to over-burden yourself to do so.</p>
+
+<h1 id="closing-thought">Closing thought</h1>
+
+<p>An old adage states that if you try to please everyone you&rsquo;ll end up pleasing no one. I think this has some truth to many large open source projects.</p>
+
+<blockquote>
+<p>Does any large (1000+ contributor) open source project have any specific user base that is 100% satisifed?</p>
+</blockquote>
+
+<p>I cannot think of any. Large projects seem to have <em>generally</em> content user bases but do not have any <em>one</em> segement that is wholly satisfied. Why is that?</p>
+
+<h1 id="end">End</h1>
+
+</div>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "davilaio" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+        
+<div class="section bottom-menu">
+    
+<hr />
+<p>
+
+
+    
+        <a href="/posts">Back</a>
+        
+            &#183;
+        
+    
+
+    
+        
+            <a href="/about">
+                About
+            </a>
+        
+    
+    
+        
+            &#183; 
+            <a href="/posts">
+                Blog
+            </a>
+        
+            &#183; 
+            <a href="/projects">
+                Projects
+            </a>
+        
+            &#183; 
+            <a href="/contact">
+                Contact
+            </a>
+        
+    
+    &#183; 
+    <a href="https://davila.io/">
+        Home
+    </a>
+
+</p>
+</div>
+
+
+        <div class="section footer">© Jonathan I. Davila</div>
+    </div>
+</body>
+
+</html>
