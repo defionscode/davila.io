@@ -217,7 +217,7 @@ Nock works by overriding Node’s http.request function. Also, it overrides http
         };
     } <span style="color:#6272a4">// end of this.When
 </span><span style="color:#6272a4"></span>} <span style="color:#6272a4">// end of module.exports
-</span><span style="color:#6272a4"></span></code></pre></div>
+</span></code></pre></div>
 <p>We first setup the interceptor via setupApiMock(). This initiates the nock interceptor. Please note that that function doesn’t get ran until the line <code>server.execute(setupApiMock)</code>.</p>
 
 <p>Then we setup a utility to check if the interceptor has been consumed with <code>isDone()</code>. The <code>scope.isDone()</code> call is a helper method within the nock library that returns a boolean value depending on whether the defined interceptors have been exhausted. We leverage it here to make sure that the interceptors have been fully used prior to moving on to the next test case. We want to avoid moving into a new test case with interceptors defined/used in a prior test.</p>

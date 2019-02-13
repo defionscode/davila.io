@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Collaboration on Jonathan Davila</title>
+    <link>https://davila.io/tags/collaboration/</link>
+    <description>Recent content in Collaboration on Jonathan Davila</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 13 Feb 2019 07:49:06 -0500</lastBuildDate>
+    
+	<atom:link href="https://davila.io/tags/collaboration/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Having Empathy When You Are 100 Percent Right</title>
+      <link>https://davila.io/posts/having-empathy-when-you-are-100-percent-right/</link>
+      <pubDate>Wed, 13 Feb 2019 07:49:06 -0500</pubDate>
+      
+      <guid>https://davila.io/posts/having-empathy-when-you-are-100-percent-right/</guid>
+      <description>There are times, especially as an engineer that you are 100% correct, or at the very least, your plan is objectively better than the plan of someone else. It is in these moments that our true capacity for empathy is tested.
+The thing is, engineers are not immune to forming irrational opinions, thoughts, desires, or code. If we can presume that the vast majority of professionals have positive intent when offering up their ideas and solutions, we can then, at the very least, safely assume the following:</description>
+    </item>
+    
+  </channel>
+</rss>
