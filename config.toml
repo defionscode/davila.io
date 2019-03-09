@@ -4,7 +4,6 @@ defaultContentLanguage  = "en"
 isMultilingual          = false
 title = "Jonathan Davila"
 theme = ["sam"]
-googleAnalytics = "UA-131788790-1"
 pygmentsCodefences = true
 pygmentsCodefencesGuessSyntax = true
 pygmentsStyle           = "dracula"
