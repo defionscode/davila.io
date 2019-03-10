@@ -8,7 +8,6 @@ pygmentsCodefences = true
 pygmentsCodefencesGuessSyntax = true
 pygmentsStyle           = "dracula"
 publishDir = "docs"
-disqusShortname = "davilaio"
 
 [params]
     dateform            = "Mon Jan 02, 2006"
