@@ -46,7 +46,7 @@ The testing process is completely open-source as is the current test pass/fail s
 
 We've made this possible through a lot of hard work and a whole lot of Ansible.
 
-![Most interesting man in the world. I don't always STIG but when I do I use Ansiblee](/dosx.jpg)
+![Most interesting man in the world. I don't always STIG but when I do I use Ansiblee](/dosx.webp)
 
 ## Where?
 

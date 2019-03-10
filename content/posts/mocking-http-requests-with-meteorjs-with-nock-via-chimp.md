@@ -18,7 +18,7 @@ This a basic feature that the app will have, it simply allows for users to pick 
 
 ## App >> API Gateway >> Lambda >> AWS API
 
-![Drawn diagram showing the logic flow from App to API-Gateway](/lambawf.png)
+![Drawn diagram showing the logic flow from App to API-Gateway](/lambawf.webp)
 
 To make it easier to grok this is a quick and trivial overview of how our application interacts with AWS. The app itself does not call any AWS API directly. Instead we leverage [Serverless Framework](https://serverless.com/) to manage our Lambda functions and API Gateway endpoints. It is these endpoints that the app makes HTTP requests against.
 
@@ -57,7 +57,7 @@ As with any testing tool, tests are run independently and in isolation of any ac
 
 The following is a diagram of how the processes interact.
 
-![A diagram showing the interaction between different processes](/procdiagram.png)
+![A diagram showing the interaction between different processes](/procdiagram.webp)
 
 In my testing we have two processes. One is Chimp itself which is responsible for invoking Cucumber to execute the various step files for the application’s features. The second process is the local Meteor server.
 

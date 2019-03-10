@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 
 <head>
     
@@ -15,15 +15,17 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:domain" content="https://davila.io/">
 
-<meta name="twitter:image" content="https://davila.io/images/preview.png">
+<meta name="twitter:image" content="https://davila.io/images/preview.webp">
 <meta name="twitter:title" property="og:title" itemprop="title name" content="Jonathan Davila">
 <meta name="twitter:description" property="og:description" itemprop="description" content="Who is Jonathan Davila?">
 <meta name="og:type" content="website">
 <meta name="og:url" content="https://davila.io/">
-<meta name="og:image" itemprop="image primaryImageOfPage" content="https://davila.io/images/preview.png">
+<meta name="og:image" itemprop="image primaryImageOfPage" content="https://davila.io/images/preview.webp">
 
 <link rel="shortcut icon" href="https://davila.io/davila.ico" id="favicon">
 <link rel="stylesheet" href="https://davila.io/css/style.css">
+<link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> 
+<noscript><link rel="stylesheet" href="styles.css"></noscript>
 <script src="https://unpkg.com/lunr/lunr.js"></script>
 <script defer src="https://pro.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-4Gm0M5DjJ0zGaEtLu0ztNIoHWiuJ5rKiaVlpZKeNqXAW49eIIa2ymxb3C4c3uEXR" crossorigin="anonymous"></script>
 <script src="/search.js"></script>
@@ -48,10 +50,10 @@
 
 <body>
     <div class="wrap">
-        <div class="section" id="title">Javascript</div>
+        <div class="section" id="title"><h1>Javascript</h1></div>
 
         
-<div class="section" id="content">
+<main class="section" id="content">
   <form id="searchthis" action="/search" style="display:inline;" method="get">
     
     <input id="search-box" name="q" size="40" type="text" placeholder="  Search! :D "/>
@@ -71,12 +73,12 @@
         </li>
         
     </ul>
-</div>
+  </main>
 
 
 
         
-        <div class="section bottom-menu">
+        <nav class="section bottom-menu">
 <hr />
 <p>
 
@@ -113,10 +115,10 @@
         Home
     </a>
 
-</p></div>
+</p></nav>
         
 
-        <div class="section footer">© Jonathan I. Davila</div>
+        <footer class="section footer">© Jonathan I. Davila</footer>
     </div>
     <script async defer src="https://cdn.simpleanalytics.io/hello.js"></script> 
     <noscript><img src="https://api.simpleanalytics.io/hello.gif" alt=""></noscript>

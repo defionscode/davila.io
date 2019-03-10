@@ -35,7 +35,7 @@ True DevOps necessitates a real culture change to reap real benefits, and if Gov
 **Fear.** Why do agencies institute Change Control Boards that oversee all changes to production environments? The real answer is fear. DevOps can serve as a relief of that fear in the long-term. Why? When it becomes faster to rebuild your entire application and its infrastructure from scratch than to debug a problem, then you will see agencies start embrace the Facebook ['move fast and break fast'][fast] method of developing applications.
 
 **Tradition.** "It's not for us" "It would require too much work"
-![Running of the Bulls: Just Because You've Always Done It That Way Doesn't Mean It's Incredibly Stupid](/bulls.jpg)
+![Running of the Bulls: Just Because You've Always Done It That Way Doesn't Mean It's Incredibly Stupid](/bulls.webp)
 The picture should say enough. If you lead an agency and you really love the phrase "If it's not broken, don't fix it" then DevOps is not for you, nor will it ever be for you, and your history will eventually get overwritten by someone who embraces Continuous Innovation. No sugarcoat.
 
 **What to do?**

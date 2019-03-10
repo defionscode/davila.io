@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 
 <head>
     
@@ -15,15 +15,17 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:domain" content="https://davila.io/">
 
-<meta name="twitter:image" content="https://davila.io/images/preview.png">
+<meta name="twitter:image" content="https://davila.io/images/preview.webp">
 <meta name="twitter:title" property="og:title" itemprop="title name" content="Jonathan Davila">
 <meta name="twitter:description" property="og:description" itemprop="description" content="Who is Jonathan Davila?">
 <meta name="og:type" content="website">
 <meta name="og:url" content="https://davila.io/">
-<meta name="og:image" itemprop="image primaryImageOfPage" content="https://davila.io/images/preview.png">
+<meta name="og:image" itemprop="image primaryImageOfPage" content="https://davila.io/images/preview.webp">
 
 <link rel="shortcut icon" href="https://davila.io/davila.ico" id="favicon">
 <link rel="stylesheet" href="https://davila.io/css/style.css">
+<link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> 
+<noscript><link rel="stylesheet" href="styles.css"></noscript>
 <script src="https://unpkg.com/lunr/lunr.js"></script>
 <script defer src="https://pro.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-4Gm0M5DjJ0zGaEtLu0ztNIoHWiuJ5rKiaVlpZKeNqXAW49eIIa2ymxb3C4c3uEXR" crossorigin="anonymous"></script>
 <script src="/search.js"></script>
@@ -48,7 +50,7 @@
 
 <body>
     <div class="wrap">
-        <div class="section" id="title">30 Lies Puppetlabs Made About Ansible, #25 Will Shock You</div>
+        <div class="section" id="title"><h1>30 Lies Puppetlabs Made About Ansible, #25 Will Shock You</h1></div>
 
         
 <div class="section" id="content">
@@ -91,7 +93,7 @@
 
 <p>On June 26th, 2018, PuppetLabs via their Twitter account made the following tweet</p>
 
-<p><a href="https://twitter.com/puppetize/status/1011726555645599744"><img src="/puppet-tweet.png" alt="PuppetLabs' original tweet" /></a></p>
+<p><a href="https://twitter.com/puppetize/status/1011726555645599744"><img src="/puppet-tweet.webp" alt="PuppetLabs' original tweet" /></a></p>
 
 <p>If you rather not go through their form-wall you can get it directly here <a href="https://puppet.com/system/files/2018-06/puppet-wp-compare-puppet-and-ansible.pdf">https://puppet.com/system/files/2018-06/puppet-wp-compare-puppet-and-ansible.pdf</a></p>
 
@@ -251,7 +253,7 @@ The &ndash;check is a flag that can be applied with OR without Tower in order to
 
 <h2 id="lie-11-comparing-key-differentiators">Lie #11 =&gt; Comparing key differentiators</h2>
 
-<p><img src="/key-diff-puppet.png" alt="Screenshot from Puppet's whitepaper showing a deceptive comparison of differentiators" /></p>
+<p><img src="/key-diff-puppet.webp" alt="Screenshot from Puppet's whitepaper showing a deceptive comparison of differentiators" /></p>
 
 <p>As explained above, Ansible easily ticks of the bottom two rows. Nice attempt to deceive there.</p>
 
@@ -261,19 +263,19 @@ The &ndash;check is a flag that can be applied with OR without Tower in order to
 
 <h2 id="lie-13-comparison-of-puppet-and-ansible-command-line-tools">Lie #13 =&gt; Comparison of Puppet and Ansible command-line tools</h2>
 
-<p><img src="/puppet-cli-compare.png" alt="Screenshot from Puppet's whitepaper showing a deceptive comparison of command line utility features" /></p>
+<p><img src="/puppet-cli-compare.webp" alt="Screenshot from Puppet's whitepaper showing a deceptive comparison of command line utility features" /></p>
 
 <p>Again, RTFM. Ever heard of ansible-playbook ? FFS. Ansible is absolutely model driven and can absolutely be used to do ongoing state management. I feel like this is getting repetitive.</p>
 
 <h2 id="lie-13-command-line-interfaces-are-the-same">Lie #13 =&gt; Command line interfaces are the same</h2>
 
-<p><img src="/puppet-compare-cli-1.png" alt="Screenshot from Puppet's whitepaper showing a deceptively selective snippet of an Ansible ad-hoc execution" /></p>
+<p><img src="/puppet-compare-cli-1.webp" alt="Screenshot from Puppet's whitepaper showing a deceptively selective snippet of an Ansible ad-hoc execution" /></p>
 
 <p>This is literally the screenshot provided. It doesn’t even show how they executed this.</p>
 
 <p>Then it shows this example</p>
 
-<p><img src="/puppet-compare-cli-2.png" alt="Screenshot from Puppet's whitepaper showing a poorly invoked snippet of an Ansible ad-hoc execution" /></p>
+<p><img src="/puppet-compare-cli-2.webp" alt="Screenshot from Puppet's whitepaper showing a poorly invoked snippet of an Ansible ad-hoc execution" /></p>
 
 <p>This is a clear example of someone not knowing what they are doing. What this person should have done is</p>
 
@@ -387,7 +389,7 @@ The &ndash;check is a flag that can be applied with OR without Tower in order to
 
 <h2 id="lie-22-ansible-cannot-facilitate-having-a-gold-standard-in-terms-of-desired-state">Lie #22 =&gt; Ansible cannot facilitate having a gold standard in terms of desired state</h2>
 
-<p><img src="/puppet-compare-ds.png" alt="Screenshot of PuppetLabs whitepaper showing yet another deceptive comparison of desired-state features" /></p>
+<p><img src="/puppet-compare-ds.webp" alt="Screenshot of PuppetLabs whitepaper showing yet another deceptive comparison of desired-state features" /></p>
 
 <p>Yet another argument that attacks user error instead of the technology itself. It’s very simple to have Ansible function in a non conflicting way that adopts a ‘gold standard’ so long as the right people and processes are in place.</p>
 
@@ -395,7 +397,7 @@ The &ndash;check is a flag that can be applied with OR without Tower in order to
 
 <h2 id="lie-23-ansible-is-only-imperative">Lie #23 =&gt; Ansible is only imperative</h2>
 
-<p><img src="/puppet-compare-imp.png" alt="Screenshot of Puppetlabs whitepaper showing deception of imperative logic in Ansible" /></p>
+<p><img src="/puppet-compare-imp.webp" alt="Screenshot of Puppetlabs whitepaper showing deception of imperative logic in Ansible" /></p>
 
 <p>Any <em>real</em> Ansible user will tell you that almost always, Ansible is typically used in a declarative fashion.</p>
 
@@ -410,7 +412,7 @@ The &ndash;check is a flag that can be applied with OR without Tower in order to
 
 <h2 id="lie-24-tower-doesn-t-give-any-sort-of-view-into-nodes-infra-etc">Lie #24 =&gt; Tower doesn’t give any sort of view into nodes, infra, etc</h2>
 
-<p><img src="/puppet-compare-graphs.png" alt="Another screenshot showing PuppetLabs being deceptive again with regards to Ansible Tower" /></p>
+<p><img src="/puppet-compare-graphs.webp" alt="Another screenshot showing PuppetLabs being deceptive again with regards to Ansible Tower" /></p>
 
 <p>Not exactly a lie, this one is just deceptive. Tower gives you some view, but like with CI, it’s about the right tool for the job.</p>
 
@@ -418,7 +420,7 @@ The &ndash;check is a flag that can be applied with OR without Tower in order to
 
 <h2 id="lie-25-automating-your-network-gear-with-ansible-costs-extra">Lie #25 =&gt; Automating your network gear with Ansible costs extra</h2>
 
-<p><img src="/puppet-compare-network.png" alt="Screenshot of PuppetLabs flat out lying about network features costing extra" /></p>
+<p><img src="/puppet-compare-network.webp" alt="Screenshot of PuppetLabs flat out lying about network features costing extra" /></p>
 
 <p><strong>Hahahahahaha….</strong></p>
 
@@ -434,7 +436,7 @@ The &ndash;check is a flag that can be applied with OR without Tower in order to
 
 <h2 id="lie-26-ansible-runs-things-even-if-not-needed">Lie #26=&gt; Ansible runs things even if not needed</h2>
 
-<p><img src="/puppet-compare-runs-things.png" alt="Screenshot of PuppetLabs lying about Ansible running things when not needed" /></p>
+<p><img src="/puppet-compare-runs-things.webp" alt="Screenshot of PuppetLabs lying about Ansible running things when not needed" /></p>
 
 <p>No, Ansible is not limited to cron.</p>
 
@@ -450,7 +452,7 @@ The &ndash;check is a flag that can be applied with OR without Tower in order to
 
 <h2 id="lie-27-ansible-can-t-identify-when-changes-occur">Lie #27 =&gt; Ansible can’t identify when changes occur</h2>
 
-<p><img src="/puppet-compare-sit.png" alt="Screenshot of PuppetLabs lying about Ansible not being able to identify changes" /></p>
+<p><img src="/puppet-compare-sit.webp" alt="Screenshot of PuppetLabs lying about Ansible not being able to identify changes" /></p>
 
 <p>Another user error based argument. Assuming you follow best practices, you can get all these nice benefits of knowing when drift occurred including the ability to trigger notifications based on a change being detected.</p>
 
@@ -458,7 +460,7 @@ The &ndash;check is a flag that can be applied with OR without Tower in order to
 
 <h2 id="lie-28-ansible-can-t-purge-unmanaged-unwanted-things-such-as-firewall-rules-keys-etc">Lie #28=&gt; Ansible can’t purge unmanaged/unwanted things such as firewall rules, keys, etc</h2>
 
-<p><img src="/puppet-compare-purge.png" alt="Screenshot of PuppetLabs lying that Ansible cant purge unwanted things" /></p>
+<p><img src="/puppet-compare-purge.webp" alt="Screenshot of PuppetLabs lying that Ansible cant purge unwanted things" /></p>
 
 <p>Wrong…again…</p>
 
@@ -473,13 +475,13 @@ The &ndash;check is a flag that can be applied with OR without Tower in order to
 
 <h2 id="lie-29-tower-requires-clustering-after-500-nodes">Lie #29 =&gt; Tower requires clustering after 500 nodes</h2>
 
-<p><img src="/puppet-compare-cluster.png" alt="Screenshot of PuppetLabs lying about when clusting is needed" /></p>
+<p><img src="/puppet-compare-cluster.webp" alt="Screenshot of PuppetLabs lying about when clusting is needed" /></p>
 
 <p>OMG STAHP! This is false in its entirety. I’ve managed thousands of nodes with and without Tower all without ever needing to cluster. So no, you need WAY more than 500 nodes to justify clustering (or a really wild network architecture with layered DMZs or some crazy shit).</p>
 
 <h2 id="lie-30-ansible-does-not-review-or-rate-roles-and-somehow-this-is-related-to-core-modules">Lie #30 =&gt; Ansible does not review or rate roles and somehow this is related to core modules…</h2>
 
-<p><img src="/puppet-compare-modules.png" alt="Screenshot of PuppetLabs comingling roles and modules and using that to deceive" /></p>
+<p><img src="/puppet-compare-modules.webp" alt="Screenshot of PuppetLabs comingling roles and modules and using that to deceive" /></p>
 
 <p>I will concede that this is likely more due to ignorance than having an intent to deceive.</p>
 
@@ -601,7 +603,7 @@ The &ndash;check is a flag that can be applied with OR without Tower in order to
 </div>
 
 
-        <div class="section footer">© Jonathan I. Davila</div>
+        <footer class="section footer">© Jonathan I. Davila</footer>
     </div>
     <script async defer src="https://cdn.simpleanalytics.io/hello.js"></script> 
     <noscript><img src="https://api.simpleanalytics.io/hello.gif" alt=""></noscript>

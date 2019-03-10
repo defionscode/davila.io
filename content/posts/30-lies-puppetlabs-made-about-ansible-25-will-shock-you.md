@@ -10,7 +10,7 @@ tags: ["ansible","marketing","deceptive-tech","puppet"]
 
 On June 26th, 2018, PuppetLabs via their Twitter account made the following tweet
 
-[![PuppetLabs' original tweet](/puppet-tweet.png)](https://twitter.com/puppetize/status/1011726555645599744)
+[![PuppetLabs' original tweet](/puppet-tweet.webp)](https://twitter.com/puppetize/status/1011726555645599744)
 
 If you rather not go through their form-wall you can get it directly here [https://puppet.com/system/files/2018-06/puppet-wp-compare-puppet-and-ansible.pdf](https://puppet.com/system/files/2018-06/puppet-wp-compare-puppet-and-ansible.pdf)
 
@@ -138,7 +138,7 @@ The --check is a flag that can be applied with OR without Tower in order to do a
 
 ## Lie #11 => Comparing key differentiators
 
-![Screenshot from Puppet's whitepaper showing a deceptive comparison of differentiators](/key-diff-puppet.png)
+![Screenshot from Puppet's whitepaper showing a deceptive comparison of differentiators](/key-diff-puppet.webp)
 
 As explained above, Ansible easily ticks of the bottom two rows. Nice attempt to deceive there.
 
@@ -148,19 +148,19 @@ What? No. Again if anyone involved with writing this whitepaper would have done 
 
 ## Lie #13 => Comparison of Puppet and Ansible command-line tools
 
-![Screenshot from Puppet's whitepaper showing a deceptive comparison of command line utility features](/puppet-cli-compare.png)
+![Screenshot from Puppet's whitepaper showing a deceptive comparison of command line utility features](/puppet-cli-compare.webp)
 
 Again, RTFM. Ever heard of ansible-playbook ? FFS. Ansible is absolutely model driven and can absolutely be used to do ongoing state management. I feel like this is getting repetitive.
 
 ## Lie #13 => Command line interfaces are the same
 
-![Screenshot from Puppet's whitepaper showing a deceptively selective snippet of an Ansible ad-hoc execution](/puppet-compare-cli-1.png)
+![Screenshot from Puppet's whitepaper showing a deceptively selective snippet of an Ansible ad-hoc execution](/puppet-compare-cli-1.webp)
 
 This is literally the screenshot provided. It doesn’t even show how they executed this.
 
 Then it shows this example
 
-![Screenshot from Puppet's whitepaper showing a poorly invoked snippet of an Ansible ad-hoc execution](/puppet-compare-cli-2.png)
+![Screenshot from Puppet's whitepaper showing a poorly invoked snippet of an Ansible ad-hoc execution](/puppet-compare-cli-2.webp)
 
 This is a clear example of someone not knowing what they are doing. What this person should have done is
 
@@ -254,7 +254,7 @@ The author tries to make this argument multiple times. It’s patently false. Ag
 
 ## Lie #22 => Ansible cannot facilitate having a gold standard in terms of desired state
 
-![Screenshot of PuppetLabs whitepaper showing yet another deceptive comparison of desired-state features](/puppet-compare-ds.png)
+![Screenshot of PuppetLabs whitepaper showing yet another deceptive comparison of desired-state features](/puppet-compare-ds.webp)
 
 Yet another argument that attacks user error instead of the technology itself. It’s very simple to have Ansible function in a non conflicting way that adopts a ‘gold standard’ so long as the right people and processes are in place.
 
@@ -262,7 +262,7 @@ If, like the author, you don’t RTFM, then sure, you could run into issues.
 
 ## Lie #23 => Ansible is only imperative
 
-![Screenshot of Puppetlabs whitepaper showing deception of imperative logic in Ansible](/puppet-compare-imp.png)
+![Screenshot of Puppetlabs whitepaper showing deception of imperative logic in Ansible](/puppet-compare-imp.webp)
 
 Any *real* Ansible user will tell you that almost always, Ansible is typically used in a declarative fashion.
 
@@ -281,7 +281,7 @@ Explain to me how that is imperative? It sure looks pretty damn declarative if y
 
 ## Lie #24 => Tower doesn’t give any sort of view into nodes, infra, etc
 
-![Another screenshot showing PuppetLabs being deceptive again with regards to Ansible Tower](/puppet-compare-graphs.png)
+![Another screenshot showing PuppetLabs being deceptive again with regards to Ansible Tower](/puppet-compare-graphs.webp)
 
 Not exactly a lie, this one is just deceptive. Tower gives you some view, but like with CI, it’s about the right tool for the job.
 
@@ -289,7 +289,7 @@ Tower doesn’t need to reinvent the wheel for tools that already exist, such as
 
 ## Lie #25 => Automating your network gear with Ansible costs extra
 
-![Screenshot of PuppetLabs flat out lying about network features costing extra](/puppet-compare-network.png)
+![Screenshot of PuppetLabs flat out lying about network features costing extra](/puppet-compare-network.webp)
 
 **Hahahahahaha….**
 
@@ -305,7 +305,7 @@ So again, the networking add-on is not the way to enable the ability to manage n
 
 ## Lie #26=> Ansible runs things even if not needed
 
-![Screenshot of PuppetLabs lying about Ansible running things when not needed](/puppet-compare-runs-things.png)
+![Screenshot of PuppetLabs lying about Ansible running things when not needed](/puppet-compare-runs-things.webp)
 
 No, Ansible is not limited to cron.
 
@@ -321,7 +321,7 @@ See the similarity there? The only difference is agents vs agentless.
 
 ## Lie #27 => Ansible can’t identify when changes occur
 
-![Screenshot of PuppetLabs lying about Ansible not being able to identify changes](/puppet-compare-sit.png)
+![Screenshot of PuppetLabs lying about Ansible not being able to identify changes](/puppet-compare-sit.webp)
 
 Another user error based argument. Assuming you follow best practices, you can get all these nice benefits of knowing when drift occurred including the ability to trigger notifications based on a change being detected.
 
@@ -329,7 +329,7 @@ Guess what? Someone can turn off a Puppet agent and you wont be able to know wha
 
 ## Lie #28=> Ansible can’t purge unmanaged/unwanted things such as firewall rules, keys, etc
 
-![Screenshot of PuppetLabs lying that Ansible cant purge unwanted things](/puppet-compare-purge.png)
+![Screenshot of PuppetLabs lying that Ansible cant purge unwanted things](/puppet-compare-purge.webp)
 
 Wrong…again…
 
@@ -346,13 +346,13 @@ Here’s a complex and complete working example for tagging AWS instances and en
 
 ## Lie #29 => Tower requires clustering after 500 nodes
 
-![Screenshot of PuppetLabs lying about when clusting is needed](/puppet-compare-cluster.png)
+![Screenshot of PuppetLabs lying about when clusting is needed](/puppet-compare-cluster.webp)
 
 OMG STAHP! This is false in its entirety. I’ve managed thousands of nodes with and without Tower all without ever needing to cluster. So no, you need WAY more than 500 nodes to justify clustering (or a really wild network architecture with layered DMZs or some crazy shit).
 
 ## Lie #30 => Ansible does not review or rate roles and somehow this is related to core modules…
 
-![Screenshot of PuppetLabs comingling roles and modules and using that to deceive](/puppet-compare-modules.png)
+![Screenshot of PuppetLabs comingling roles and modules and using that to deceive](/puppet-compare-modules.webp)
 
 I will concede that this is likely more due to ignorance than having an intent to deceive.
 

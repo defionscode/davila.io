@@ -6,7 +6,7 @@ draft: false
 tags: ["devops","agile","process"]
 ---
 
-![Doctor Evil Doing Air Quotes](/drevil.jpg)
+![Doctor Evil Doing Air Quotes](/drevil.webp)
 
 >> With this post you will learn how to implement DevOps in your organization with as little as 7 minutes a day in just 3 months!
 

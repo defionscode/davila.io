@@ -18,7 +18,7 @@ At face value there is nothing wrong about the context nor about the intent. Aft
 
 Let me explain it with a diagram:
 
-![A venn diagram showing the intersections of type-A personalities, high technical skills, and high soft skills](/vendiagram.png)
+![A venn diagram showing the intersections of type-A personalities, high technical skills, and high soft skills](/vendiagram.webp)
 
 In my experience, tech folks generally fall somewhere in the diagram above. Very few fall exactly in the middle, and many “Rockstars” lean closer to one of the primary circles than they do the other two.
 

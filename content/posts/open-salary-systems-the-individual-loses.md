@@ -12,7 +12,7 @@ There has been a quiet trend on the rise among tech companies, that is openly sh
 
 On such example is StackOverflow which posts its salary calculator online [here](https://stackoverflow.com/company/salary/calculator). (Disclaimer: I enjoy SO as much as any other techie and this is by no means a critique of them as a whole)
 
-![Screenshot of the stackoverflow salary calculator](/socomp.png)
+![Screenshot of the stackoverflow salary calculator](/socomp.webp)
 
 ## Where it’s good
 
